@@ -1,65 +1,113 @@
 import React, { Component } from "react";
-import logo from "./assets/logo.png";
+import { useState } from "react";
+import axios, {isCancel, AxiosError} from 'axios';
+//import logo from "./assets/logo.png";
 
-
-class Signup extends Component {
-  handleSubmit = e => {
+export default function Signup() {
+ 
+  // States for registration
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+ 
+  // States for checking the errors
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState(false);
+ 
+  // Handling the name change
+  const handleName = (e) => {
+    setName(e.target.value);
+    setSubmitted(false);
+  };
+ 
+  // Handling the email change
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
+    setSubmitted(false);
+  };
+ 
+  // Handling the password change
+  const handlePassword = (e) => {
+    setPassword(e.target.value);
+    setSubmitted(false);
+  };
+ 
+  // Handling the form submission
+  const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e.target.email.value);
-
-    if (!e.target.email.value) {
-      alert("Email is required");
-    } else if (!e.target.email.value) {
-      alert("Valid email is required");
-    } else if (!e.target.password.value) {
-      alert("Password is required");
-    } else if(!e.target.name.value){
-      alert("Please enter your name")
-    } else if (
-      e.target.email.value === "me@example.com" &&
-      e.target.password.value === "123456" &&
-      e.target.name.value === "Bob"
-    ) {
-      alert("Successfully logged in");
-      e.target.email.value = "";
-      e.target.password.value = "";
-      e.target.name.value = "";
+    if (name === '' || email === '' || password === '') {
+      setError(true);
     } else {
-      alert("Wrong email or password combination");
+      setSubmitted(true);
+      setError(false);
+      axios.post('http://localhost:5000/api/users', {
+        Name: name,
+        Email: email,
+        Password: password
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
     }
   };
-
-  handleClick = e => {
-    e.preventDefault();
-
-    alert("Goes to registration page");
-  };
-
-  render() {
+ 
+  // Showing success message
+  const successMessage = () => {
     return (
-      <div>
-        <img src={logo}/>
-        <form onSubmit={this.handleSubmit}>
-          <div>
-            <label htmlFor="email">Email</label>
-            <input type="email" name="email" placeholder="nome@email.com.br" />
-          </div>
-          <div>
-            <label htmlFor="password">Password</label>
-            <input type="password" name="password" />
-          </div>
-          <div>
-            <label htmlFor="name">Name</label>
-            <input type="text"/>
-          </div>
-          <button>Login</button>
-        </form>
-        <button onClick={this.handleClick}>
-          Create a new account
-        </button>
+      <div
+        style={{
+          display: submitted ? '' : 'none',
+        }}>
+        <h1>User {name} successfully registered!!</h1>
       </div>
     );
-  }
+  };
+ 
+  // Showing error message if error is true
+  const errorMessage = () => {
+    return (
+      <div
+        style={{
+          display: error ? '' : 'none',
+        }}>
+        <h1>Please enter all the fields</h1>
+      </div>
+    );
+  };
+ 
+  return (
+    <div className="form">
+      <div>
+        <h1>User Registration</h1>
+      </div>
+ 
+      {/* Calling to the methods */}
+      <div className="messages">
+        {errorMessage()}
+        {successMessage()}
+      </div>
+ 
+      <form>
+        {/* Labels and inputs for form data */}
+        <label>Name</label>
+        <input onChange={handleName} 
+          value={name} type="text" />
+ 
+        <label>Email</label>
+        <input onChange={handleEmail} className="input"
+          value={email} type="email" />
+ 
+        <label>Password</label>
+        <input onChange={handlePassword} className="input"
+          value={password} type="password" />
+ 
+        <button onClick={handleSubmit} className="btn" type="submit">
+          Submit
+        </button>
+      </form>
+    </div>
+  );
 }
-
-export default Signup;
