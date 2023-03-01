@@ -40,18 +40,29 @@ export default function Signup() {
     } else {
       setSubmitted(true);
       setError(false);
-      axios.post('http://localhost:5000/api/users', {
-        Name: name,
-        Email: email,
-        Password: password
-      })
-      .then(function (response) {
+      // Send a POST request
+      axios
+      .post(
+        "http://localhost:5000/api/users",
+        {
+          name: name,
+          email: email,
+          password: password,
+        },
+        {
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+        }
+      )
+      .then((response) => {
         console.log(response);
       })
-      .catch(function (error) {
-        console.log(error);
+      .catch((error) => {
+        console.log(error.message);
       });
-    }
+  };
+    
   };
  
   // Showing success message
