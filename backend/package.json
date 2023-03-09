@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "express": "^4.18.2",
-    "youtube-dl-exec": "^2.4.0"
-  }
-}
