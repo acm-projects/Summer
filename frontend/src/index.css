@@ -1,9 +1,19 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
 
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;700&family=Nunito&display=swap');
 
 body {
-  background: #D9E9F0
+  background: #D9E9F0;
+  margin: 0;
 }
+
+* {
+  box-sizing: border-box;
+}
+
+
+
+
+
