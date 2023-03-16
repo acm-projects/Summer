@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 
 import '../index.css'
-import '../Navbar.css'
+import './styles/Navbar.css'
 import logo from '../assets/SummerLogo.png';
 
 const Navbar = () => {  
@@ -17,7 +17,7 @@ const Navbar = () => {
         <CustomLink to='/' content='Home' className='headText'></CustomLink>
         <CustomLink to='/library' content='Library' className='headText'></CustomLink>
         <div className='signin'>
-          <CustomLink to='/signin' content='Sign In' className='headText'></CustomLink>
+          <CustomLink to='/signin' content='Sign In' className='headText white'></CustomLink>
         </div>
       </ul>
     </nav>

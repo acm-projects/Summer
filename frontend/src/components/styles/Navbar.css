@@ -18,14 +18,6 @@
   align-items: center;
   gap: 3rem;
 }
-
-.nav li:active {
-  color: #555;
-}
-
-.nav li:hover {
-  color: #777;
-}
   
 .web-title {
   font-size: 30px;
@@ -35,25 +27,36 @@
 }
 
 .headText {
-  color: inherit;
-  font-size: 16px;
+  color: rgba(0, 0, 0, 0.75);  font-size: 16px;
   text-decoration: none;
 }
 
 .signin {
+  color: white;
   background: #0076C2;
   width: 89px;
   height: 29px;   
   border-radius: 10px;
-  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
 }
 
+.white {
+  color: white;
+}
+
 .signin:hover {
   color: #ccc
+}
+
+.nav li:active {
+  color: #555;
+}
+
+.nav li:hover {
+  color: #777;
 }
 
 .logo { 
