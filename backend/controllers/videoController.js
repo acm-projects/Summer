@@ -4,6 +4,7 @@
 const asyncHandler = require('express-async-handler')
 const fs = require('fs');
 const path = require('path');
+const youtubedl = require('youtube-dl-exec');
 
 function removeHeader(content) {
     // Use regex to match and remove header
@@ -20,8 +21,9 @@ const getVideo = asyncHandler(async (req, res) => {
         throw new Error('Please add all fields')
     }
 
+// });
     
-youtubedl(URL, {
+    youtubedl(URL, {
         writeSubs: true,
         skipDownload: true,
         subLang: 'en', 
@@ -42,5 +44,5 @@ youtubedl(URL, {
 });
 
 module.exports = {
-    getVideo,
+    getVideo
 }
