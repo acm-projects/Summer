@@ -5,35 +5,34 @@ const asyncHandler = require('express-async-handler')
 const fs = require('fs');
 const path = require('path');
 const youtubedl = require('youtube-dl-exec');
-
-function removeHeader(content) {
-    // Use regex to match and remove header
-    const headerRegex = /^WEBVTT\s+Kind:\s+captions\s+Language:\s+\w+\s+/;
-    return content.replace(headerRegex, '');
-  }
+const removeEmptyLines = require("remove-blank-lines");
 
 const getVideo = asyncHandler(async (req, res) => {
     const {URL} = req.body
 
-    //Check if user exists
     if(!URL){
         res.status(400)
-        throw new Error('Please add all fields')
+        throw new Error('Please add URL')
     }
 
-// });
-    
     youtubedl(URL, {
+        writeAutoSub: true,
         writeSubs: true,
         skipDownload: true,
         subLang: 'en', 
-        output: 'subtitles', // specify the name of the subtitles file
+        output: 'subtitles', 
     }).then(() => {
-        // res.setHeader('Content-Type', 'text/vtt');
+        res.setHeader('Content-Type', 'text/vtt');
+        const timeStamp = /\d{2}:\d{2}:\d{2}\.\d{3} --> \d{2}:\d{2}:\d{2}\.\d{3}/;
         const subtitles = fs.readFileSync("subtitles.en.vtt", 'utf-8');
-        const cleanVttFile = removeHeader(subtitles).replace(/\d{2}:\d{2}:\d{2}\.\d{3} --> \d{2}:\d{2}:\d{2}\.\d{3}\n/g, '').replace(/\n/g, ' ');
-        fs.writeFileSync("subtitles.en.vtt", cleanVttFile);
-        res.send(cleanVttFile);
+        const newContent = subtitles.split('\n').slice(3).join('\n');
+        const noEmptyLines = removeEmptyLines(newContent.replace(/<.*?>|<\/.*?>/g, ""));
+        const fileContents = noEmptyLines.split('\n').filter(line => !timeStamp.test(line)).join('\n');
+        // const fileContents = cleanVttFile.replace(/^.*align:start position:0%.*$/gm, ''); // only works with auto-subs
+        const cleanVttFile= Array.from(new Set(fileContents.split('\n'))).join('\n');
+        const newData = cleanVttFile.replace(/\n/g, ' ');
+        fs.writeFileSync("subtitles.en.vtt", newData);
+        res.send(newData);
 
 
     }).catch((err) => {
