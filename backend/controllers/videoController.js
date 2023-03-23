@@ -23,7 +23,7 @@ const getVideo = asyncHandler(async (req, res) => {
         // const fileContents = cleanVttFile.replace(/^.*align:start position:0%.*$/gm, ''); // only works with auto-subs
         const cleanVttFile= Array.from(new Set(removeTimes.split('\n'))).join('\n');
         const newData = cleanVttFile.replace(/\n/g, ' ');
-        res.send(newData);
+        res.json({"summary": newData});
     }
 
     youtubedl(URL, {
