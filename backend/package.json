@@ -1,7 +1,7 @@
 {
   "name": "mern-tutorial",
   "version": "1.0.0",
-  "description": "Goalsetter app for youtube tutorial",
+  "description": "Summer program",
   "main": "server.js",
   "scripts": {
     "start": "node backend/server.js",
@@ -19,9 +19,12 @@
     "firebase": "^9.18.0",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.9.2",
-    "openai": "^3.2.1"
+    "openai": "^3.2.1",
+    "remove-blank-lines": "^1.4.1",
+    "youtube-dl-exec": "^2.4.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"
-  }
+  },
+  "keywords": []
 }
