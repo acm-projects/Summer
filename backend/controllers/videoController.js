@@ -7,7 +7,7 @@ const path = require('path');
 const youtubedl = require('youtube-dl-exec');
 const removeEmptyLines = require("remove-blank-lines");
 
-const getVideo = asyncHandler(async (req, res) => {
+const postVideo = asyncHandler(async (req, res) => {
     const {URL} = req.body
 
     if(!URL){
@@ -23,7 +23,7 @@ const getVideo = asyncHandler(async (req, res) => {
         // const fileContents = cleanVttFile.replace(/^.*align:start position:0%.*$/gm, ''); // only works with auto-subs
         const cleanVttFile= Array.from(new Set(removeTimes.split('\n'))).join('\n');
         const newData = cleanVttFile.replace(/\n/g, ' ');
-        res.json({"summary": newData});
+        res.json({"transcript": newData});
     }
 
     youtubedl(URL, {
@@ -45,5 +45,5 @@ const getVideo = asyncHandler(async (req, res) => {
 });
 
 module.exports = {
-    getVideo
+    postVideo
 }

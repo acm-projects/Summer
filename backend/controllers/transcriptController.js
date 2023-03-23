@@ -2,26 +2,37 @@ const { Configuration, OpenAIApi } = require("openai");
 const asyncHandler = require('express-async-handler')
 /*
 POST method 
-API ENDPOINT: https://api.openai.com/v1/completions
-
+API ENDPOINT: /api/summarize
+Public Access
 
 */
-const Summarize = asyncHandler( async(req, res) => {
-  //const {text} = req.body;
+const Summarize = asyncHandler(async(req, res) => {
+
+const {transcript} = req.body;
+
+if(!transcript){
+  res.status(400)
+  throw new Error("Please provide a transcript to summarize")
+}
+
 
 const configuration = new Configuration({
-  apiKey: process.env.OpenAI_SECRET,
+  apiKey: process.env.OpenAI_API_KEY
 });
 const openai = new OpenAIApi(configuration);
-const response = await openai.createCompletion({
+console.log(transcript);
+
+  openai.createCompletion({
   model: "text-davinci-003",
-  prompt: "say this is a test",
-  max_tokens: 7,
+  prompt: "Summarize" + transcript,
+  max_tokens: 150,
   temperature: 0,
+})
+.then((response) => {
+  res.send(response.data.choices);
 });
 
-
-})
+});
 
 module.exports = {
   Summarize
