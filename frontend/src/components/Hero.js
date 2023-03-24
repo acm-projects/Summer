@@ -10,7 +10,7 @@ const Hero = () => {
 				<div className='title'>
 					<div className='text-gradient title1'>Watch Less,</div>
 					<div className='title2'>Know More.</div>
-					<div className='hero-subtext'>Enhance your video experience with Summer, an application that provides supplementary material and assistance!</div>
+					<div className='hero-subtext'>Save time, focus on learning, and enhance your video experience with Summer, an application that provides supplementary material and assistance!</div>
 				</div>
 
 				<div className='hero-search'>
@@ -23,7 +23,7 @@ const Hero = () => {
 
 			</div>
 		</div>
-	)
+	)  
 }
 
 export default Hero

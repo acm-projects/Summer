@@ -23,6 +23,12 @@
     /* line-height: 36px; */
 }
 
+.form-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .form {
     background: #F7FAFC;
     /* background-image: url('../../../assets/BlueCircle.png'), url('../../../assets/PinkCircle.png'); */
@@ -96,6 +102,23 @@
     font-weight: 400;
     font-size: 17px;
     line-height: 21px;
+}
+
+.back-btn {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 27px;
+    color: #000000;
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+}
+
+.back-btn:hover {
+    text-decoration-line: underline;
+    cursor: pointer;
 }
 
 .cover form {
