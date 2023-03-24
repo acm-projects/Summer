@@ -1,5 +1,11 @@
-export default function Library() {
-    return (
-        <h1>Library</h1>
-    )
+import withAuth from "../withAuth"
+
+import React from 'react'
+
+const Library = () => {
+  return (
+    <div>Library</div>
+  )
 }
+
+export default withAuth(Library)

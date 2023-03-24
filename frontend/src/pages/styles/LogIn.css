@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;700&family=Nunito&display=swap');
+
+.page-container {
+    background-color: #F7FAFC;
+}
+
+.subtitle img {
+    max-width: 42px; 
+    max-height: 40%; 
+    margin-right: 0.5em; 
+}
+
+.subtitle {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-start;
+    font-family: 'Bebas Neue';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    margin-top: 76px;
+    /* line-height: 36px; */
+}
+
+.form {
+    background: #F7FAFC;
+    /* background-image: url('../../../assets/BlueCircle.png'), url('../../../assets/PinkCircle.png'); */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.blue-circle, .pink-circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* width: 100%;
+    height: 100%; */
+    z-index: -1;
+}
+
+.cover {
+    background-color: white;
+    position: relative;
+    filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+    width: 596px;
+    height: 572px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+}
+
+.log-input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: #FFFFFF;
+    width: 523px;
+    height: 50px;
+    border: 1px solid #D0D0D0;
+    box-shadow: 0px 4px 4px #B9E1F2;
+    border-radius: 15px;
+    margin-bottom: 1rem;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    color: black;
+}
+
+.cover p {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 29px;
+    line-height: 35px;
+    justify-self: left;
+}
+
+.btn {
+    appearance: none;
+    border: none;
+    width: 518px;
+    height: 39px;
+    background: #000000;
+    border-radius: 10px;
+
+    color: white;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 21px;
+}
+
+.cover form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.horizontal-line {
+    width: 334px;
+    height: 0px;
+    border: 1px solid #424242;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.signup-prompt {
+    display: flex;
+
+}
+
+.signup-prompt {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+}
+
+.signup-text {
+    color: #0076C2;
+    margin-left: 0.5rem;
+    text-decoration: none;
+}
+

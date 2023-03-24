@@ -16,8 +16,8 @@ const Navbar = () => {
         </li>
         <CustomLink to='/' content='Home' className='headText'></CustomLink>
         <CustomLink to='/library' content='Library' className='headText'></CustomLink>
-        <div className='signin'>
-          <CustomLink to='/signin' content='Sign In' className='headText white'></CustomLink>
+        <div className='login'>
+          <CustomLink to='/login' content='Log In' className='headText white'></CustomLink>
         </div>
       </ul>
     </nav>
@@ -26,6 +26,7 @@ const Navbar = () => {
 
 export default Navbar
 
+// Take in link, name of link, and any other props
 function CustomLink({ to, content, ...props }) {
   const path = window.location.pathname
   return (

@@ -16,7 +16,7 @@
   list-style: none;
   display: flex;
   align-items: center;
-  gap: 3rem;
+  gap: 5rem;
 }
   
 .web-title {
@@ -31,7 +31,7 @@
   text-decoration: none;
 }
 
-.signin {
+.login {
   color: white;
   background: #0076C2;
   width: 89px;
@@ -47,7 +47,7 @@
   color: white;
 }
 
-.signin:hover {
+.login:hover {
   color: #ccc
 }
 
