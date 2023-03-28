@@ -1,36 +1,27 @@
 const { Configuration, OpenAIApi } = require("openai");
 const asyncHandler = require('express-async-handler')
 const Name = require('../models/nameModel')
-/*
-POST method 
-API ENDPOINT: /api/summarize
-Public Access
 
-*/
-const Summarize = asyncHandler(async(req, res) => {
+
+const Summarize = asyncHandler( async(req, res) => {
 
 const {transcript} = req.body;
 
-const {filename} = req.body;
+//const {filename} = req.body;
 
-if(!transcript || !filename){
-  res.status(400)
+if(!transcript){
+  res.status(401)
   throw new Error("Please provide a transcript to summarize")
 }
 
 
 //Check if user exists
-const nameExists = await Name.findOne({filename})
-
-if(nameExists){
-    res.status(400)
-    throw new Error('Filename already exists')
-}
 
 
 const configuration = new Configuration({
   apiKey: process.env.OpenAI_API_KEY
 });
+try{
 const openai = new OpenAIApi(configuration);
 
   openai.createCompletion({
@@ -40,25 +31,32 @@ const openai = new OpenAIApi(configuration);
   temperature: 0,
 })
 .then((response) => {
-  res.send(response.data.choices);
-  //const output = response[0].text;
-  //console.log(output);
-});
+  //res.sendStatus(response.data.choices)
+  res.json({summary: response.data.choices[0].text});
+
+  
+})
+}catch(error){
+  res.status(500)
+  throw new Error('Failed Summarization');
+}
 
 
 //creating a new filename in the DB
+/*
  const name = new Name({
   filename: filename
  });
  
  name.save();
+ */
 
 
 
 
 
 
-//console.log(response[0].text);
+
 });
 
 module.exports = {
