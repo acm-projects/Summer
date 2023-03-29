@@ -6,8 +6,10 @@ const fs = require('fs');
 const path = require('path');
 const youtubedl = require('youtube-dl-exec');
 const removeEmptyLines = require("remove-blank-lines");
+const axios = require('axios');
+const qs = require('qs');
 
-const getVideo = asyncHandler(async (req, res) => {
+const postVideo = asyncHandler(async (req, res) => {
     const {URL} = req.body
 
     if(!URL){
@@ -23,9 +25,11 @@ const getVideo = asyncHandler(async (req, res) => {
         // const fileContents = cleanVttFile.replace(/^.*align:start position:0%.*$/gm, ''); // only works with auto-subs
         const cleanVttFile= Array.from(new Set(removeTimes.split('\n'))).join('\n');
         const newData = cleanVttFile.replace(/\n/g, ' ');
-        res.json({"summary": newData});
+        // res.json({"summary": newData});
+        return newData;
     }
 
+    let result = "";
     youtubedl(URL, {
         writeAutoSub: true,
         writeSubs: true,
@@ -34,16 +38,30 @@ const getVideo = asyncHandler(async (req, res) => {
         output: 'subtitles', 
     }).then(() => {
         const subtitles = fs.readFileSync("subtitles.en.vtt", 'utf-8');
-        parseVtt(subtitles);
-        // fs.writeFileSync("subtitles.en.vtt", subtitles);
+        result = parseVtt(subtitles);
+        console.log(result);
+        axios.post("http://localhost:5000/api/summarize",
+        {
+            transcript: result
+        }
 
+        )
+        .then((response) => {
+            res.json({result: response.data.summary});
+        })
+        .catch((error) => {
+            console.log('daher error')
+            console.log(error.message);
+        });
     }).catch((err) => {
         console.error(err);
         res.status(500).send('Error fetching subtitles');
     });
 
+    
+    
 });
 
 module.exports = {
-    getVideo
+    postVideo
 }
