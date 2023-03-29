@@ -7,7 +7,7 @@ API ENDPOINT: https://api.openai.com/v1/completions
 
 */
 const Summarize = asyncHandler( async(req, res) => {
-  //const {text} = req.body;
+  // const {text} = req.body;
 
 const configuration = new Configuration({
   apiKey: process.env.OpenAI_SECRET,
@@ -26,6 +26,7 @@ const response = await openai.createCompletion({
 module.exports = {
   Summarize
 }
+
 /*
 fetch('https://api.openai.com/v1/engines/davinci/completions', {
   method: 'POST',
