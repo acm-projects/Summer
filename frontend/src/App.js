@@ -1,13 +1,11 @@
+
+import React from 'react';
 import './App.css';
-
-import Navbar from './components/Navbar'
-
+  
 function App() {
-  return (
-    <div className="App">
-      <Navbar />
-    </div>
-  );
+    return ( 
+      <h1> Hello World! </h1>
+    );
 }
-
+  
 export default App;
