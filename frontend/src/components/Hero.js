@@ -20,7 +20,6 @@ const Hero = () => {
 						<span>SUMMARIZE</span>
 					</button>
 				</div>
-
 			</div>
 		</div>
 	)  

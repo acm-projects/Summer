@@ -94,6 +94,6 @@
 }
 
 .search-button:hover {
-    color: #CCC;
+    /* color: #CCC; */
     cursor: pointer;
 }

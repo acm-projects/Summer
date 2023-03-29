@@ -5,8 +5,7 @@ import axios, { isCancel, AxiosError } from 'axios';
 import { IoIosArrowBack } from 'react-icons/io'
 
 import logo from '../assets/SummerLogo.png';
-import BlueCircle from '../assets/BlueCircle.png'
-import PinkCircle from '../assets/PinkCircle.png'
+import circles from '../assets/BluePinkCircles.png'
 
 import './styles/LogIn.css'
 
@@ -19,23 +18,19 @@ const SignUp = () => {
 	const [password, setPassword] = useState('');
 	const [confirmPass, setConfirmPass] = useState('')
 
-	// States for checking the errors
 	const [submitted, setSubmitted] = useState(false);
 	const [error, setError] = useState(false);
 
-	// Handling the name change
 	const handleName = (e) => {
 		setName(e.target.value);
 		setSubmitted(false);
 	};
 
-	// Handling the email change
 	const handleEmail = (e) => {
 		setEmail(e.target.value);
 		setSubmitted(false);
 	};
 
-	// Handling the password change
 	const handlePassword = (e) => {
 		setPassword(e.target.value);
 		setSubmitted(false);
@@ -52,8 +47,10 @@ const SignUp = () => {
 	// Handling the form submission
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		if (name === '' || email === '' || password === '') {
+		if (name === '' || email === ''
+			|| password === '' || password !== confirmPass) {
 			setError(true);
+			return;
 		} else {
 			setSubmitted(true);
 			setError(false);
@@ -102,7 +99,7 @@ const SignUp = () => {
 				style={{
 					display: error ? '' : 'none',
 				}}>
-				<h1>Please fill out every field or check if passwords match.</h1>
+				<h1>Please fill out every field and ensure both passwords match.</h1>
 			</div>
 		);
 	};
@@ -112,6 +109,10 @@ const SignUp = () => {
 		navigate('/login')
 	}
 
+	function handleHome(e) {
+		e.preventDefault();
+		navigate('/')
+	}
 
 	return (
 		<div className="page-container">
@@ -120,49 +121,48 @@ const SignUp = () => {
 					<IoIosArrowBack /> Back
 				</div>
 				<div className="form">
-					<div className="subtitle">
+					<div className="subtitle" onClick={handleHome}>
 						<img src={logo} alt='logo' />
 						<p>Summer</p>
 					</div>
-
-					{/* <img src={BlueCircle} alt='blue' className='blue-circle'/>
-				<img src={PinkCircle} alt='pink' className='pink-circle'/> */}
 
 					<div className='cover'>
 						<p>Sign Up</p>
 
 						<form>
 							{/* Labels and inputs for form data */}
+							<label className="loginLabel">Name</label>
 							<input
 								onChange={handleName}
 								className='log-input'
 								value={name}
 								type="text"
-								placeholder='Name' />
+								errorMessage='Username is required.' />
+							<label className="loginLabel">Email</label>
 							<input
 								onChange={handleEmail}
 								className="log-input"
 								value={email}
 								type="email"
-								placeholder='Email' />
+								errorMessage='Email is required.' />
+							<label className="loginLabel">Password</label>
 							<input
 								onChange={handlePassword}
 								className="log-input"
 								value={password}
 								type="password"
-								placeholder='Password' />
+								errorMessage='Password is required.' />
+							<label className="loginLabel">Confirm Password</label>
 							<input
 								onChange={handleConfirmPass}
 								className="log-input"
 								value={confirmPass}
-								type="confirmPass"
-								placeholder='Confirm Password' />
+								type="password"
+								errorMessage='Passwords must match.' />
 
 							<button onClick={handleSubmit} className="btn" type="submit">
 								<span>SIGN UP</span>
 							</button>
-
-							<div className='horizontal-line'></div>
 						</form>
 
 						<div className='signup-prompt'>
@@ -177,6 +177,8 @@ const SignUp = () => {
 						</div>
 					</div>
 				</div>
+
+				<img src={circles} className='bleeding-circles'/>
 			</div>
 		</div>
 	);
