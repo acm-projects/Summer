@@ -18,11 +18,13 @@
     "express": "^4.18.2",
     "express-async-handler": "^1.2.0",
     "firebase": "^9.18.0",
+    "firebase-admin": "^11.5.0",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.9.2",
     "openai": "^3.2.1",
     "qs": "^6.11.1",
     "remove-blank-lines": "^1.4.1",
+    "uuid": "^9.0.0",
     "youtube-dl-exec": "^2.4.0"
   },
   "devDependencies": {
