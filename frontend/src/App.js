@@ -7,9 +7,6 @@ import LogIn from './pages/LogIn'
 import SignUp from './pages/SignUp'
 import { Route, Routes, useLocation } from "react-router-dom"
 
-import React from 'react';
-import './App.css';
-  
 function App() {
 	const location = useLocation()
 
@@ -29,5 +26,5 @@ function App() {
 		</div>
 	);
 }
-  
+
 export default App;
