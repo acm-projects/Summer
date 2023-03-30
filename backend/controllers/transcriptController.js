@@ -3,9 +3,12 @@ const asyncHandler = require('express-async-handler')
 /*
 POST method 
 API ENDPOINT: https://api.openai.com/v1/completions
-
+const {transcript} = req.body;
 
 */
+
+const {transcript} = req.body;
+
 const Summarize = asyncHandler( async(req, res) => {
   // const {text} = req.body;
 
@@ -15,7 +18,7 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 const response = await openai.createCompletion({
   model: "text-davinci-003",
-  prompt: "say this is a test",
+  prompt: "Summarize " + transcript,
   max_tokens: 7,
   temperature: 0,
 });
