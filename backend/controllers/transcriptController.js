@@ -1,6 +1,6 @@
 const { Configuration, OpenAIApi } = require("openai");
 const asyncHandler = require('express-async-handler')
-const Name = require('../models/nameModel')
+
 
 
 const Summarize = asyncHandler( async(req, res) => {
@@ -27,7 +27,7 @@ const openai = new OpenAIApi(configuration);
   openai.createCompletion({
   model: "text-davinci-003",
   prompt: "Summarize" + transcript,
-  max_tokens: 50,
+  max_tokens: 200,
   temperature: 0,
 })
 .then((response) => {
