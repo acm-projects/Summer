@@ -7,8 +7,6 @@ import { IoIosArrowBack } from 'react-icons/io'
 import logo from '../assets/SummerLogo.png';
 import circles from '../assets/BluePinkCircles.png';
 
-
-
 import './styles/LogIn.css'
 
 const LogIn = () => {
@@ -105,7 +103,7 @@ const LogIn = () => {
 
 	return (
 		<div>
-			<div className="page-container">
+			<div className="screen-container">
 				<div className="form-container">
 					<div className="back-btn" onClick={handleBack}>
 						<IoIosArrowBack /> Back
@@ -158,7 +156,7 @@ const LogIn = () => {
 						</div>
 					</div>
 
-					<img src={circles} className='bleeding-circles'/>
+					<img src={circles} className='bleeding-circles' draggable="false"/>
 				</div>
 			</div>
 

@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;700&family=Nunito&display=swap');
+
+.pageContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.headerText {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 85px;
+    padding-bottom: 45px;
+}
+
+.headerText h1 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 70px;
+    line-height: 0;    
+    color: #000000;
+}
+
+.headerText p {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+    color: #000000;
+
+}
+
+.summary {
+    background: #F0F0F0;
+    border-radius: 20px;
+    width: 1001px;
+    height: 1385px;
+}
+

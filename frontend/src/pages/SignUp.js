@@ -115,7 +115,7 @@ const SignUp = () => {
 	}
 
 	return (
-		<div className="page-container">
+		<div className="screen-container">
 			<div className="form-container">
 				<div className="back-btn" onClick={handleBack}>
 					<IoIosArrowBack /> Back
@@ -136,29 +136,25 @@ const SignUp = () => {
 								onChange={handleName}
 								className='log-input'
 								value={name}
-								type="text"
-								errorMessage='Username is required.' />
+								type="text"/>
 							<label className="loginLabel">Email</label>
 							<input
 								onChange={handleEmail}
 								className="log-input"
 								value={email}
-								type="email"
-								errorMessage='Email is required.' />
+								type="email"/>
 							<label className="loginLabel">Password</label>
 							<input
 								onChange={handlePassword}
 								className="log-input"
 								value={password}
-								type="password"
-								errorMessage='Password is required.' />
+								type="password"/>
 							<label className="loginLabel">Confirm Password</label>
 							<input
 								onChange={handleConfirmPass}
 								className="log-input"
 								value={confirmPass}
-								type="password"
-								errorMessage='Passwords must match.' />
+								type="password"/>
 
 							<button onClick={handleSubmit} className="btn" type="submit">
 								<span>SIGN UP</span>
@@ -178,7 +174,7 @@ const SignUp = () => {
 					</div>
 				</div>
 
-				<img src={circles} className='bleeding-circles'/>
+				<img src={circles} className='bleeding-circles'  draggable="false"/>
 			</div>
 		</div>
 	);

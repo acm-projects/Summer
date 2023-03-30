@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;700&family=Nunito&display=swap');
 
-.page-container {
+.screen-container {
     background-color: #F7FAFC;
     overflow: hidden;
 }
@@ -108,7 +108,7 @@
     display: flex;
     align-items: center;
     margin-right: 1rem;
-    margin-bottom: 19rem;
+    margin-bottom: 20rem;
     z-index: 1;
 }
 
@@ -163,3 +163,7 @@
     /* z-index: -1; */
 }
 
+.messages {
+    font-family: 'Montserrat';
+    font-size: 8px;;
+}
