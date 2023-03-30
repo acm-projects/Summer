@@ -13,8 +13,6 @@ const createQuiz = asyncHandler( async(req, res) => {
     apiKey: process.env.OpenAI_SECRET,
   });
 
-  const openai = new OpenAIApi(configuration);
-
   try {
     const openai = new OpenAIApi(configuration);
 
