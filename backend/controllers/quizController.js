@@ -1,5 +1,7 @@
 const { Configuration, OpenAIApi } = require("openai");
 const asyncHandler = require('express-async-handler')
+const axios = require('axios');
+
 /*
 POST method 
 API ENDPOINT: https://api.openai.com/v1/completions
@@ -24,7 +26,11 @@ const createQuiz = asyncHandler( async(req, res) => {
     })
     .then((response) => {
       //res.sendStatus(response.data.choices)
-      res.json({summary: response.data.choices[0].text});
+      res.json({quiz: response.data.choices[0].text});
+      axios.post("http://localhost:5000/api/quiz",
+        {
+            quiz : response.data.summary
+        });
     })
 
   } catch(error) {
