@@ -8,10 +8,8 @@ API ENDPOINT: https://api.openai.com/v1/completions
 
 */
 
-const {summary} = req.body;
-
 const createQuiz = asyncHandler( async(req, res) => {
-  // const {text} = req.body;
+  const {summary} = req.body;
 
   const configuration = new Configuration({
     apiKey: process.env.OpenAI_SECRET,
