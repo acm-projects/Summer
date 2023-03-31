@@ -1,6 +1,7 @@
 import { Route, Routes, useLocation } from "react-router-dom"
 
 import Navbar from './components/Navbar'
+import Footer from './components/Footer'
 import Home from './pages/Home'
 import Library from './pages/Library'
 import LogIn from './pages/LogIn'
@@ -28,6 +29,10 @@ function App() {
 					<Route path="/general" element={<GeneralPage/>} />
 				</Routes>
 			</div>
+
+			{location.pathname !== '/login' 
+				&& location.pathname !== '/signup'
+				&& <Footer />}
 		</div>
 	);
 }
