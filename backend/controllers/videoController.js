@@ -13,48 +13,55 @@ const Video = require('../models/videoModel')
 const postVideo = asyncHandler(async (req, res) => {
     const {URL} = req.body
 
-    if(!URL){
+    if(!URL) {
         res.status(400)
         throw new Error('Please add URL')
     }
 
-    function parseVtt(subtitles) {
+    const parseVtt = (subtitles) => {
         const timeStamp = /\d{2}:\d{2}:\d{2}\.\d{3} --> \d{2}:\d{2}:\d{2}\.\d{3}/;
         const newContent = subtitles.split('\n').slice(3).join('\n');
         const noEmptyLines = removeEmptyLines(newContent.replace(/<.*?>|<\/.*?>/g, ""));
         const removeTimes = noEmptyLines.split('\n').filter(line => !timeStamp.test(line)).join('\n');
-        // const fileContents = cleanVttFile.replace(/^.*align:start position:0%.*$/gm, ''); // only works with auto-subs
         const cleanVttFile= Array.from(new Set(removeTimes.split('\n'))).join('\n');
         const newData = cleanVttFile.replace(/\n/g, ' ');
-        // res.json({"summary": newData});
         return newData;
     }
 
-    let result = "";
+    // let unsummarizedTs = "";
     youtubedl(URL, {
         writeAutoSub: true,
         writeSubs: true,
         skipDownload: true,
         subLang: 'en', 
         output: 'subtitles', 
-    }).then(() => {
+    })
+    .then(() => {
         const subtitles = fs.readFileSync("subtitles.en.vtt", 'utf-8');
-        result = parseVtt(subtitles);
-        console.log(result);
+        const unsummarizedTs = parseVtt(subtitles);
+
         axios.post("http://localhost:5000/api/summarize",
         {
-            transcript: result
-        }
-
-        )
-        .then((response) => {
-            res.json({result: response.data.summary});
+            transcript: unsummarizedTs 
+        })
+        .then((summaryResponse) => {
+            axios.post("http://localhost:5000/api/quiz",
+            {
+                summary: unsummarizedTs 
+            })
+            .then((quizResponse) => {
+                res.json({
+                    summary: summaryResponse.data.summary,
+                    quiz: quizResponse.data.quiz,
+                })
+            })
         })
         .catch((error) => {
             console.log('Error with Summarization')
             console.log(error.message);
         });
-    }).catch((err) => {
+    })
+    .catch((err) => {
         console.error(err);
         res.status(500).send('Error fetching subtitles');
     });

@@ -1,45 +1,39 @@
 const { Configuration, OpenAIApi } = require("openai");
 const asyncHandler = require('express-async-handler')
 
-
-
 const Summarize = asyncHandler( async(req, res) => {
 
-const {transcript} = req.body;
+  const {transcript} = req.body;
 
-//const {filename} = req.body;
+  if(!transcript) {
+    res.status(401)
+    throw new Error("Please provide a transcript to summarize")
+  }
 
-if(!transcript){
-  res.status(401)
-  throw new Error("Please provide a transcript to summarize")
-}
+  //Check if user exists
 
+  const configuration = new Configuration({
+    apiKey: process.env.OpenAI_API_KEY
+  });
 
-//Check if user exists
-
-
-const configuration = new Configuration({
-  apiKey: process.env.OpenAI_API_KEY
-});
-try{
-const openai = new OpenAIApi(configuration);
+  try{
+  const openai = new OpenAIApi(configuration);
 
   openai.createCompletion({
-  model: "text-davinci-003",
-  prompt: "Summarize" + transcript,
-  max_tokens: 200,
-  temperature: 0,
-})
-.then((response) => {
-  //res.sendStatus(response.data.choices)
-  res.json({summary: response.data.choices[0].text});
-
-  
-})
-}catch(error){
-  res.status(500)
-  throw new Error('Failed Summarization');
-}
+    model: "text-davinci-003",
+    prompt: "Summarize " + transcript,
+    max_tokens: 150,
+    temperature: 0,
+  })
+  .then((response) => {
+    //res.sendStatus(response.data.choices)
+    res.json({summary: response.data.choices[0].text});
+    
+  })
+  }catch(error) {
+    res.status(500)
+    throw new Error('Failed Summarization');
+  }
 
 
 //creating a new filename in the DB
