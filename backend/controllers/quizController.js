@@ -6,8 +6,10 @@ const axios = require('axios');
 POST method 
 API ENDPOINT: https://api.openai.com/v1/completions
 
-
 */
+
+const {summary} = req.body;
+
 const createQuiz = asyncHandler( async(req, res) => {
   // const {text} = req.body;
 
@@ -20,7 +22,7 @@ const createQuiz = asyncHandler( async(req, res) => {
 
     openai.createCompletion ({
     model: "text-davinci-003",
-    prompt: "Generate a short quiz of 3 questions with 4 answer choices about the following text: " + transcript,
+    prompt: "Generate a short quiz of 3 questions with 4 answer choices about the following text: " + summary,
     max_tokens: 150,
     temperature: 0,
     })
