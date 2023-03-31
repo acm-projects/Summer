@@ -1,27 +1,22 @@
-import Hero from "./components/Hero";
-import Line from "./components/Line";
-import Footer from "./components/Footer";
-import Navbar from "./components/Navbar";
-import Bubbles from './assets/Bubbles.png'
-import CheckCircle from './assets/CheckCircle.png'
-import PinkCircle from './assets/PinkCircle.png'
-import BlueCircle from './assets/BlueCircle.png'
-import Gradient from './assets/Gradient.png'
+import Hero from "../components/Hero";
+import Line from "../components/Line";
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
+import Bubbles from '../assets/Bubbles.png'
+import CheckCircle from '../assets/CheckCircle.png'
+import PinkCircle from '../assets/PinkCircle.png'
+import BlueCircle from '../assets/BlueCircle.png'
+import Gradient from '../assets/Gradient.png'
 
-
-import LineCircle from './assets/LineCircle.png'
-
-import React from 'react';
-
-import './App.css';
-import LibraryHeader from "./components/LibraryHeader";
+import './styles/QuizPage.css';
 
 
 
-function App() {
+
+function QuizPage() {
     return (
 
-        <div className="App">
+        <div className="QuizPage">
 
   
         <div className='top-bubble'>
@@ -193,9 +188,8 @@ function App() {
 
      </div>
 
-
-
-
+      
 
     )
 }
+export default QuizPage;
