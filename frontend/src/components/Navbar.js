@@ -16,6 +16,7 @@ const Navbar = () => {
         </li>
         <CustomLink to='/' content='Home' className='headText'></CustomLink>
         <CustomLink to='/library' content='Library' className='headText'></CustomLink>
+        <CustomLink to='/quizpage' content='Quiz Page' className='headText'></CustomLink>
         <div className='login'>
           <CustomLink to='/login' content='Log In' className='headText white'></CustomLink>
         </div>
@@ -37,4 +38,3 @@ function CustomLink({ to, content, ...props }) {
     </li>
   )
 }
-

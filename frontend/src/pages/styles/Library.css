@@ -1,0 +1,374 @@
+.Library{
+    text-align: center;
+}
+
+body {
+    background-color:rgb(217, 233, 240);
+  }
+  
+  .top-bubble {
+    width: auto;
+    height: 200px;
+  }
+  
+  h1 {
+    text-align:justify;
+    margin-left: 10rem;
+  
+  }
+
+  h3 {
+
+    text-align:justify;
+    margin-left: -5rem;
+    align-items: center;
+  }
+  
+  
+  h5 {
+      width: auto;
+      height: auto;
+      font-family: 'Nunito';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;
+      color: #6B6B6B;
+      margin-left: 10rem;
+      text-align:justify;
+  
+  
+  }
+  
+  h6 {
+    width: 50%;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    color: #6B6B6B;
+    margin-left: 25%;
+  
+  
+  }
+
+  .headtext{
+    position: relative;
+  }
+  
+  .general {
+    background-color: rgb(121, 55, 55);
+    justify-items: flex-start;
+    padding: 16px;
+    border-radius: 16px;
+    width: 100%;
+    height: auto;
+  
+  }
+  
+  .general2 {
+    margin: auto;
+    background-color: rgb(40, 30, 30);
+    justify-items: flex-end;
+    padding: 16px;
+    border-radius: 16px;
+    width: 50%;
+    height: 100px;
+  
+  }
+  
+  .general3 {
+    width: 400px;
+    height: 50px;
+    text-align: justify;
+    background-color: white;
+    justify-items: flex-start;
+    padding: 16px;
+    border-radius: 16px;
+  }
+  
+  .general4 {
+    width: 400px;
+    height: 50px;
+    text-align: justify;
+    background-color: yellow;
+    justify-items: flex-end;
+    padding: 16px;
+    border-radius: 16px;
+  }
+  
+  .question-card {
+    margin: 0 auto;
+    background-color: lightgray;
+    justify-items: flex-start;
+  
+    padding: 16px;
+    border-radius: 16px;
+    color: white;
+    box-shadow: rgba(50, 50, 93, .25) 0px 30px 60px -12px, 
+    rgba(0, 0, 0, .3) 0px 18px 36px -18px;
+    width: 50%;
+    height: auto;
+    
+  
+  }
+  
+  .question-text {
+    color: black;
+    font-size: 24px;
+  
+  }
+
+  
+  .next-box {
+    margin: auto;
+    background-color: rgb(217, 233, 240);
+    padding: 16px;
+    border-radius: 16px;
+    color: white;
+    width: 80%;
+    height: 20px;
+    text-align:start;
+  }
+  
+  
+  
+  .space {
+    margin: auto;
+    background-color: rgb(217, 233, 240);
+    width: 100px;
+    height: 20px;
+  
+  }
+  
+  .box {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px 2em;
+  }
+  
+  .box :first-child {
+      align-self: center;
+  }
+  
+  
+  .test {
+    margin: 0 auto;
+    border: 1px solid rgb(9, 147, 191);
+    width: 550px;
+    height: 312px;
+    text-align: justify;
+    background-color: lightgray;
+    justify-items: flex-start;
+    padding: 16px;
+    border-radius: 16px;
+    
+  }
+  
+  
+  .test-answers {
+    margin: 0 auto;
+    align-self: flex-start;
+    flex-direction: 'row' ;
+    justify-content: 'space-between' ;
+  
+    border: 1px solid rgb(9, 147, 191);
+    width: 450px;
+    height: 50px;
+    text-align: center;
+    background-color: lightgray;
+    justify-items: flex-end;
+    padding: 16px;
+    border-radius: 16px;
+    box-shadow: 5px 5px 10px 2px rgba(81, 81, 81, 0.8);
+    
+  }
+  
+  
+  
+  .answer-box {
+    margin: 0 auto;
+    align-self: flex-start;
+    flex-direction: 'row' ;
+    justify-content: 'space-between' ;
+  
+    width: auto;
+    height: 25%;
+    background-color: lightgray;
+    justify-items: flex-end;
+    padding: 16px;
+    border-radius: 16px;
+  
+  
+  }
+
+  
+  .rowC {
+    display:flex; flex-direction:row;
+  }
+  
+  .font-link {
+    font-family: 'Montserrat', sans-serif;
+    size: 40;
+  }
+  
+  
+  .flex-parent-element {
+    display: flex;
+    width: 100%;
+    height: auto;
+  
+  
+  }
+  
+  .flex-child-element {
+    flex: 1;
+    margin: px;
+    height: auto;
+  }
+  
+  .flex-smaller-element {
+    flex: auto;
+    margin: 10px;
+    height: 50px;
+    align-self: flex-start;
+    justify-content: 'space-between';
+  
+  }
+  
+  .submit {
+    margin: 0 auto;
+    border: 3px solid lightcyan;
+    width: 200px;
+    height: auto;
+    text-align: center;
+    background-color: lightgray;
+    justify-items: flex-start;
+    padding: 16px;
+    border-radius: 16px;
+  
+    
+  }
+  
+  
+  .circle-right {
+    margin-left: 30rem;
+    height: 200px;
+    top: 90%;
+    left: 303px; 
+  
+  }
+  
+  .check {
+    margin-right: 75rem;
+    transform: translateY(3.5rem);
+    margin-top: -10rem;
+  }
+  
+  .pink-circle {
+    position: absolute;
+    margin-right: -5rem;
+    margin-top: -20rem;
+    margin-left: 15rem;
+    transform: scale(.7);
+  }
+  
+  .blue-circle {
+    position: absolute;
+    margin-right: 80rem;
+    margin-top: -20rem;
+    margin-left: -40rem;
+    transform: scale(.5);
+  }
+  
+  .library-vid {
+  
+    width: 250px;
+    height: 200px;
+    text-align: center;
+    background-color: lightgray;
+    justify-items: center;
+    padding: 16px;
+    border-radius: 16px;
+    border: 3px solid lightcyan;
+    margin-left: 5rem;
+  
+    
+  }
+  
+  .test-answers:hover {
+    color: white;
+    cursor: pointer;
+    background-color:  rgb(103, 163, 217);;
+  }
+  
+  .submit:hover {
+    color: white;
+    cursor: pointer;
+    background-color:  rgb(246, 210, 224);
+  }
+  
+  .library-vid:hover {
+    color: white;
+    cursor: pointer;
+    background-color:  rgb(177, 177, 177);
+  }
+
+ .text-on-image {
+   position: absolute;
+   right: 50%;
+   left: 50%;
+   bottom: 45%;
+ }
+
+ .library-hero-search { /* search bar */
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px #B9E1F2;
+  border-radius: 15px;
+  width: 600px;
+  height: 61px;
+  display: flex;
+  left: -10%;
+  bottom: -25%;
+  position: absolute;
+  margin-left: -18rem;
+
+
+
+}
+
+.library-input {
+  appearance: none;
+  border: none;
+  outline: none;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  /* line-height: 22px; */
+  color: #757575;
+  margin-left: 1rem;
+  width: 100%;
+}
+
+
+
+.library-search-button {
+  width: 130px;
+  height: 29px;
+  border: 0;
+  border-radius: 10px;   
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+  color: #FFFFFF; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-right: 1rem;
+}
