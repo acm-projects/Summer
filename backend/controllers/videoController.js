@@ -7,7 +7,8 @@ const path = require('path');
 const youtubedl = require('youtube-dl-exec');
 const removeEmptyLines = require("remove-blank-lines");
 const axios = require('axios');
-const qs = require('qs');
+const { v4: uuidv4 } = require('uuid');
+const Video = require('../models/videoModel')
 
 const postVideo = asyncHandler(async (req, res) => {
     const {URL} = req.body
@@ -50,13 +51,33 @@ const postVideo = asyncHandler(async (req, res) => {
             res.json({result: response.data.summary});
         })
         .catch((error) => {
-            console.log('daher error')
+            console.log('Error with Summarization')
             console.log(error.message);
         });
     }).catch((err) => {
         console.error(err);
         res.status(500).send('Error fetching subtitles');
     });
+
+     //Create Video
+     const video = await Video.create({
+        URL: URL,
+        TranscriptID: uuidv4(),
+        QuizID: uuidv4()
+    })
+    /*
+    if(video){
+        res.status(201).json({
+            URL: video.URL,
+            TranscriptID: video.TranscriptID,
+            QuizID: video.QuizID
+            
+        })
+    } else{
+        res.status(400)
+        throw new Error('Invalid video data')
+    }
+    */
 
     
     

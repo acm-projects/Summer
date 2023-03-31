@@ -1,6 +1,15 @@
 import './styles/Hero.css'
 
+import { useNavigate } from 'react-router-dom'
+
 const Hero = () => {
+	const navigate = useNavigate();
+
+	function handleSummarize(e) {
+		e.preventDefault();
+		navigate('/general')
+	}
+
 	return (
 		<div>
 			<div className='gradient'>
@@ -16,11 +25,10 @@ const Hero = () => {
 				<div className='hero-search'>
 					<input type='text' className='input'
 						placeholder='Enter YouTube Link'/>
-					<button className='search-button' type='button'>
+					<button className='search-button' type='button' onClick={handleSummarize}>
 						<span>SUMMARIZE</span>
 					</button>
 				</div>
-
 			</div>
 		</div>
 	)  

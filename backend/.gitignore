@@ -1,2 +1,5 @@
 node_modules
 .env
+subtitles.en.vtt
+firebase.js
+serviceAccountKey.json

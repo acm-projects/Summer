@@ -5,9 +5,7 @@ import axios, { isCancel, AxiosError } from 'axios';
 import { IoIosArrowBack } from 'react-icons/io'
 
 import logo from '../assets/SummerLogo.png';
-import BlueCircle from '../assets/BlueCircle.png'
-import PinkCircle from '../assets/PinkCircle.png'
-
+import circles from '../assets/BluePinkCircles.png';
 
 import './styles/LogIn.css'
 
@@ -104,64 +102,64 @@ const LogIn = () => {
 	}
 
 	return (
-		<div className="page-container">
-			<div className="form-container">
-				<div className="back-btn" onClick={handleBack}>
-					<IoIosArrowBack /> Back
-				</div>
-				<div className="form">
-					<div className="subtitle">
-						<img src={logo} alt='logo' />
-						<p>Summer</p>
+		<div>
+			<div className="screen-container">
+				<div className="form-container">
+					<div className="back-btn" onClick={handleBack}>
+						<IoIosArrowBack /> Back
 					</div>
 
-					{/* <img src={BlueCircle} alt='blue' className='blue-circle'/>
-				<img src={PinkCircle} alt='pink' className='pink-circle'/> */}
-
-					<div className='cover'>
-						<p>Login</p>
-
-						<form>
-							{/* Labels and inputs for form data */}
-							<input
-								onChange={handleName}
-								className='log-input'
-								value={name}
-								type="text"
-								placeholder='Name' />
-							<input
-								onChange={handleEmail}
-								className="log-input"
-								value={email}
-								type="email"
-								placeholder='Email' />
-
-							<input
-								onChange={handlePassword}
-								className="log-input"
-								value={password}
-								type="password"
-								placeholder='Password' />
-							<button onClick={handleSubmit} className="btn" type="submit">
-								<span>LOG IN</span>
-							</button>
-
-							<div className='horizontal-line'></div>
-						</form>
-
-						<div className='signup-prompt'>
-							<div>Don't have an account?</div>
-							<Link to='/signup' className='signup-text'>Sign Up</Link>
+					<div className="form">
+						<div className="subtitle" onClick={handleBack}>
+							<img src={logo} alt='logo' />
+							<p>Summer</p>
 						</div>
 
-						{/* Calling to the methods */}
-						<div className="messages">
-							{errorMessage()}
-							{successMessage()}
+						<div className='cover'>
+							<p>Login</p>
+
+							<form>
+								<label className="loginLabel">Name</label>
+								<input
+									onChange={handleName}
+									className='log-input'
+									value={name}
+									type="text" />
+								<label className="loginLabel">Email</label>
+								<input
+									onChange={handleEmail}
+									className="log-input"
+									value={email}
+									type="email" />
+								<label className="loginLabel">Password</label>
+								<input
+									onChange={handlePassword}
+									className="log-input"
+									value={password}
+									type="password" />
+								<button onClick={handleSubmit} className="btn" type="submit">
+									<span>LOG IN</span>
+								</button>
+
+							</form>
+
+							<div className='signup-prompt'>
+								<div>Don't have an account?</div>
+								<Link to='/signup' className='signup-text'>Sign Up</Link>
+							</div>
+
+							{/* Calling to the methods */}
+							<div className="messages">
+								{errorMessage()}
+								{successMessage()}
+							</div>
 						</div>
 					</div>
+
+					<img src={circles} className='bleeding-circles' draggable="false"/>
 				</div>
 			</div>
+
 		</div>
 	);
 }

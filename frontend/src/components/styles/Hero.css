@@ -58,7 +58,9 @@
     justify-content: space-between;
     align-items: center;
     margin-left: 1.5rem;
+
 }
+
 
 .input {
     appearance: none;
@@ -69,7 +71,7 @@
     font-weight: 400;
     font-size: 18px;
     /* line-height: 22px; */
-    color: #ababab;
+    color: #757575;
     margin-left: 1rem;
     width: 100%;
 }
@@ -94,6 +96,6 @@
 }
 
 .search-button:hover {
-    color: #CCC;
+    /* color: #CCC; */
     cursor: pointer;
 }
