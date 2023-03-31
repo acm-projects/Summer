@@ -7,16 +7,6 @@ body {
     background-color:rgb(217, 233, 240);
   }
   
-  .top-bubble {
-    width: auto;
-    height: 200px;
-  }
-  
-  h1 {
-    text-align:justify;
-    margin-left: 10rem;
-  
-  }
 
   h3 {
 
@@ -24,61 +14,12 @@ body {
     margin-left: -5rem;
     align-items: center;
   }
-  
-  
-  h5 {
-      width: auto;
-      height: auto;
-      font-family: 'Nunito';
-      font-style: normal;
-      font-weight: 400;
-      font-size: 20px;
-      color: #6B6B6B;
-      margin-left: 10rem;
-      text-align:justify;
-  
-  
-  }
-  
-  h6 {
-    width: 50%;
-    height: auto;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Nunito';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    color: #6B6B6B;
-    margin-left: 25%;
-  
-  
-  }
+
 
   .headtext{
     position: relative;
   }
   
-  .general {
-    background-color: rgb(121, 55, 55);
-    justify-items: flex-start;
-    padding: 16px;
-    border-radius: 16px;
-    width: 100%;
-    height: auto;
-  
-  }
-  
-  .general2 {
-    margin: auto;
-    background-color: rgb(40, 30, 30);
-    justify-items: flex-end;
-    padding: 16px;
-    border-radius: 16px;
-    width: 50%;
-    height: 100px;
-  
-  }
   
   .general3 {
     width: 400px;
@@ -101,6 +42,7 @@ body {
   }
   
   .question-card {
+
     margin: 0 auto;
     background-color: lightgray;
     justify-items: flex-start;
@@ -113,7 +55,7 @@ body {
     width: 50%;
     height: auto;
     
-  
+
   }
   
   .question-text {
@@ -220,14 +162,16 @@ body {
     display: flex;
     width: 100%;
     height: auto;
-  
-  
+    justify-content: center;
+
   }
   
   .flex-child-element {
     flex: 1;
     margin: px;
     height: auto;
+    justify-content: center;
+    
   }
   
   .flex-smaller-element {
@@ -294,9 +238,9 @@ body {
     padding: 16px;
     border-radius: 16px;
     border: 3px solid lightcyan;
-    margin-left: 5rem;
-  
-    
+    justify-content: center;
+
+
   }
   
   .test-answers:hover {

@@ -145,15 +145,6 @@ ul {
 
 }
 
-.box {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 10px 2em;
-}
-
-.box :first-child {
-    align-self: center;
-}
 
 
 .test {
@@ -166,6 +157,7 @@ ul {
   justify-items: flex-start;
   padding: 16px;
   border-radius: 16px;
+
   
 }
 
@@ -173,19 +165,16 @@ ul {
 .test-answers {
   margin: 0 auto;
   align-self: flex-start;
-  flex-direction: 'row' ;
-  justify-content: 'space-between' ;
-
-  border: 1px solid rgb(9, 147, 191);
+  margin-bottom: 2rem;
+  border: 1px solid white;
   width: 450px;
   height: 50px;
   text-align: center;
-  background-color: lightgray;
-  justify-items: flex-end;
+  background-color: #F5F5FA;  
   padding: 16px;
-  border-radius: 16px;
-  box-shadow: 5px 5px 10px 2px rgba(81, 81, 81, 0.8);
-  
+  border-radius: 32px;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.5), 5px 5px 10px rgba(170, 170, 204, 0.25), 10px 10px 20px rgba(170, 170, 204, 0.5), -10px -10px 20px #FFFFFF;
+
 }
 
 
@@ -255,7 +244,6 @@ ul {
   padding: 16px;
   border-radius: 16px;
 
-  
 }
 
 .bubble-right {
@@ -308,22 +296,6 @@ ul {
   transform: scale(.5);
 }
 
-.library-vid {
-
-  border: 1px solid rgb(9, 147, 191);
-  width: 250px;
-  height: 200px;
-  text-align: center;
-  background-color: lightgray;
-  justify-items: center;
-  padding: 16px;
-  border-radius: 16px;
-  border: 3px solid lightcyan;
-  margin-left: 5rem;
-
-  
-
-}
 
 .test-answers:hover {
   color: white;
@@ -337,11 +309,7 @@ ul {
   background-color:  rgb(246, 210, 224);
 }
 
-.library-vid:hover {
-  color: white;
-  cursor: pointer;
-  background-color:  rgb(177, 177, 177);;
-}
+
 
 .small-box {
   margin-top: 1%;

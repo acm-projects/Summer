@@ -11,14 +11,11 @@ import Gradient from '../assets/Gradient.png'
 import './styles/QuizPage.css';
 
 
-
-
 function QuizPage() {
     return (
 
         <div className="QuizPage">
 
-  
         <div className='top-bubble'>
       <img src={Bubbles} alt='bubbles' className='bubble-right'/>
       </div>
@@ -27,7 +24,6 @@ function QuizPage() {
       <div className='next-box'></div>
 
       <span className='font-link'>
-
     <div className='horiz-box'></div>
 
 
@@ -63,10 +59,9 @@ function QuizPage() {
 
           <div class="flex-child-element">
          <div className="test-answers">
-           <p>Search</p>
+         <p>Search</p>
              </div>
              <div className='small-box'></div>
-
             <div className="test-answers">
            <p>Insert</p>
            </div>
@@ -83,9 +78,7 @@ function QuizPage() {
           <p>Java</p>
           </div>
           <div className='small-box'></div>
-
           </div>
-
         </div>
 
 
@@ -97,7 +90,6 @@ function QuizPage() {
            <h2>Question 2</h2>
            <p>Which of these is an IDE?</p>
        </div>
-       
         </div>
 
         <div class="flex-child-element">
@@ -163,8 +155,6 @@ function QuizPage() {
         </div>
 
 
-      
-
       <div className='next-box'></div>
       <div className='next-box'></div>
 
@@ -174,7 +164,6 @@ function QuizPage() {
         <div class="flex-child-element">
         <div className="submit">
            <h2>Submit!</h2>
-
        </div>
         </div>
 
@@ -188,7 +177,7 @@ function QuizPage() {
 
      </div>
 
-      
+  
 
     )
 }
