@@ -1,8 +1,11 @@
 import './styles/Hero.css'
 
 import { useNavigate } from 'react-router-dom'
+import { useState } from 'react';
 
 const Hero = () => {
+	const [link, useLink] = useState('');
+	 
 	const navigate = useNavigate();
 
 	function handleSummarize(e) {
@@ -23,8 +26,7 @@ const Hero = () => {
 				</div>
 
 				<div className='hero-search'>
-					<input type='text' className='input'
-						placeholder='Enter YouTube Link'/>
+					<input type='text' className='input' placeholder='Enter YouTube Link'/>
 					<button className='search-button' type='button' onClick={handleSummarize}>
 						<span>SUMMARIZE</span>
 					</button>

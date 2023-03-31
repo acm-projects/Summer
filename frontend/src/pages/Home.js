@@ -1,6 +1,5 @@
 import Hero from "../components/Hero";
 import Line from "../components/Line";
-import Footer from "../components/Footer";
 import YouTubeGraphic from '../assets/YouTubeGraphic.png'
 import Bubbles from '../assets/Bubbles.png'
 import CheckCircle from '../assets/CheckCircle.png'
@@ -47,8 +46,6 @@ export default function Home() {
 
             {/* Library section */}
 
-            {/* Footer */ }
-            <Footer />
         </div>
     )
 }
