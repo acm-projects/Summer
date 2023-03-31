@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;700&family=Nunito&display=swap');
 
-.screen-container {
+.screenContainer {
     background-color: #F7FAFC;
     overflow: hidden;
 }
@@ -28,7 +28,7 @@
     cursor: pointer;
 }
 
-.form-container {
+.formContainer {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -54,7 +54,7 @@
     /* z-index: 2; */
 }
 
-.log-input {
+.logInput {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -98,7 +98,7 @@
     line-height: 21px;
 }
 
-.back-btn {
+.backBtn {
     font-family: 'Nunito';
     font-style: normal;
     font-weight: 400;
@@ -112,7 +112,7 @@
     z-index: 1;
 }
 
-.back-btn:hover {
+.backBtn:hover {
     /* text-decoration-line: underline; */
     cursor: pointer;
 }
@@ -123,7 +123,7 @@
     /* align-items: center; */
 }
 
-.horizontal-line {
+.horizontalLine {
     width: 334px;
     height: 0px;
     border: 1px solid #424242;
@@ -131,13 +131,10 @@
     margin-bottom: 1rem;
 }
 
-.signup-prompt {
+.signupPrompt {
     display: flex;
     margin-top: 1rem;
     margin-bottom: 1rem;
-}
-
-.signup-prompt {
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 400;
@@ -145,7 +142,7 @@
     line-height: 18px;
 }
 
-.signup-text {
+.signupText {
     color: #0076C2;
     margin-left: 0.5rem;
     text-decoration: none;
@@ -157,7 +154,7 @@
     margin-bottom: 5px;
 }
 
-.bleeding-circles {
+.bleedingCircles {
     position: absolute;
     top: -150px;
     /* z-index: -1; */
