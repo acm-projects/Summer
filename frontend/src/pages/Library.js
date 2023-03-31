@@ -28,8 +28,8 @@ function Library() {
       </div>
         <div class='text-on-image'>
         <h3 style = {{fontSize: 50}}>Library</h3> 
-           <div className='hero-search'>
-        <input type='text' className='input'
+           <div className='library-hero-search'>
+        <input type='text' className='library-input'
           placeholder='Search in Your Playlist '/>
         <button className='search-button' type='button'>
           <span>SEARCH</span>
@@ -117,11 +117,8 @@ function Library() {
 
       <Footer/>
 
+    </div>
 
-      </div>
-
-
-  
 
   </div>
 
