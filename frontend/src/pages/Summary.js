@@ -15,9 +15,9 @@ const Summary = () => {
 
     return (
         <div className={styles.pageContainer}>
-            <div className="back-btn" onClick={handleBack}>
+            {/* <div className={styles.back-btn" onClick={handleBack}>
                 <IoIosArrowBack /> Back
-            </div>
+            </div> */}
 
             <div className={styles.summaryContainer}>
                 <div className={styles.headerText}>

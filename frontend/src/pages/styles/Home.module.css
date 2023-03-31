@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;700&family=Nunito&display=swap');
 
-.feature-section {
+.featureSection {
     position: relative;
     display: flex;
     align-items: center;
@@ -9,14 +9,14 @@
     margin-top: 3rem;
 }
 
-.feature-text {
+.featureText {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-left: 3rem;
 }
 
-.feature-header {  
+.featureHeader {  
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 700;
@@ -26,7 +26,7 @@
     margin-left: 2rem;
 }
 
-.feature-title {
+.featureTitle {
     display: flex;
     align-items: center;
     margin: 0;
@@ -34,7 +34,7 @@
     overflow: auto;
 }
 
-.feature-subtext {
+.featureSubtext {
     width: 389px;
     height: 86.89px;
     font-family: 'Nunito';
@@ -46,16 +46,20 @@
     margin-bottom: 128px; /* hardcoded white space */
 }
 
-.bubble-right {
+.bubbleRight {
     position: absolute;
     top: 50%;
     right: 133px; /* Adjust this value as needed */
     transform: translateY(-50%);
 }
 
-.bubble-left {
+.bubbleLeft {
     position: absolute;
     top: 50%;
     left: 133px; /* Adjust this value as needed */
     transform: rotate(180deg);
+}
+
+.linePadding {
+    padding-top: 320px;
 }

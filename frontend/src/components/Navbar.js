@@ -1,24 +1,24 @@
 import { Link } from "react-router-dom"
 
 import '../index.css'
-import './styles/Navbar.css'
+import styles from './styles/Navbar.module.css'
 import logo from '../assets/SummerLogo.png';
 
 const Navbar = () => {  
   return (
-    <nav className='nav'>
+    <nav className={styles.nav}>
       <ul>
         <li>
-          <div className='company'>
-            <img src={logo} className='logo' alt='Logo'></img>
-            <Link to="/" className="web-title">Summer</Link>
+          <div className={styles.company}>
+            <img src={logo} className={styles.logo} alt='Logo'></img>
+            <Link to="/" className={styles.webTitle}>Summer</Link>
           </div>
         </li>
-        <CustomLink to='/' content='Home' className='headText'></CustomLink>
-        <CustomLink to='/library' content='Library' className='headText'></CustomLink>
-        <CustomLink to='/quizpage' content='Quiz Page' className='headText'></CustomLink>
-        <div className='login'>
-          <CustomLink to='/login' content='Log In' className='headText white'></CustomLink>
+        <CustomLink to='/' content='Home' className={styles.headText}></CustomLink>
+        <CustomLink to='/library' content='Library' className={styles.headText}></CustomLink>
+        <CustomLink to='/quizpage' content='Quiz Page' className={styles.headText}></CustomLink>
+        <div className={styles.login}>
+          <CustomLink to='/login' content='Log In' className={`${styles.headText} ${styles.white}`}></CustomLink>
         </div>
       </ul>
     </nav>
