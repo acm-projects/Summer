@@ -1,13 +1,9 @@
 const { Configuration, OpenAIApi } = require("openai");
 const asyncHandler = require('express-async-handler')
 
-
-*/
-
-const {transcript} = req.body;
+// const {transcript} = req.body;
 
 const Summarize = asyncHandler( async(req, res) => {
-  // const {text} = req.body;
 
 const configuration = new Configuration({
   apiKey: process.env.OpenAI_SECRET,
