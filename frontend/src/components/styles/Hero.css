@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;700&family=Nunito&display=swap');
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 178px;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+}
+
+.text-gradient {
+    background: linear-gradient(270deg, #FF76A9 33.85%, #67A3D9 74.91%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+.title1 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 80px;
+    line-height: 98px;
+}
+
+.title2 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 105px;
+    line-height: 128px;
+    /* identical to box height */
+    color: #000000;
+}
+
+.hero-subtext { 
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 34px;
+    width: 536px;
+    color: #000000;
+}
+
+.hero-search { /* search bar */
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px #B9E1F2;
+    border-radius: 15px;
+    width: 600px;
+    height: 61px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 1.5rem;
+
+}
+
+
+.input {
+    appearance: none;
+    border: none;
+    outline: none;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    /* line-height: 22px; */
+    color: #757575;
+    margin-left: 1rem;
+    width: 100%;
+}
+
+.search-button {
+    background: #000000;
+    width: 130px;
+    height: 29px;
+    border: 0;
+    border-radius: 10px;   
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+    color: #FFFFFF; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-right: 1rem;
+}
+
+.search-button:hover {
+    /* color: #CCC; */
+    cursor: pointer;
+}
