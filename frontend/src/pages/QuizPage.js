@@ -154,7 +154,7 @@ function QuizPage() {
            <div className='small-box'></div>
 
            <div className="test-answers">
-          <p>IntelliJ</p>
+          <p>Java</p>
           </div>
           <div className='small-box'></div>
 
