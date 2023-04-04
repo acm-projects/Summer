@@ -8,15 +8,6 @@ body {
 	background-color: rgb(217, 233, 240);
 }
 
-.topBubble {
-	width: auto;
-	height: 200px;
-}
-
-h1 {
-	text-align: justify;
-	margin-left: 10rem;
-}
 
 h3 {
 	font-family: 'Montserrat';
@@ -25,17 +16,6 @@ h3 {
 	align-items: center;
 }
 
-h5 {
-	width: auto;
-	height: auto;
-	font-family: 'Nunito';
-	font-style: normal;
-	font-weight: 400;
-	font-size: 20px;
-	color: #6B6B6B;
-	margin-left: 10rem;
-	text-align: justify;
-}
 
 h6 {
 	width: 50%;

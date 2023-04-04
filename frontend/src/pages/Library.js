@@ -1,13 +1,9 @@
-import Hero from "../components/Hero";
-import Line from "../components/Line";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import Bubbles from '../assets/Bubbles.png'
-import CheckCircle from '../assets/CheckCircle.png'
 import PinkCircle from '../assets/PinkCircle.png'
 import BlueCircle from '../assets/BlueCircle.png'
 import Gradient from '../assets/Gradient.png'
-import LineCircle from '../assets/LineCircle.png'
 
 import styles from './styles/Library.module.css';
 
@@ -17,7 +13,7 @@ function Library() {
 			<header>
 				<div className={styles.headtext}>
 					<div className={styles.headImage}>
-						<img src={Gradient} />
+						<img src={Gradient} alt='Gradient'/>
 					</div>
 					<div className={styles.textOnImage}>
 						<h3 style={{ fontSize: 50 }}>Library</h3>
@@ -85,11 +81,11 @@ function Library() {
 
 			<div className={styles.nextBox}></div>
 			<div className={styles.nextBox}>
-				<img src={BlueCircle} className={styles.blueCircle} />
+				<img src={BlueCircle} alt='blue circle' className={styles.blueCircle} />
 
 				<div className={styles.nextBox}></div>
 				<div className={styles.nextBox}></div>
-				<img src={PinkCircle} className={styles.pinkCircle} />
+				<img src={PinkCircle} alt='pink circle' className={styles.pinkCircle} />
 				<div className={styles.nextBox}></div>
 				<div className={styles.nextBox}></div>
 
