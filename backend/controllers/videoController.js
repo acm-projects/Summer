@@ -9,29 +9,30 @@ const removeEmptyLines = require("remove-blank-lines");
 const axios = require('axios');
 const { v4: uuidv4 } = require('uuid');
 const Video = require('../models/videoModel')
+const { S3Client, PutObjectCommand } = require("@aws-sdk/client-s3");
+const { random } = require('colors');
+const PDFDocument = require('pdfkit');
 
-const postVideo = asyncHandler(async (req, res) => {
-    const {URL} = req.body
 
-    if(!URL){
-        res.status(400)
-        throw new Error('Please add URL')
-    }
 
-    function parseVtt(subtitles) {
-        const timeStamp = /\d{2}:\d{2}:\d{2}\.\d{3} --> \d{2}:\d{2}:\d{2}\.\d{3}/;
-        const newContent = subtitles.split('\n').slice(3).join('\n');
-        const noEmptyLines = removeEmptyLines(newContent.replace(/<.*?>|<\/.*?>/g, ""));
-        const removeTimes = noEmptyLines.split('\n').filter(line => !timeStamp.test(line)).join('\n');
-        // const fileContents = cleanVttFile.replace(/^.*align:start position:0%.*$/gm, ''); // only works with auto-subs
-        const cleanVttFile= Array.from(new Set(removeTimes.split('\n'))).join('\n');
-        const newData = cleanVttFile.replace(/\n/g, ' ');
-        // res.json({"summary": newData});
-        return newData;
-    }
 
-    let result = "";
-    youtubedl(URL, {
+
+function parseVtt(subtitles) {
+    const timeStamp = /\d{2}:\d{2}:\d{2}\.\d{3} --> \d{2}:\d{2}:\d{2}\.\d{3}/;
+    const newContent = subtitles.split('\n').slice(3).join('\n');
+    const noEmptyLines = removeEmptyLines(newContent.replace(/<.*?>|<\/.*?>/g, ""));
+    const removeTimes = noEmptyLines.split('\n').filter(line => !timeStamp.test(line)).join('\n');
+    // const fileContents = cleanVttFile.replace(/^.*align:start position:0%.*$/gm, ''); // only works with auto-subs
+    const cleanVttFile= Array.from(new Set(removeTimes.split('\n'))).join('\n');
+    const newData = cleanVttFile.replace(/\n/g, ' ');
+    // res.json({"summary": newData});
+    return newData;
+}
+
+//function that returns the transcript 
+const getTranscript = asyncHandler(async (videoURL) => {
+    let result = ""
+    await youtubedl(videoURL, {
         writeAutoSub: true,
         writeSubs: true,
         skipDownload: true,
@@ -40,31 +41,173 @@ const postVideo = asyncHandler(async (req, res) => {
     }).then(() => {
         const subtitles = fs.readFileSync("subtitles.en.vtt", 'utf-8');
         result = parseVtt(subtitles);
-        console.log(result);
+        //console.log(result + "this console.log ");
+        
+        
+        
+    })
+    .catch((err) => {
+    console.log(err);
+    console.log(err.message);
+    })
+
+    return result;
+}) 
+
+//const postVideo = asyncHandler(async (req, res) =>
+
+   const  getSummary =  asyncHandler(async (videotranscript) => {
+        let content = ""
+
         axios.post("http://localhost:5000/api/summarize",
         {
-            transcript: result
+            transcript: videotranscript
+        },
+        {
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+            },
         }
-
+     
         )
         .then((response) => {
-            res.json({result: response.data.summary});
+            // res.json({result: response.data.summary});
+            //filename contains the summarized content
+            console.log(response.data.summary);
+            content = response.data.summary
+            
+        
         })
         .catch((error) => {
             console.log('Error with Summarization')
             console.log(error.message);
         });
-    }).catch((err) => {
-        console.error(err);
-        res.status(500).send('Error fetching subtitles');
-    });
 
-     //Create Video
-     const video = await Video.create({
+        return content;
+   })
+   
+
+
+
+
+
+
+
+
+
+
+const postVideo = asyncHandler(async (req, res) => {
+
+    const {URL} = req.body
+
+    if(!URL){
+        res.status(400)
+        throw new Error('Please add URL')
+    }
+    
+    
+    const bucketName = process.env.BUCKET_NAME 
+    const bucketRegion = process.env.BUCKET_REGION
+    const accessKey = process.env.ACCESS_KEY
+    const secretAccessKey = process.env.SECRET_ACCESS_KEY
+    // console.log(accessKey)
+    const s3 = new S3Client({
+        credentials: {
+            accessKeyId: accessKey,
+            secretAccessKey: secretAccessKey,
+        },
+        
+        region: bucketRegion
+    });
+ 
+
+
+     
+    const unsummarized =   await getTranscript(URL)
+    //console.log(unsummarized);
+    const summary =   await getSummary(unsummarized) 
+    //console.log(summary);
+   
+
+    ID1 = uuidv4()
+    ID2 = uuidv4()
+
+    // Create a document
+    const doc = new PDFDocument({compress: false});
+    const randomfilename = ID1 + ".pdf";
+    // Pipe it's output somewhere, like to a file or HTTP response
+    const writeStream = fs.createWriteStream(randomfilename)
+    doc.pipe(writeStream);
+    console.log(randomfilename)
+    doc.text(`${summary}`)
+    doc.end();
+    //console.log(doc.end())
+    const params = {
+        Bucket: bucketName,
+        Key: randomfilename,
+        Body: `./${randomfilename}`,
+        ContentType: "application/pdf"
+    }
+    const command = new PutObjectCommand(params)
+      
+
+    await s3.send(command)
+  /*
+    //Create Video
+    const video = await Video.create({
         URL: URL,
-        TranscriptID: uuidv4(),
-        QuizID: uuidv4()
+        TranscriptID: ID1,
+        QuizID: ID2
     })
+    */
+
+
+           // youtubedl(URL, {
+    //     writeAutoSub: true,
+    //     writeSubs: true,
+    //     skipDownload: true,
+    //     subLang: 'en', 
+    //     output: 'subtitles', 
+    // }).then(() => {
+    //     const subtitles = fs.readFileSync("subtitles.en.vtt", 'utf-8');
+    //     result = parseVtt(subtitles);
+    //     console.log(result);
+
+
+    //     axios.post("http://localhost:5000/api/summarize",
+    //     {
+    //         transcript: getTranscript()
+    //     }
+
+    //     )
+    //     .then((response) => {
+    //         res.json({result: response.data.summary});
+    //         //filename contains the summarized content
+    //         const content = response.data.summary
+    //         //makes the pdf
+    //         doc.text(content);
+    //         //finalize the PDF
+    //         doc.end();
+    //         const params = {
+    //             Bucket: bucketName,
+    //             Key: randomfilename,
+    //             Body: doc,
+    //             ContentType: application/pdf
+    //         }
+    //         const command = new PutObjectCommand(params)
+
+    //         await s3.send(command)
+    //     })
+    //     .catch((error) => {
+    //         console.log('Error with Summarization')
+    //         console.log(error.message);
+    //     });
+    // }).catch((err) => {
+    //     console.error(err);
+    //     res.status(500).send('Error fetching subtitles');
+    // });
+
+ 
     /*
     if(video){
         res.status(201).json({
