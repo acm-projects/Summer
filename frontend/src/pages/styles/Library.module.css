@@ -30,7 +30,7 @@ h6 {
 	margin-left: 25%;
 }
 
-.headtext {
+.text {
 	position: relative;
 }
 
@@ -262,6 +262,13 @@ h6 {
 	background-color: rgb(246, 210, 224);
 }
 
+.searchButton:hover {
+	color:darkgray;
+	cursor: pointer;
+	background-color: rgb(246, 210, 224);
+}
+
+
 .libraryVid:hover {
 	color: white;
 	cursor: pointer;
@@ -319,4 +326,5 @@ h6 {
 	justify-content: center;
 	text-align: center;
 	margin-right: 1rem;
+	background-color: black;
 }

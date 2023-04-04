@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;700&family=Nunito&display=swap');
 
 .VideoLinkInput{
     text-align: center;
@@ -16,7 +17,7 @@ body {
   }
 
 
-  .headtext{
+  .videoheadtext{
     position: relative;
   }
   
@@ -85,19 +86,12 @@ body {
     
   }
   
-  
   .circle-right {
     margin-left: 30rem;
     height: 200px;
     top: 90%;
     left: 303px; 
   
-  }
-  
-  .check {
-    margin-right: 75rem;
-    transform: translateY(3.5rem);
-    margin-top: -10rem;
   }
 
   .submit:hover {
@@ -106,14 +100,14 @@ body {
     background-color:  rgb(246, 210, 224);
   }
 
- .videolink-text-on-image {
+ .videolinkTextOnImage {
    position: absolute;
    right: 50%;
    left: 50%;
    bottom: 45%;
  }
 
- .videolink-hero-search { /* search bar */
+ .videolinkHeroSearch { /* search bar */
   background: #FFFFFF;
   box-shadow: 0px 4px 4px #B9E1F2;
   border-radius: 15px;
@@ -126,10 +120,9 @@ body {
   margin-left: -18rem;
 
 
-
 }
 
-.videolink-input {
+.videolinkInput {
   appearance: none;
   border: none;
   outline: none;
@@ -145,7 +138,7 @@ body {
 
 
 
-.videolink-search-button {
+.videolinkSearchButton {
   width: 130px;
   height: 29px;
   border: 0;
