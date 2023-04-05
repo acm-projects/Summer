@@ -55,26 +55,7 @@ body {
     position: relative;
   }
   
-  
-  .general3 {
-    width: 400px;
-    height: 50px;
-    text-align: justify;
-    background-color: white;
-    justify-items: flex-start;
-    padding: 16px;
-    border-radius: 16px;
-  }
-  
-  .general4 {
-    width: 400px;
-    height: 50px;
-    text-align: justify;
-    background-color: yellow;
-    justify-items: flex-end;
-    padding: 16px;
-    border-radius: 16px;
-  }
+
   
   
   .next-box {
