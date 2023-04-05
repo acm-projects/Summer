@@ -16,11 +16,13 @@ function VideoLinkInput() {
                 <img src={Gradient} alt='Gradient'/>
             </div>
             <div className={styles.videolinkTextOnImage}>
-                <h3 style={{ fontSize: 50 }}>Video Link</h3>
+                <vidh3 style={{ fontSize: 30 }}>Built for videos of all types. </vidh3>
+                <vidh6 style={{ fontSize: 25 }}>Generate Summer-ies with just a click.</vidh6>
+
                 <div className={styles.videolinkHeroSearch}>
                     <input type='text' className={styles.videolinkInput}
                         placeholder='Search in Your Library'/>
-                    <button className={styles.searchButton} type='button'>
+                    <button className={styles.videolinkSearchButton} type='button'>
                         <span>SEARCH</span>
                     </button>
                 </div>

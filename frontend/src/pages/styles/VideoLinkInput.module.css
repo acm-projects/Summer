@@ -9,11 +9,45 @@ body {
   }
   
 
- h3 {
+ vidh3 {
 
-    text-align:justify;
-    margin-left: -5rem;
+    text-align: flex;
+    align-items: start;
+    width: 800px;
+    height: 50px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    display: flex;
     align-items: center;
+    justify-content: center;
+    margin-right: 2rem;
+    margin-left: -25rem;
+
+
+
+  }
+
+  vidh6 {
+   
+    text-align: flex;
+    align-items: start;
+    width: 800px;
+    height: 75px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 2rem;
+    margin-left: -25rem;
+    margin-bottom: 2px;
+
+
+
+
+
   }
 
 
@@ -139,21 +173,23 @@ body {
 
 
 .videolinkSearchButton {
-  width: 130px;
-  height: 29px;
-  border: 0;
-  border-radius: 10px;   
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 15px;
-  color: #FFFFFF; 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  margin-right: 1rem;
+  background: black;
+    width: 130px;
+    height: 29px;
+    border: 0;
+    border-radius: 10px;   
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+    color: #FFFFFF; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-right: 1rem;
+    margin-top: 1rem;
 }
  
 
