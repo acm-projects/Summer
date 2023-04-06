@@ -18,6 +18,7 @@ function VideoLinkInput() {
             <div className={styles.videolinkTextOnImage}>
                 <vidh3 style={{ fontSize: 30 }}>Built for videos of all types. </vidh3>
                 <vidh6 style={{ fontSize: 25 }}>Generate Summer-ies with just a click.</vidh6>
+                <div> </div>
 
                 <div className={styles.videolinkHeroSearch}>
                     <input type='text' className={styles.videolinkInput}
