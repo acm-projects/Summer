@@ -4,6 +4,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.summaryContainer {
+    display: flex;
     flex-direction: column;
 }
 

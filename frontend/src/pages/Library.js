@@ -1,133 +1,97 @@
-import Hero from "../components/Hero";
-import Line from "../components/Line";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import Bubbles from '../assets/Bubbles.png'
-import CheckCircle from '../assets/CheckCircle.png'
 import PinkCircle from '../assets/PinkCircle.png'
 import BlueCircle from '../assets/BlueCircle.png'
 import Gradient from '../assets/Gradient.png'
 
-
-import LineCircle from '../assets/LineCircle.png'
-
-
-import React from 'react';
-
-import './styles/Library.css';
+import styles from './styles/Library.module.css';
 
 function Library() {
-  return (
-   
-    <div className="Library">
+	return (
+		<div className={styles.Library}>
+			<header>
+				<div className={styles.headtext}>
+					<div className={styles.headImage}>
+						<img src={Gradient} alt='Gradient'/>
+					</div>
+					<div className={styles.textOnImage}>
+						<h3 style={{ fontSize: 50 }}>Library</h3>
+						<div className={styles.libraryHeroSearch}>
+							<input type='text' className={styles.libraryInput}
+								placeholder='Search in Your Library'/>
+							<button className={styles.searchButton} type='button'>
+								<span>SEARCH</span>
+							</button>
+						</div>
+					</div>
+				</div >
+			</header >
 
-    <header>
-    <div className = "headtext">
-      <div className = "head-image">
-        <img src = {Gradient}/>
-      </div>
-        <div class='text-on-image'>
-        <h3 style = {{fontSize: 50}}>Library</h3> 
-           <div className='library-hero-search'>
-        <input type='text' className='library-input'
-          placeholder='Search in Your Playlist '/>
-        <button className='search-button' type='button'>
-          <span>SEARCH</span>
-        </button>
-      </div>
-        </div>
-        </div>
-  </header>
+			<div className={styles.nextBox}></div>
 
+			<div className={styles.flexParentElement}>
+				<div className={styles.flexChildElement}>
+					<div className={styles.libraryVid}>
 
-  <div className='next-box'></div>
+					</div>
+					<p> Introduction to Arrays</p>
+					<p> Quiz | All Info</p>
+				</div>
 
+				<div className={styles.flexChildElement}>
+					<div className={styles.libraryVid}>
+					</div>
+					<p> Introduction to Linked Lists</p>
+					<p> Quiz | All Info</p>
+				</div>
 
-<div class="flex-parent-element">
+				<div className={styles.flexChildElement}>
+					<div className={styles.libraryVid}>
+					</div>
+					<p> AVL Trees </p>
+					<p> Quiz | All Info</p>
+				</div >
+			</div >
 
-    <div class="flex-child-element">
-    <div className="library-vid">
-   </div>
-   <p> Introduction to Arrays</p>
-   <p> Quiz | All Info</p>
-    </div>
+			<div className={styles.nextBox}></div>
+			< div className={styles.flexParentElement} >
 
-    <div class="flex-child-element">
-    <div className="library-vid">
-   </div>
-   <p> Introduction to Linked Lists</p>
-   <p> Quiz | All Info</p>
+				<div className={styles.flexChildElement}>
+					<div className={styles.libraryVid}>
+					</div>
+					<p> Data Structures</p>
+					<p> Quiz | All Info</p>
+				</div >
 
-    </div>
+				<div className={styles.flexChildElement}>
+					<div className={styles.libraryVid}>
+					</div>
+					<p> Intro to Computer Architecture</p>
+					<p> Quiz | All Info</p>
+				</div >
 
-    <div class="flex-child-element">
-    <div className="library-vid">
-   </div>
-   <p> AVL Trees </p>
-   <p> Quiz | All Info</p>
+				<div className={styles.flexChildElement}>
+					<div className={styles.libraryVid}>
+					</div>
+					<p> Code in React </p>
+					<p> Quiz | All Info</p>
+				</div >
+			</div >
 
-    </div>
+			<div className={styles.nextBox}></div>
+			<div className={styles.nextBox}>
+				<img src={BlueCircle} alt='blue circle' className={styles.blueCircle} />
 
-    </div>
+				<div className={styles.nextBox}></div>
+				<div className={styles.nextBox}></div>
+				<img src={PinkCircle} alt='pink circle' className={styles.pinkCircle} />
+				<div className={styles.nextBox}></div>
+				<div className={styles.nextBox}></div>
 
-
-    <div className='next-box'></div>
-    <div class="flex-parent-element">
-
-    <div class="flex-child-element">
-    <div className="library-vid">
-   </div>
-   <p> Data Structures</p>
-   <p> Quiz | All Info</p>
-
-    </div>
-
-    <div class="flex-child-element">
-    <div className="library-vid">
-   </div>
-   <p> Intro to Computer Architecture</p>
-   <p> Quiz | All Info</p>
-
-    </div>
-
-    <div class="flex-child-element">
-    <div className="library-vid">
-   </div>
-   <p> Code in React </p>
-   <p> Quiz | All Info</p>
-
-    </div>
-
-
-    </div>
-
-    <div className='next-box'></div>
-    <div className='next-box'></div>
-    <img src={BlueCircle} className='blue-circle'/>
-
-    <div className='next-box'></div>
-    <div className='next-box'></div>
-    <img src={PinkCircle} className='pink-circle'/>
-    <div className='next-box'></div>
-    <div className='next-box'></div>
-   
-    
-    <div>
-
-
-      <Footer/>
-
-    </div>
-
-
-  </div>
-
-
-
-
-    
-  )
+			</div>
+		</div>
+	)
 }
 
 export default Library;
-

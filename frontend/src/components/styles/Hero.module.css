@@ -12,7 +12,7 @@
     flex-direction: column;
 }
 
-.text-gradient {
+.textGradient {
     background: linear-gradient(270deg, #FF76A9 33.85%, #67A3D9 74.91%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -38,7 +38,7 @@
     color: #000000;
 }
 
-.hero-subtext { 
+.heroSubtext { 
     font-family: 'Nunito';
     font-style: normal;
     font-weight: 400;
@@ -48,19 +48,17 @@
     color: #000000;
 }
 
-.hero-search { /* search bar */
+.heroSearch { /* search bar */
     background: #FFFFFF;
     box-shadow: 0px 4px 4px #B9E1F2;
     border-radius: 15px;
-    width: 600px;
+    width: 550px;
     height: 61px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-left: 1.5rem;
-
+    margin-left: 6rem;
 }
-
 
 .input {
     appearance: none;
@@ -76,8 +74,8 @@
     width: 100%;
 }
 
-.search-button {
-    background: #000000;
+.searchButton {
+    background: black;
     width: 130px;
     height: 29px;
     border: 0;

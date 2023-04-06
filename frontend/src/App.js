@@ -8,7 +8,8 @@ import SignUp from './pages/SignUp'
 import Summary from './pages/Summary';
 import GeneralPage from './pages/GeneralPage';
 import QuizPage from './pages/QuizPage';
-
+import VideoLinkInput from './pages/VideoLinkInput';
+import Footer from "./components/Footer"
 
 import './App.css';
 
@@ -20,7 +21,8 @@ function App() {
 			{location.pathname !== '/login' 
 				&& location.pathname !== '/signup'
 				&& <Navbar />}
-			<div className="App">
+
+			<div className='App'>
 				<Routes>
 					<Route path="/" element={<Home />} />
 					<Route path="/library" element={<Library />} />
@@ -28,9 +30,14 @@ function App() {
 					<Route path="/login" element={<LogIn />} />
 					<Route path="/signup" element={<SignUp />} />
 					<Route path="/summary" element={<Summary/>} />
+					<Route path="/videolinkinput" element={<VideoLinkInput/>} />
 					<Route path="/general" element={<GeneralPage/>} />
 				</Routes>
 			</div>
+
+			{location.pathname !== '/login' 
+				&& location.pathname !== '/signup'
+				&& <Footer />}
 		</div>
 	);
 }

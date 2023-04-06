@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;700&family=Nunito&display=swap');
+
+.Library {
+	text-align: center;
+}
+
+body {
+	background-color: rgb(217, 233, 240);
+}
+
+
+h3 {
+	font-family: 'Montserrat';
+	text-align: justify;
+	margin-left: -5rem;
+	align-items: center;
+}
+
+
+.text {
+	position: relative;
+}
+
+
+
+.nextBox {
+	margin: auto;
+	background-color: rgb(217, 233, 240);
+	padding: 16px;
+	border-radius: 16px;
+	color: white;
+	width: 80%;
+	height: 20px;
+	text-align: start;
+}
+
+.space {
+	margin: auto;
+	background-color: rgb(217, 233, 240);
+	width: 100px;
+	height: 20px;
+}
+
+
+.flexParentElement {
+	display: flex;
+	width: 100%;
+	height: auto;
+}
+
+.flexChildElement {
+	flex: 1;
+	margin: px;
+	height: auto;
+}
+
+.flexSmallerElement {
+	flex: auto;
+	margin: 10px;
+	height: 50px;
+	align-self: flex-start;
+	justify-content: 'space-between';
+
+}
+
+.submit {
+	margin: 0 auto;
+	border: 3px solid lightcyan;
+	width: 200px;
+	height: auto;
+	text-align: center;
+	background-color: lightgray;
+	justify-items: flex-start;
+	padding: 16px;
+	border-radius: 16px;
+}
+
+.circleRight {
+	margin-left: 30rem;
+	height: 200px;
+	top: 90%;
+	left: 303px;
+}
+
+.check {
+	margin-right: 75rem;
+	transform: translateY(3.5rem);
+	margin-top: -10rem;
+}
+
+.pinkCircle {
+	position: absolute;
+	margin-right: -5rem;
+	margin-top: -20rem;
+	margin-left: 15rem;
+	transform: scale(.7);
+}
+
+.blueCircle {
+	position: absolute;
+	margin-right: 80rem;
+	margin-top: -20rem;
+	margin-left: -40rem;
+	transform: scale(.5);
+}
+
+.libraryVid {
+	width: 250px;
+	height: 200px;
+	text-align: center;
+	background-color: lightgray;
+	justify-items: center;
+	padding: 16px;
+	border-radius: 16px;
+	border: 3px solid lightcyan;
+	margin-left: 5rem;
+}
+
+.testAnswers:hover {
+	color: white;
+	cursor: pointer;
+	background-color: rgb(103, 163, 217);
+	;
+}
+
+.submit:hover {
+	color: white;
+	cursor: pointer;
+	background-color: rgb(246, 210, 224);
+}
+
+.searchButton:hover {
+	color:darkgray;
+	cursor: pointer;
+	background-color: rgb(246, 210, 224);
+}
+
+
+.libraryVid:hover {
+	color: white;
+	cursor: pointer;
+	background-color: rgb(177, 177, 177);
+}
+
+.textOnImage {
+	position: absolute;
+	right: 50%;
+	left: 50%;
+	bottom: 45%;
+}
+
+.libraryHeroSearch {
+	/* search bar */
+	background: #FFFFFF;
+	box-shadow: 0px 4px 4px #B9E1F2;
+	border-radius: 15px;
+	width: 600px;
+	height: 61px;
+	display: flex;
+	left: -10%;
+	bottom: -25%;
+	position: absolute;
+	margin-left: -18rem;
+}
+
+.libraryInput {
+	appearance: none;
+	border: none;
+	outline: none;
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	/* line-height: 22px; */
+	color: #757575;
+	margin-left: 1rem;
+	width: 100%;
+}
+
+.searchButton {
+	width: 130px;
+	height: 29px;
+	border: 0;
+	border-radius: 10px;
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 12px;
+	line-height: 15px;
+	color: #FFFFFF;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	margin-right: 1rem;
+	background-color: black;
+}

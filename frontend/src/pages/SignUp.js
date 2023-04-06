@@ -7,7 +7,7 @@ import { IoIosArrowBack } from 'react-icons/io'
 import logo from '../assets/SummerLogo.png';
 import circles from '../assets/BluePinkCircles.png'
 
-import './styles/LogIn.css'
+import styles from './styles/LogIn.module.css'
 
 const SignUp = () => {
 	const navigate = useNavigate();
@@ -115,66 +115,66 @@ const SignUp = () => {
 	}
 
 	return (
-		<div className="screen-container">
-			<div className="form-container">
-				<div className="back-btn" onClick={handleBack}>
+		<div className={styles.screenContainer}>
+			<div className={styles.formContainer}>
+				<div className={styles.backBtn} onClick={handleBack}>
 					<IoIosArrowBack /> Back
 				</div>
-				<div className="form">
-					<div className="subtitle" onClick={handleHome}>
-						<img src={logo} alt='logo' />
+				<div className={styles.form}>
+					<div className={styles.subtitle} onClick={handleHome}>
+						<img src={logo} alt='SummerLogo' />
 						<p>Summer</p>
 					</div>
 
-					<div className='cover'>
+					<div className={styles.cover}>
 						<p>Sign Up</p>
 
 						<form>
 							{/* Labels and inputs for form data */}
-							<label className="loginLabel">Name</label>
+							<label className={styles.loginLabel}>Name</label>
 							<input
 								onChange={handleName}
-								className='log-input'
+								className={styles.logInput}
 								value={name}
 								type="text"/>
-							<label className="loginLabel">Email</label>
+							<label className={styles.loginLabel}>Email</label>
 							<input
 								onChange={handleEmail}
-								className="log-input"
+								className={styles.logInput}
 								value={email}
 								type="email"/>
-							<label className="loginLabel">Password</label>
+							<label className={styles.loginLabel}>Password</label>
 							<input
 								onChange={handlePassword}
-								className="log-input"
+								className={styles.logInput}
 								value={password}
 								type="password"/>
-							<label className="loginLabel">Confirm Password</label>
+							<label className={styles.loginLabel}>Confirm Password</label>
 							<input
 								onChange={handleConfirmPass}
-								className="log-input"
+								className={styles.logInput}
 								value={confirmPass}
 								type="password"/>
 
-							<button onClick={handleSubmit} className="btn" type="submit">
+							<button onClick={handleSubmit} className={styles.btn} type="submit">
 								<span>SIGN UP</span>
 							</button>
 						</form>
 
-						<div className='signup-prompt'>
+						<div className={styles.signupPrompt}>
 							<div>Already have an account?</div>
-							<Link to='/login' className='signup-text'>Log In</Link>
+							<Link to='/login' className={styles.signupText}>Log In</Link>
 						</div>
 
 						{/* Calling to the methods */}
-						<div className="messages">
+						<div className={styles.messages}>
 							{errorMessage()}
 							{successMessage()}
 						</div>
 					</div>
 				</div>
 
-				<img src={circles} className='bleeding-circles'  draggable="false"/>
+				<img src={circles} className={styles.bleedingCircles} draggable="false"/>
 			</div>
 		</div>
 	);
