@@ -28,7 +28,7 @@ function QuizPage() {
 			<div className={styles.nextBox}></div>
 
 			<Line />
-
+			
 			<h6 style={{ fontSize: 15 }}> Choose one answer choice. </h6>
 
 			<div className={styles.flexParentElement}>
