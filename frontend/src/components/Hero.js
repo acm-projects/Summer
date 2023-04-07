@@ -3,14 +3,23 @@ import styles from './styles/Hero.module.css'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react';
 
+
+let YoutubeURL = "";
 const Hero = () => {
-	const [link, useLink] = useState('');
+	const [link, setlink] = useState('');
 	 
 	const navigate = useNavigate();
 
 	function handleSummarize(e) {
-		e.preventDefault();
+		e.preventDefault()
 		navigate('/general')
+	}
+
+	function handleChange(e) {
+		e.preventDefault();
+		YoutubeURL = e.target.value
+		console.log(YoutubeURL);
+
 	}
 
 	return (
@@ -26,7 +35,7 @@ const Hero = () => {
 				</div>
 
 				<div className={styles.heroSearch}>
-					<input type='text' className={styles.input} placeholder='Enter YouTube Link'/>
+					<input type='text' className={styles.input} placeholder='Enter YouTube Link' onChange={handleChange}/> 
 					<button className={styles.searchButton} type='button' onClick={handleSummarize}>
 						<span>SUMMARIZE</span>
 					</button>
@@ -36,4 +45,4 @@ const Hero = () => {
 	)  
 }
 
-export default Hero
+export  {Hero, YoutubeURL}
