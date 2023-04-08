@@ -46,18 +46,19 @@
     margin-bottom: 128px; /* hardcoded white space */
 }
 
-.bubbleRight {
-    position: absolute;
-    top: 50%;
-    right: 133px; /* Adjust this value as needed */
-    transform: translateY(-50%);
-}
-
 .bubbleLeft {
     position: absolute;
     top: 50%;
     left: 133px; /* Adjust this value as needed */
     transform: rotate(180deg);
+    overflow: hidden;
+}
+
+.bubbleRight {
+    position: absolute;
+    top: 50%;
+    right: 133px; /* Adjust this value as needed */
+    transform: translateY(-50%);
 }
 
 .linePadding {

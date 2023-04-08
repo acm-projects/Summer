@@ -1,5 +1,5 @@
 import { Route, Routes, useLocation } from "react-router-dom"
-import { createContext, useState } from 'react';
+
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import Library from './pages/Library'
@@ -12,34 +12,29 @@ import Footer from "./components/Footer"
 
 import './App.css';
 
-export const MyContext = createContext();
-
 function App() {
 	const location = useLocation()
-	const [link, setLink] = useState('')
 
 	return (
-		<MyContext.Provider value={{ link, setLink }}>
-			<div>
-				{location.pathname !== '/login' && location.pathname !== '/signup'
-					&& <Navbar />}
+		<div>
+			{location.pathname !== '/login' && location.pathname !== '/signup'
+				&& <Navbar />}
 
-				<div className='App'>
-					<Routes>
-						<Route path="/" element={<Home />} />
-						<Route path="/library" element={<Library />} />
-						<Route path="/quizpage" element={<QuizPage />} />
-						<Route path="/login" element={<LogIn />} />
-						<Route path="/signup" element={<SignUp />} />
-						<Route path="/summary" element={<Summary />} />
-						<Route path="/general" element={<GeneralPage />} />
-					</Routes>
-				</div>
-
-				{location.pathname !== '/login' && location.pathname !== '/signup'
-					&& <Footer />}
+			<div className='App'>
+				<Routes>
+					<Route path="/" element={<Home />} />
+					<Route path="/library" element={<Library />} />
+					<Route path="/quizpage" element={<QuizPage />} />
+					<Route path="/login" element={<LogIn />} />
+					<Route path="/signup" element={<SignUp />} />
+					<Route path="/summary" element={<Summary/>} />
+					<Route path="/general" element={<GeneralPage/>} />
+				</Routes>
 			</div>
-		</MyContext.Provider>
+
+			{location.pathname !== '/login' && location.pathname !== '/signup'
+				&& <Footer />}
+		</div>
 	);
 }
 
