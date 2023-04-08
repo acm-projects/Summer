@@ -26,8 +26,9 @@ const Summarize = asyncHandler( async(req, res) => {
     temperature: 0,
   })
   .then((response) => {
-    //res.sendStatus(response.data.choices)
-    res.json({summary: response.data.choices[0].text});
+    const sumResponse = response.data.choices[0].text;
+    const parseSum = sumResponse.replace(/\n/g, '');
+    res.json({summary: parseSum});
     
   })
   }catch(error) {
