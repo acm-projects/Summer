@@ -1,4 +1,4 @@
-import {Hero, YoutubeURL} from "../components/Hero";
+import Hero from "../components/Hero";
 import Line from "../components/Line";
 import YouTubeGraphic from '../assets/YouTubeGraphic.png'
 import Bubbles from '../assets/Bubbles.png'

@@ -1,51 +1,49 @@
 import { IoIosArrowBack } from 'react-icons/io'
 import { useNavigate } from 'react-router-dom'
-import {Hero, YoutubeURL } from  '../components/Hero.js'
+import { useState, useContext, useEffect } from 'react'
+import {Hero} from  '../components/Hero.js'
 import styles from './styles/Summary.module.css'
 import axios, { isCancel, AxiosError } from 'axios';
+
+import { MyContext } from '../App'
 
 
 const Summary = () => {
     const navigate = useNavigate();
+    const { link, setLink } = useContext(MyContext)
+    const { summary, setSummary }= useContext(MyContext)
 
     function handleBack(e) {
         e.preventDefault();
         navigate('/general')
     }
-
-
-const displaySummary = (link) => {
-    let result = "";
-     axios.post(
-        "http://localhost:5000/api/videos",
-
-        {
-            transcript: link
-        },
-
-        {
-            headers: {
-                "Content-Type": "application/x-www-form-urlencoded",
-            },
-        }
-
-    ).then((response) => {
-        console.log(response.data.text)
-        result = response.data.text
-        
-    })
     
-    .catch((err) => {
-        console.log("error with getting summary")
-        console.log(err);
+    useEffect(() => {
+		links()
+	}, [])
+	 
 
-    })
-
-    return result;
-
-}
-
-
+	const links = async () => {
+        let result = ''
+		await axios.post("http://localhost:5000/api/videos",
+		{
+			URL: link
+		},
+		
+		{
+			headers: {
+				"Content-Type": "application/x-www-form-urlencoded",
+			},
+		}
+		
+		
+		).then((response) => {
+            result = response.data.text
+        })
+        console.log(result)
+		await setSummary(result)
+	}
+    
     return (
         <div className={styles.pageContainer}>
             {/* <div className={styles.back-btn" onClick={handleBack}>
@@ -62,7 +60,7 @@ const displaySummary = (link) => {
                 </div>
 
                 <div className={styles.summary}>
-                    {displaySummary(YoutubeURL)}
+                    {summary}
                 </div>
 
             </div>
