@@ -1,14 +1,16 @@
 import styles from './styles/Hero.module.css'
 
 import { useNavigate } from 'react-router-dom'
-import { useState } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import axios, { isCancel, AxiosError } from 'axios';
+import { MyContext } from '../App.js'
 
-
-let YoutubeURL = "";
 const Hero = () => {
-	const [link, setlink] = useState('');
-	 
+	// const [link, setlink] = useState([]);
+	const { link, setLink } = useContext(MyContext)
 	const navigate = useNavigate();
+
+	
 
 	function handleSummarize(e) {
 		e.preventDefault()
@@ -17,9 +19,7 @@ const Hero = () => {
 
 	function handleChange(e) {
 		e.preventDefault();
-		YoutubeURL = e.target.value
-		console.log(YoutubeURL);
-
+		setLink(e.target.value)
 	}
 
 	return (
@@ -35,7 +35,7 @@ const Hero = () => {
 				</div>
 
 				<div className={styles.heroSearch}>
-					<input type='text' className={styles.input} placeholder='Enter YouTube Link' onChange={handleChange}/> 
+					<input type='text' className={styles.input} placeholder='Enter YouTube Link' onChange ={handleChange}/> 
 					<button className={styles.searchButton} type='button' onClick={handleSummarize}>
 						<span>SUMMARIZE</span>
 					</button>
@@ -45,4 +45,4 @@ const Hero = () => {
 	)  
 }
 
-export  {Hero, YoutubeURL}
+export default Hero

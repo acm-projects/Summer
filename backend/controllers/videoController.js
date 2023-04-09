@@ -10,10 +10,11 @@ const axios = require('axios');
 const { v4: uuidv4 } = require('uuid');
 const Video = require('../models/videoModel')
 const { S3Client, PutObjectCommand, GetObjectCommand } = require("@aws-sdk/client-s3");
-const { getSignedUrl } = require("@aws-sdk/s3-request-presigner");
+const { getSignedUrl, S3RequestPresigner } = require("@aws-sdk/s3-request-presigner");
 const { random } = require('colors');
 const PDFDocument = require('pdfkit');
 const { default: mongoose } = require('mongoose');
+const PDFExtract = require('pdf.js-extract').PDFExtract;
 
 
 
@@ -123,7 +124,7 @@ const postVideo = asyncHandler(async (req, res) => {
     const unsummarized =   await getTranscript(URL)
     //console.log(typeof unsummarized)
     const summary =   await getSummary(unsummarized) 
-    console.log(summary);
+   // console.log(summary);
    
 
     ID1 = uuidv4()
@@ -141,11 +142,31 @@ const postVideo = asyncHandler(async (req, res) => {
     
     console.log(randomfilename);
     doc.end();
+    /*
+    //Extraction from pdf document
+    let extractResult = ''
+    const pdfExtract = new PDFExtract();
+    const options = {
+        firstPage: 1,// default:`1` - start extract at page nr
+        lastPage: 2, //  stop extract at page nr, no default value
+        password: '', //  for decrypting password-protected PDFs., no default value
+        verbosity: 1, // default:`-1` - log level of pdf.js
+        normalizeWhitespace: true, // default:`false` - replaces all occurrences of whitespace with standard spaces (0x20).
+        disableCombineTextItems: false, // default:`false` - do not attempt to combine  same line {@link TextItem}'s.
+    }; 
+    await pdfExtract.extract(randomfilename, options, (err, data) => {
+    if (err) return console.log(err);
+    console.log(data);
+    extractResult = data;
+    });
+    */
+
+
     const params = {
         Bucket: bucketName,
         Key: randomfilename,
-        Body: 'Summer/backend/' + `${randomfilename}`,
-        ContentType: 'application/pdf'
+        Body: "Hello World",
+        ContentType: "application/pdf"
     }
 
     
@@ -165,26 +186,27 @@ const postVideo = asyncHandler(async (req, res) => {
     })
     
 
-    res.send({})
+    res.json({text:summary});
     
     
 });
 
 const getVideo = asyncHandler(async (req, res) => {
     const bucketName = process.env.BUCKET_NAME 
+    console.log(bucketName)
     //searches through the entire database
     const videos = await Video.find({});
-    console.log(videos)
+    //console.log(videos)
     
     for(const video of videos) {
         const getObjectParams = {
             Bucket: bucketName,
-            Key: video.TranscriptID
+            Key: video.TranscriptID + ".pdf"
 
         }
 
         const command = new GetObjectCommand(getObjectParams);
-        const url = await getSignedUrl(S3Client, command,  {expiresIn: 3600})
+        const url = await getSignedUrl(S3RequestPresigner, command,  {expiresIn: 3600})
         video.URL = url;
 
     }

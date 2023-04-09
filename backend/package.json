@@ -25,6 +25,7 @@
     "mongoose": "^6.9.2",
     "multer": "^1.4.5-lts.1",
     "openai": "^3.2.1",
+    "pdf.js-extract": "^0.2.1",
     "pdfkit": "^0.13.0",
     "qs": "^6.11.1",
     "remove-blank-lines": "^1.4.1",
