@@ -1,11 +1,12 @@
 import { useNavigate } from "react-router-dom"
-
+import { useContext } from 'react'
+import { MyContext } from '../App'
 import Bubbles from '../assets/Bubbles.png'
-import UpButton from '../assets/UpButton.png'
 import styles from './styles/General.module.css'
 
 const GeneralPage = () => {
 	const navigate = useNavigate();
+	const { summary, link } = useContext(MyContext)
 
 	function handleSummary(e) {
 		e.preventDefault()
@@ -20,25 +21,26 @@ const GeneralPage = () => {
 
 				<p>Video Title</p>
 
-				<div className={styles.video}>
-					video
-				</div>
 				{/* <div className={styles.video}>
+					video
+				</div> */}
+				<div className={styles.video}>
 					<iframe
 						width="853"
 						height="450"
-						src={`https://www.youtube.com/embed/${link}`}
+						src={link}
+						// src={'https://youtu.be/yY2xDJ_6j_c'}
 						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 						allowFullScreen
 						title="Embedded youtube"
 					/>
-				</div> */}
-
+				</div>
+{/* 
 				<div className={styles.descriptionSection}>
 					<div className={styles.viewVidBtn} onClick=''>
 						VIEW IN YOUTUBE
 					</div>
-				</div>
+				</div> */}
 			</div>
 
 			<div className={styles.featureSection}>
@@ -47,7 +49,7 @@ const GeneralPage = () => {
 					<div className={styles.summary} onClick={handleSummary}>
 						<div className={styles.subtitle}>Summary</div>
 						<div className={styles.summaryText}>
-
+							{summary}
 						</div>
 						<div className={`${styles.viewVidBtn} ${styles.summaryBtn}`}>VIEW SUMMARY</div>
 					</div>
@@ -58,8 +60,6 @@ const GeneralPage = () => {
 					</div>
 				</div>
 			</div>
-
-
 		</div>
 	)
 }

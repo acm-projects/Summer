@@ -16,7 +16,7 @@ const Navbar = () => {
         </li>
         <CustomLink to='/' content='Home' className={styles.headText}></CustomLink>
         <CustomLink to='/library' content='Library' className={styles.headText}></CustomLink>
-        <CustomLink to='/videolinkinput' content='Video Link Input' className={styles.headText}></CustomLink>
+        <CustomLink to='/videolinkinput' content='Summer-ize' className={styles.headText}></CustomLink>
         <CustomLink to='/quizpage' content='Quiz Page' className={styles.headText}></CustomLink>
         <div className={styles.login}>
           <CustomLink to='/login' content='Log In' className={`${styles.headText} ${styles.white}`}></CustomLink>

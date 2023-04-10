@@ -6,7 +6,6 @@ import PinkCircle from '../assets/PinkCircle.png'
 import BlueCircle from '../assets/BlueCircle.png'
 import Bubbles from '../assets/Bubbles.png'
 
-
 import styles from './styles/QuizPage.module.css';
 
 function QuizPage() {
