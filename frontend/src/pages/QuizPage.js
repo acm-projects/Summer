@@ -1,12 +1,11 @@
-import Hero from "../components/Hero";
 import Line from "../components/Line";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import Bubbles from '../assets/Bubbles.png'
 import CheckCircle from '../assets/CheckCircle.png'
 import PinkCircle from '../assets/PinkCircle.png'
 import BlueCircle from '../assets/BlueCircle.png'
-import Gradient from '../assets/Gradient.png'
+import Bubbles from '../assets/Bubbles.png'
+
 
 import styles from './styles/QuizPage.module.css';
 
@@ -21,7 +20,7 @@ function QuizPage() {
 				<h1 style={{ fontSize: 50 }}>Quiz and Guide</h1>
 			</span>
 
-			<img src={CheckCircle} className={styles.check} />
+			<img src={CheckCircle} alt='check circle' className={styles.check} />
 
 			<h5 style={{ fontSize: 15 }}> Join many others: Summer is trusted by many ambitious users </h5>
 			<h5 style={{ fontSize: 15 }}> Get started quickly: Engage below and assess your knowledge of the desired video </h5>
@@ -33,7 +32,7 @@ function QuizPage() {
 
 			<div className={styles.flexParentElement}>
 				<div className={styles.flexChildElement}>
-					<img src={BlueCircle} className={styles.blueCircle} />
+					<img src={BlueCircle} alt='blue circle' className={styles.blueCircle} />
 
 					<div className={styles.test}>
 						<h2>Question 1</h2>
@@ -137,7 +136,7 @@ function QuizPage() {
 					</div>
 				</div>
 
-				<img src={PinkCircle} className={styles.pinkCircle} />
+				<img src={PinkCircle} alt='pink cicrle' className={styles.pinkCircle} />
 
 				<div className={styles.nextBox}></div>
 			</div>

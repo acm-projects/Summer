@@ -9,29 +9,33 @@ const removeEmptyLines = require("remove-blank-lines");
 const axios = require('axios');
 const { v4: uuidv4 } = require('uuid');
 const Video = require('../models/videoModel')
+const { S3Client, PutObjectCommand, GetObjectCommand } = require("@aws-sdk/client-s3");
+const { getSignedUrl, S3RequestPresigner } = require("@aws-sdk/s3-request-presigner");
+const { random } = require('colors');
+const PDFDocument = require('pdfkit');
+const { default: mongoose } = require('mongoose');
+const PDFExtract = require('pdf.js-extract').PDFExtract;
 
-const postVideo = asyncHandler(async (req, res) => {
-    const {URL} = req.body
 
-    if(!URL){
-        res.status(400)
-        throw new Error('Please add URL')
-    }
 
-    function parseVtt(subtitles) {
-        const timeStamp = /\d{2}:\d{2}:\d{2}\.\d{3} --> \d{2}:\d{2}:\d{2}\.\d{3}/;
-        const newContent = subtitles.split('\n').slice(3).join('\n');
-        const noEmptyLines = removeEmptyLines(newContent.replace(/<.*?>|<\/.*?>/g, ""));
-        const removeTimes = noEmptyLines.split('\n').filter(line => !timeStamp.test(line)).join('\n');
-        // const fileContents = cleanVttFile.replace(/^.*align:start position:0%.*$/gm, ''); // only works with auto-subs
-        const cleanVttFile= Array.from(new Set(removeTimes.split('\n'))).join('\n');
-        const newData = cleanVttFile.replace(/\n/g, ' ');
-        // res.json({"summary": newData});
-        return newData;
-    }
 
-    let result = "";
-    youtubedl(URL, {
+
+function parseVtt(subtitles) {
+    const timeStamp = /\d{2}:\d{2}:\d{2}\.\d{3} --> \d{2}:\d{2}:\d{2}\.\d{3}/;
+    const newContent = subtitles.split('\n').slice(3).join('\n');
+    const noEmptyLines = removeEmptyLines(newContent.replace(/<.*?>|<\/.*?>/g, ""));
+    const removeTimes = noEmptyLines.split('\n').filter(line => !timeStamp.test(line)).join('\n');
+    // const fileContents = cleanVttFile.replace(/^.*align:start position:0%.*$/gm, ''); // only works with auto-subs
+    const cleanVttFile= Array.from(new Set(removeTimes.split('\n'))).join('\n');
+    const newData = cleanVttFile.replace(/\n/g, ' ');
+    // res.json({"summary": newData});
+    return newData;
+}
+
+//function that returns the transcript 
+const getTranscript = asyncHandler(async (videoURL) => {
+    let result = ""
+    await youtubedl(videoURL, {
         writeAutoSub: true,
         writeSubs: true,
         skipDownload: true,
@@ -40,49 +44,177 @@ const postVideo = asyncHandler(async (req, res) => {
     }).then(() => {
         const subtitles = fs.readFileSync("subtitles.en.vtt", 'utf-8');
         result = parseVtt(subtitles);
-        console.log(result);
-        axios.post("http://localhost:5000/api/summarize",
-        {
-            transcript: result
-        }
+        //console.log(result + "this console.log ");
+        
+        
+        
+    })
+    .catch((err) => {
+    console.log(err);
+    console.log(err.message);
+    })
 
+    return result;
+}) 
+
+//const postVideo = asyncHandler(async (req, res) =>
+
+   const  getSummary =  asyncHandler(async (videotranscript) => {
+        let content = ""
+
+       await axios.post("http://localhost:5000/api/summarize",
+        {
+            transcript: videotranscript
+        },
+     
         )
         .then((response) => {
-            res.json({result: response.data.summary});
+            // res.json({result: response.data.summary});
+            //filename contains the summarized content
+            //console.log(response.data.summary);
+            content = response.data.summary
+            
+        
         })
         .catch((error) => {
             console.log('Error with Summarization')
             console.log(error.message);
         });
-    }).catch((err) => {
-        console.error(err);
-        res.status(500).send('Error fetching subtitles');
-    });
 
-     //Create Video
-     const video = await Video.create({
-        URL: URL,
-        TranscriptID: uuidv4(),
-        QuizID: uuidv4()
-    })
-    /*
-    if(video){
-        res.status(201).json({
-            URL: video.URL,
-            TranscriptID: video.TranscriptID,
-            QuizID: video.QuizID
-            
-        })
-    } else{
+        return content;
+   })
+   
+
+
+
+
+
+
+
+
+
+
+const postVideo = asyncHandler(async (req, res) => {
+
+    const {URL} = req.body
+
+    if(!URL){
         res.status(400)
-        throw new Error('Invalid video data')
+        throw new Error('Please add URL')
     }
+    
+    
+    const bucketName = process.env.BUCKET_NAME 
+    const bucketRegion = process.env.BUCKET_REGION
+    const accessKey = process.env.ACCESS_KEY
+    const secretAccessKey = process.env.SECRET_ACCESS_KEY
+    // console.log(accessKey)
+    const s3 = new S3Client({
+        credentials: {
+            accessKeyId: accessKey,
+            secretAccessKey: secretAccessKey,
+        },
+        
+        region: bucketRegion
+    });
+ 
+
+
+     
+    const unsummarized =   await getTranscript(URL)
+    //console.log(typeof unsummarized)
+    const summary =   await getSummary(unsummarized) 
+   // console.log(summary);
+   
+
+    ID1 = uuidv4()
+    ID2 = uuidv4()
+
+    // Create a document
+    const doc = new PDFDocument({compress: false});
+    const randomfilename = ID1 + ".pdf";
+  
+    // Pipe it's output somewhere, like to a file or HTTP response
+    doc.pipe(fs.createWriteStream(randomfilename))
+    .on('finish', () =>{
+    })
+    doc.text("" + summary)
+    
+    console.log(randomfilename);
+    doc.end();
+    /*
+    //Extraction from pdf document
+    let extractResult = ''
+    const pdfExtract = new PDFExtract();
+    const options = {
+        firstPage: 1,// default:`1` - start extract at page nr
+        lastPage: 2, //  stop extract at page nr, no default value
+        password: '', //  for decrypting password-protected PDFs., no default value
+        verbosity: 1, // default:`-1` - log level of pdf.js
+        normalizeWhitespace: true, // default:`false` - replaces all occurrences of whitespace with standard spaces (0x20).
+        disableCombineTextItems: false, // default:`false` - do not attempt to combine  same line {@link TextItem}'s.
+    }; 
+    await pdfExtract.extract(randomfilename, options, (err, data) => {
+    if (err) return console.log(err);
+    console.log(data);
+    extractResult = data;
+    });
     */
 
+
+    const params = {
+        Bucket: bucketName,
+        Key: randomfilename,
+        Body: "Hello World",
+        ContentType: "application/pdf"
+    }
+
+    
+    const command = new PutObjectCommand(params)
+      
+    await s3.send(command)
+
+   
+
+    //res.json({text: summary})
+  
+    //Create Video
+    const video = await Video.create({
+        URL: URL,
+        TranscriptID: ID1,
+        QuizID: ID2
+    })
+    
+
+    res.json({text:summary});
     
     
 });
 
+const getVideo = asyncHandler(async (req, res) => {
+    const bucketName = process.env.BUCKET_NAME 
+    console.log(bucketName)
+    //searches through the entire database
+    const videos = await Video.find({});
+    //console.log(videos)
+    
+    for(const video of videos) {
+        const getObjectParams = {
+            Bucket: bucketName,
+            Key: video.TranscriptID + ".pdf"
+
+        }
+
+        const command = new GetObjectCommand(getObjectParams);
+        const url = await getSignedUrl(S3RequestPresigner, command,  {expiresIn: 3600})
+        video.URL = url;
+
+    }
+    res.send(videos)
+})
+
+
 module.exports = {
-    postVideo
+    postVideo,
+    getVideo
 }
