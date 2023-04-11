@@ -155,8 +155,8 @@ ul {
 	justify-content: 'space-between';
 
 	border: 1px solid rgb(9, 147, 191);
-	width: 450px;
-	height: 50px;
+	width: 550px;
+	height: 70px;
 	text-align: center;
 	background-color: lightgray;
 	justify-items: flex-end;
@@ -194,24 +194,30 @@ ul {
 }
 
 
-.flexParentElement {
+.quizflexParentElement {
 	display: flex;
 	width: 100%;
 	height: auto;
+	border: 1px black;
+
 }
 
-.flexChildElement {
+.quizflexChildElement {
 	flex: 1;
 	margin: 10px;
 	height: auto;
+	border: 1px black;
+
 }
 
-.flexSmallerElement {
+.quizflexSmallerElement {
 	flex: auto;
 	margin: 10px;
-	height: 50px;
+	height: 0;
 	align-self: flex-start;
 	justify-content: 'space-between';
+	border: 1px black;
+
 }
 
 .submit {
