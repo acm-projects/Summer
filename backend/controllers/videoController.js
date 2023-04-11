@@ -9,8 +9,9 @@ const removeEmptyLines = require("remove-blank-lines");
 const axios = require('axios');
 const { v4: uuidv4 } = require('uuid');
 const Video = require('../models/videoModel')
-const { S3Client, PutObjectCommand, GetObjectCommand } = require("@aws-sdk/client-s3");
-const { getSignedUrl, S3RequestPresigner } = require("@aws-sdk/s3-request-presigner");
+const {Upload} = require("@aws-sdk/lib-storage");
+const { S3Client, PutObjectCommand, GetObjectCommand,} = require("@aws-sdk/client-s3");
+const { getSignedUrl } = require("@aws-sdk/s3-request-presigner");
 const { random } = require('colors');
 const PDFDocument = require('pdfkit');
 const { default: mongoose } = require('mongoose');
@@ -85,7 +86,20 @@ const getTranscript = asyncHandler(async (videoURL) => {
    })
    
 
-
+    const  bucketName = process.env.BUCKET_NAME 
+    const bucketRegion = process.env.BUCKET_REGION
+    const accessKey = process.env.ACCESS_KEY
+    const secretAccessKey = process.env.SECRET_ACCESS_KEY
+    // console.log(accessKey)
+    const s3 = new S3Client({
+        credentials: {
+            accessKeyId: accessKey,
+            secretAccessKey: secretAccessKey,
+        },
+        
+        region: bucketRegion
+    });
+ 
 
 
 
@@ -104,19 +118,19 @@ const postVideo = asyncHandler(async (req, res) => {
     }
     
     
-    const bucketName = process.env.BUCKET_NAME 
-    const bucketRegion = process.env.BUCKET_REGION
-    const accessKey = process.env.ACCESS_KEY
-    const secretAccessKey = process.env.SECRET_ACCESS_KEY
-    // console.log(accessKey)
-    const s3 = new S3Client({
-        credentials: {
-            accessKeyId: accessKey,
-            secretAccessKey: secretAccessKey,
-        },
+    // const bucketName = process.env.BUCKET_NAME 
+    // const bucketRegion = process.env.BUCKET_REGION
+    // const accessKey = process.env.ACCESS_KEY
+    // const secretAccessKey = process.env.SECRET_ACCESS_KEY
+    // // console.log(accessKey)
+    // const s3 = new S3Client({
+    //     credentials: {
+    //         accessKeyId: accessKey,
+    //         secretAccessKey: secretAccessKey,
+    //     },
         
-        region: bucketRegion
-    });
+    //     region: bucketRegion
+    // });
  
 
 
@@ -140,40 +154,30 @@ const postVideo = asyncHandler(async (req, res) => {
     })
     doc.text("" + summary)
     
-    console.log(randomfilename);
+    //console.log(randomfilename);
     doc.end();
-    /*
-    //Extraction from pdf document
-    let extractResult = ''
-    const pdfExtract = new PDFExtract();
-    const options = {
-        firstPage: 1,// default:`1` - start extract at page nr
-        lastPage: 2, //  stop extract at page nr, no default value
-        password: '', //  for decrypting password-protected PDFs., no default value
-        verbosity: 1, // default:`-1` - log level of pdf.js
-        normalizeWhitespace: true, // default:`false` - replaces all occurrences of whitespace with standard spaces (0x20).
-        disableCombineTextItems: false, // default:`false` - do not attempt to combine  same line {@link TextItem}'s.
-    }; 
-    await pdfExtract.extract(randomfilename, options, (err, data) => {
-    if (err) return console.log(err);
-    console.log(data);
-    extractResult = data;
-    });
-    */
+  
 
 
     const params = {
         Bucket: bucketName,
         Key: randomfilename,
-        Body: "Hello World",
+        Body: doc,
         ContentType: "application/pdf"
     }
 
-    
-    const command = new PutObjectCommand(params)
-      
-    await s3.send(command)
 
+    const upload = new Upload({
+        client: s3,
+        params: params
+      });
+   
+      await upload.done();
+    
+    //attempt with PutobjectCommand object
+    // const command = new PutObjectCommand(params);
+    // await s3.send(command)
+    
    
 
     //res.json({text: summary})
@@ -192,8 +196,8 @@ const postVideo = asyncHandler(async (req, res) => {
 });
 
 const getVideo = asyncHandler(async (req, res) => {
-    const bucketName = process.env.BUCKET_NAME 
-    console.log(bucketName)
+   
+    //console.log(bucketName)
     //searches through the entire database
     const videos = await Video.find({});
     //console.log(videos)
@@ -204,9 +208,9 @@ const getVideo = asyncHandler(async (req, res) => {
             Key: video.TranscriptID + ".pdf"
 
         }
-
+       
         const command = new GetObjectCommand(getObjectParams);
-        const url = await getSignedUrl(S3RequestPresigner, command,  {expiresIn: 3600})
+        const url = await getSignedUrl(s3, command,  {expiresIn: 3600})
         video.URL = url;
 
     }
