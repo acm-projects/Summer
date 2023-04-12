@@ -35,12 +35,6 @@ const GeneralPage = () => {
 						title="Embedded youtube"
 					/>
 				</div>
-{/* 
-				<div className={styles.descriptionSection}>
-					<div className={styles.viewVidBtn} onClick=''>
-						VIEW IN YOUTUBE
-					</div>
-				</div> */}
 			</div>
 
 			<div className={styles.featureSection}>
