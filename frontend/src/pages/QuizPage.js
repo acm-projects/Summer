@@ -43,7 +43,7 @@ function QuizPage() {
                     <div className={styles.quizflexChildElement}>
                         <div className={styles.testAnswers}>
                             <div className={styles.push}></div>
-                            <p>Hash Map</p>
+                            <p>Binary Search</p>
                         </div>
 						<div className={styles.quizflexSmallerElement}></div>
 
@@ -55,7 +55,7 @@ function QuizPage() {
                         <div className={styles.smallBox}></div>
 
                         <div className={styles.testAnswers}>
-                            <p>Binary Search</p>
+                            <p>Hash Map</p>
                         </div>
 						<div className={styles.quizflexSmallerElement}></div>
                         <div className={styles.smallBox}></div>
