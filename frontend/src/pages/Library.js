@@ -20,7 +20,7 @@ function Library() {
 						<div className={styles.libraryHeroSearch}>
 							<input type='text' className={styles.libraryInput}
 								placeholder='Search in Your Library'/>
-							<button className={styles.searchButton} type='button'>
+							<button className={styles.librarysearchButton} type='button'>
 								<span>SEARCH</span>
 							</button>
 						</div>
@@ -35,22 +35,28 @@ function Library() {
 					<div className={styles.libraryVid}>
 
 					</div>
-					<p> Introduction to Arrays</p>
-					<p> Quiz | All Info</p>
+					<input type='text' className={styles.videotitles}
+								placeholder='Introduction to Arrays'/>
+					<input type='text' className={styles.videotitles}
+								placeholder='Quiz | All Info'/>
 				</div>
 
 				<div className={styles.flexChildElement}>
 					<div className={styles.libraryVid}>
 					</div>
-					<p> Introduction to Linked Lists</p>
-					<p> Quiz | All Info</p>
+					<input type='text' className={styles.videotitles}
+								placeholder='Introduction to Linked Lists'/>
+					<input type='text' className={styles.videotitles}
+								placeholder='Quiz | All Info'/>
 				</div>
 
 				<div className={styles.flexChildElement}>
 					<div className={styles.libraryVid}>
 					</div>
-					<p> AVL Trees </p>
-					<p> Quiz | All Info</p>
+					<input type='text' className={styles.videotitles}
+								placeholder='AVL Trees'/>
+					<input type='text' className={styles.videotitles}
+								placeholder='Quiz | All Info'/>
 				</div >
 			</div >
 
@@ -60,22 +66,28 @@ function Library() {
 				<div className={styles.flexChildElement}>
 					<div className={styles.libraryVid}>
 					</div>
-					<p> Data Structures</p>
-					<p> Quiz | All Info</p>
+					<input type='text' className={styles.videotitles}
+								placeholder='Data Structures'/>
+					<input type='text' className={styles.videotitles}
+								placeholder='Quiz | All Info'/>
 				</div >
 
 				<div className={styles.flexChildElement}>
 					<div className={styles.libraryVid}>
 					</div>
-					<p> Intro to Computer Architecture</p>
-					<p> Quiz | All Info</p>
+					<input type='text' className={styles.videotitles}
+								placeholder= 'Computer Architecture'/>
+					<input type='text' className={styles.videotitles}
+								placeholder='Quiz | All Info'/>
 				</div >
 
 				<div className={styles.flexChildElement}>
 					<div className={styles.libraryVid}>
 					</div>
-					<p> Code in React </p>
-					<p> Quiz | All Info</p>
+					<input type='text' className={styles.videotitles}
+								placeholder='Code in React'/>
+					<input type='text' className={styles.videotitles}
+								placeholder='Quiz | All Info'/>
 				</div >
 			</div >
 
@@ -85,7 +97,7 @@ function Library() {
 
 				<div className={styles.nextBox}></div>
 				<div className={styles.nextBox}></div>
-				<img src={PinkCircle} alt='pink circle' className={styles.pinkCircle} />
+				{/*<img src={PinkCircle} alt='pink circle' className={styles.pinkCircle} /> */}
 				<div className={styles.nextBox}></div>
 				<div className={styles.nextBox}></div>
 

@@ -5,13 +5,34 @@ import CheckCircle from '../assets/CheckCircle.png'
 import PinkCircle from '../assets/PinkCircle.png'
 import BlueCircle from '../assets/BlueCircle.png'
 import Bubbles from '../assets/Bubbles.png'
+import { useNavigate } from 'react-router-dom'
 
 
 import styles from './styles/QuizPage.module.css';
 
+import React, { useState } from "react";
+
+
 function QuizPage() {
+    const navigate = useNavigate();
+
+
+    const [active, setActive] = useState(false);
+    const handleClick = () => {
+     setActive(!active);
+  };
+
+  function handleSubmit(e) {
+    e.preventDefault()
+    navigate('/general')
+}
+
+
+
 	return (
+
 		<div className={styles.QuizPage}>
+
 			<img src={Bubbles} alt='bubbles' className={styles.bubbleRight} />
 
 			<div className={styles.nextBox}></div>
@@ -22,16 +43,14 @@ function QuizPage() {
 
 			<img src={CheckCircle} alt='check circle' className={styles.check} />
 
-			<h5 style={{ fontSize: 15 }}> Join many others: Summer is trusted by many ambitious users </h5>
-			<h5 style={{ fontSize: 15 }}> Get started quickly: Engage below and assess your knowledge of the desired video </h5>
+			<h5 style={{ fontSize: 20 }}> Get started quickly: Engage below and assess your knowledge of the desired video </h5>
 			<div className={styles.nextBox}></div>
 
 			<Line />
-
-			<h6 style={{ fontSize: 15 }}> Choose one answer choice. </h6>
+			
+			<h6 style={{ fontSize: 18 }}> Choose one answer choice. </h6>
 
 		
-
 
 			<div className={styles.quizflexParentElement}>
                     <div className={styles.quizflexChildElement}>
@@ -41,14 +60,15 @@ function QuizPage() {
                         </div>
                     </div>
                     <div className={styles.quizflexChildElement}>
-                        <div className={styles.testAnswers}>
+                        
                             <div className={styles.push}></div>
-                            <p>Binary Search</p>
-                        </div>
+
+                            <button className={styles.onClick} type='button' onClick={handleClick} style={{ backgroundColor: active ? "gray" : "white" }}> Arrays </button>
+
 						<div className={styles.quizflexSmallerElement}></div>
 
                         <div className={styles.smallBox}></div>
-                        <div className={styles.testAnswers}>
+                        <div className={styles.testAnswers} onClick={handleClick} style={{ backgroundColor: active ? "gray" : "white" }}>
                             <p>Array</p>
                         </div>
 						<div className={styles.quizflexSmallerElement}></div>
@@ -112,9 +132,12 @@ function QuizPage() {
 
 				<div className={styles.flexParentElement}>
 					<div className={styles.flexChildElement}>
-						<div className={styles.submit}>
-							<h2>Submit!</h2>
-						</div>
+						
+                            <button className={styles.submit} type='button' onClick={handleSubmit} style={{ fontSize: 25 }} > Submit! </button>
+						
+
+
+
 					</div>
 
 				<img src={PinkCircle} alt='pink cicrle' className={styles.pinkCircle} />

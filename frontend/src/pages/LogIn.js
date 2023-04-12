@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom"
 import axios, { isCancel, AxiosError } from 'axios';
 import { IoIosArrowBack } from 'react-icons/io'
@@ -72,17 +72,6 @@ const LogIn = () => {
 
 	};
 
-	// Showing success message
-	const successMessage = () => {
-		return (
-			<div
-				style={{
-					display: submitted ? '' : 'none',
-				}}>
-				<h1>User {name} is successfully registered!</h1>
-			</div>
-		);
-	};
 
 	// Showing error message if error is true
 	const errorMessage = () => {
@@ -100,6 +89,23 @@ const LogIn = () => {
 		e.preventDefault();
 		navigate('/')
 	}
+
+	// disable scrolling
+	const disableScroll = () => {
+		document.body.style.overflow = 'hidden';
+	  }
+	
+	  const enableScroll = () => {
+		document.body.style.overflow = 'auto';
+	  }
+	
+	  useEffect(() => {
+		disableScroll();
+	
+		return () => {
+		  enableScroll();
+		}
+	  }, []);
 
 	return (
 		<div>
@@ -150,12 +156,11 @@ const LogIn = () => {
 							{/* Calling to the methods */}
 							<div className={styles.messages}>
 								{errorMessage()}
-								{successMessage()}
 							</div>
 						</div>
 					</div>
 
-					<img src={circles} className={styles.bleedingCircles} draggable="false"/>
+					<img src={circles} alt='backgroundCircles' className={styles.bleedingCircles} draggable="false"/>
 				</div>
 			</div>
 
