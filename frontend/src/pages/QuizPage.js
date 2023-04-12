@@ -69,19 +69,25 @@ function QuizPage() {
                         
                             <div className={styles.push}></div>
 
-                            <button className={styles.onClick} type='button' onClick={handleClick} style={{ backgroundColor: active ? "gray" : "white" }}> Arrays </button>
+                            {/*<button className={styles.onClick} type='button' onClick={handleClick} style={{ backgroundColor: active ? "gray" : "white" }}> Arrays </button>*/}
 
 						<div className={styles.quizflexSmallerElement}></div>
 
                         <div className={styles.smallBox}></div>
-                        <div className={styles.testAnswers} onClick={handleClick} style={{ backgroundColor: active ? "gray" : "white" }}>
+                        {/*<div className={styles.testAnswers} onClick={handleClick} style={{ backgroundColor: active ? "gray" : "white" }}>
                             <p>Array</p>
+                        </div>*/}
+						<div className={styles.quizflexSmallerElement}></div>
+                        <div className={styles.smallBox}></div>
+
+                        <div className={styles.testAnswers}>
+                            <p>Binary Search</p>
                         </div>
 						<div className={styles.quizflexSmallerElement}></div>
                         <div className={styles.smallBox}></div>
 
                         <div className={styles.testAnswers}>
-                            <p>Hash Map</p>
+                            <p>Hash Maps</p>
                         </div>
 						<div className={styles.quizflexSmallerElement}></div>
                         <div className={styles.smallBox}></div>
@@ -90,6 +96,17 @@ function QuizPage() {
                         </div>
 						<div className={styles.quizflexSmallerElement}></div>
                         <div className={styles.smallBox}></div>
+
+                        <div className={styles.testAnswers}>
+                            <p>Array</p>
+                        </div>
+						<div className={styles.quizflexSmallerElement}></div>
+                        <div className={styles.smallBox}></div>
+
+                        
+
+
+
                     </div>
                 </div>
 
