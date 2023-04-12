@@ -61,6 +61,7 @@ function Library() {
 			</div >
 
 			<div className={styles.nextBox}></div>
+
 			< div className={styles.flexParentElement} >
 
 				<div className={styles.flexChildElement}>
