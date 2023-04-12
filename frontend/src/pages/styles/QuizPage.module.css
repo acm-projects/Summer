@@ -102,9 +102,24 @@ ul {
 }
 
 .questionText {
+	margin-top: 40px;
 	color: black;
-	font-size: 24px;
+	font-size: 20px;
+	font-weight: 100;
+	text-align: center;
+	font-family: 'Nunito';
 }
+
+.questionTitle {
+	margin-top: 40px;
+	color: black;
+	font-size: 30px;
+	font-weight: 550;
+	text-align: center;
+
+
+}
+
 
 .nextBox {
 	margin: auto;
@@ -152,7 +167,6 @@ ul {
 	flex-direction: 'row';
 	justify-content: 'space-between';
 
-	border: 1px solid rgb(9, 147, 191);
 	width: 550px;
 	height: 70px;
 	text-align: center;
@@ -161,6 +175,9 @@ ul {
 	padding: 16px;
 	border-radius: 16px;
 	box-shadow: 5px 5px 10px 2px rgba(81, 81, 81, 0.8);
+	box-shadow: 5px 5px 10px 2px rgba(255, 255, 255, 0.8);
+
+
 }
 
 .answerBox {
@@ -364,4 +381,6 @@ ul {
 	background-color: rgb(123, 180, 17);
 	
 }
+
+
 

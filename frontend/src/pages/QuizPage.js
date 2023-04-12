@@ -55,8 +55,14 @@ function QuizPage() {
 			<div className={styles.quizflexParentElement}>
                     <div className={styles.quizflexChildElement}>
                         <div className={styles.test}>
-                            <h2>Question 1</h2>
+
+                        <div className= {styles.questionTitle}> 
+                            <p>Question 1</p>
+                            </div>
+
+                            <div className= {styles.questionText}>
                             <p>Which of these is not a data structure?</p>
+                            </div>
                         </div>
                     </div>
                     <div className={styles.quizflexChildElement}>
@@ -87,14 +93,20 @@ function QuizPage() {
                     </div>
                 </div>
 
+                <div className={styles.nextBox}></div>
+
+
 
 
 
 			<div className={styles.quizflexParentElement}>
                     <div className={styles.quizflexChildElement}>
                         <div className={styles.test}>
-                            <h2>Question 2</h2>
-                            <p>Which of these is a programming language?</p>
+                        <div className= {styles.questionTitle}> 
+                            <p>Question 2</p>
+                            </div>
+                            <div className= {styles.questionText}> Which of these is a programming language?
+                            </div>
                         </div>
 						
                     </div>
