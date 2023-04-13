@@ -8,15 +8,6 @@ body {
 	background-color: rgb(217, 233, 240);
 }
 
-.topBubble {
-	width: auto;
-	height: 200px;
-}
-
-h1 {
-	text-align: justify;
-	margin-left: 10rem;
-}
 
 h3 {
 	font-family: 'Montserrat';
@@ -25,93 +16,12 @@ h3 {
 	align-items: center;
 }
 
-h5 {
-	width: auto;
-	height: auto;
-	font-family: 'Nunito';
-	font-style: normal;
-	font-weight: 400;
-	font-size: 20px;
-	color: #6B6B6B;
-	margin-left: 10rem;
-	text-align: justify;
-}
 
-h6 {
-	width: 50%;
-	height: auto;
-	align-items: center;
-	justify-content: center;
-	font-family: 'Nunito';
-	font-style: normal;
-	font-weight: 400;
-	font-size: 20px;
-	color: #6B6B6B;
-	margin-left: 25%;
-}
-
-.headtext {
+.text {
 	position: relative;
 }
 
-.general {
-	background-color: rgb(121, 55, 55);
-	justify-items: flex-start;
-	padding: 16px;
-	border-radius: 16px;
-	width: 100%;
-	height: auto;
-}
 
-.general2 {
-	margin: auto;
-	background-color: rgb(40, 30, 30);
-	justify-items: flex-end;
-	padding: 16px;
-	border-radius: 16px;
-	width: 50%;
-	height: 100px;
-}
-
-.general3 {
-	width: 400px;
-	height: 50px;
-	text-align: justify;
-	background-color: white;
-	justify-items: flex-start;
-	padding: 16px;
-	border-radius: 16px;
-}
-
-.general4 {
-	width: 400px;
-	height: 50px;
-	text-align: justify;
-	background-color: yellow;
-	justify-items: flex-end;
-	padding: 16px;
-	border-radius: 16px;
-}
-
-.questionCard {
-	margin: 0 auto;
-	background-color: lightgray;
-	justify-items: flex-start;
-
-	padding: 16px;
-	border-radius: 16px;
-	color: white;
-	box-shadow: rgba(50, 50, 93, .25) 0px 30px 60px -12px,
-		rgba(0, 0, 0, .3) 0px 18px 36px -18px;
-	width: 50%;
-	height: auto;
-
-}
-
-.questionText {
-	color: black;
-	font-size: 24px;
-}
 
 .nextBox {
 	margin: auto;
@@ -131,69 +41,6 @@ h6 {
 	height: 20px;
 }
 
-.box {
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	gap: 10px 2em;
-}
-
-.box:first-child {
-	align-self: center;
-}
-
-.test {
-	margin: 0 auto;
-	border: 1px solid rgb(9, 147, 191);
-	width: 550px;
-	height: 312px;
-	text-align: justify;
-	background-color: lightgray;
-	justify-items: flex-start;
-	padding: 16px;
-	border-radius: 16px;
-}
-
-.testAnswers {
-	margin: 0 auto;
-	align-self: flex-start;
-	flex-direction: 'row';
-	justify-content: 'space-between';
-
-	border: 1px solid rgb(9, 147, 191);
-	width: 450px;
-	height: 50px;
-	text-align: center;
-	background-color: lightgray;
-	justify-items: flex-end;
-	padding: 16px;
-	border-radius: 16px;
-	box-shadow: 5px 5px 10px 2px rgba(81, 81, 81, 0.8);
-}
-
-.answerBox {
-	margin: 0 auto;
-	align-self: flex-start;
-	flex-direction: 'row';
-	justify-content: 'space-between';
-
-	width: auto;
-	height: 25%;
-	background-color: lightgray;
-	justify-items: flex-end;
-	padding: 16px;
-	border-radius: 16px;
-}
-
-
-.rowC {
-	display: flex;
-	flex-direction: row;
-}
-
-.fontLink {
-	font-family: 'Montserrat', sans-serif;
-	size: 40;
-}
 
 .flexParentElement {
 	display: flex;
@@ -241,7 +88,7 @@ h6 {
 	margin-top: -10rem;
 }
 
-.pinkCircle {
+.librarypinkCircle {
 	position: absolute;
 	margin-right: -5rem;
 	margin-top: -20rem;
@@ -266,7 +113,8 @@ h6 {
 	padding: 16px;
 	border-radius: 16px;
 	border: 3px solid lightcyan;
-	margin-left: 5rem;
+	margin-left: 8rem;
+	color: black;
 }
 
 .testAnswers:hover {
@@ -282,6 +130,13 @@ h6 {
 	background-color: rgb(246, 210, 224);
 }
 
+.librarysearchButton:hover {
+	color:darkgray;
+	cursor: pointer;
+	background-color: rgb(246, 210, 224);
+}
+
+
 .libraryVid:hover {
 	color: white;
 	cursor: pointer;
@@ -292,7 +147,7 @@ h6 {
 	position: absolute;
 	right: 50%;
 	left: 50%;
-	bottom: 45%;
+	bottom: 60%;
 }
 
 .libraryHeroSearch {
@@ -304,7 +159,7 @@ h6 {
 	height: 61px;
 	display: flex;
 	left: -10%;
-	bottom: -25%;
+	bottom: -30%;
 	position: absolute;
 	margin-left: -18rem;
 }
@@ -323,7 +178,7 @@ h6 {
 	width: 100%;
 }
 
-.searchButton {
+.librarysearchButton {
 	width: 130px;
 	height: 29px;
 	border: 0;
@@ -339,4 +194,44 @@ h6 {
 	justify-content: center;
 	text-align: center;
 	margin-right: 1rem;
+	background-color: black;
+	margin-top: 13px;
+}
+
+.videotitles {
+	text-align: center;
+	border: none;
+	outline: none;
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 550;
+	font-size: 16px;
+	/* line-height: 22px; */
+	color: black;
+	background-color:  rgb(217, 233, 240);
+	margin-left: 2rem;
+	margin-top: 10px;
+	width: 250px;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.videotext {
+	text-align: center;
+	border: none;
+	outline: none;
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 16px;
+	/* line-height: 22px; */
+	color: black;
+	background-color:  rgb(217, 233, 240);
+	margin-left: 2rem;
+	margin-top: 10px;
+	width: 250px;
+    align-items: center;
+    justify-content: center;
+
 }
