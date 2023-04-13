@@ -1,0 +1,125 @@
+.videoSection {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.videoSection p {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 60px;
+    /* line-height: 79px; */
+    margin-top: 5rem;
+}
+
+.videoResponsive {
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+    height: 0;
+}
+
+.videoResponsive iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+.descriptionSection {
+    display: flex;
+    justify-content: space-between;
+}
+
+.viewVidBtn {
+    background: black;
+    border-radius: 10px;
+    width: 202px;
+    height: 34px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 12px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.featureSection {
+    background: #C8E7F5;
+    width: 100vw;
+    height: 819px;
+    margin-top: 170px;
+    display: flex;
+    align-items: center; 
+    flex-direction: column;
+    /* justify-content: space-between; */
+}
+
+.featureContainer {
+    display:flex;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.upButton {
+    margin-top: 52px;
+    width: 40px;
+    height: 40px;
+}
+
+.subtitle {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 49px;
+    /* identical to box height */
+    color: #000000;
+}
+
+.summary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.summaryBtn {
+    width: 172px
+}
+
+.summaryText {
+    font-family: 'Nunito';
+    font-size: 16px;
+}
+
+.quizBtn {
+    width: 120px;
+    margin-left: 300px;
+}
+
+.bubbleLeft {
+    position: absolute;
+    top: 30%;
+    left: 120px;
+    transform: rotate(180deg)
+}
+
+.bubbleRight {
+    position: absolute;
+    top: 30%;
+    right: 120px;
+    /* transform: translateY(20%); */
+}
+
+iframe {
+    border: none;
+    outline: none;
+}

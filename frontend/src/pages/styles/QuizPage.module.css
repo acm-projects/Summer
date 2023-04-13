@@ -8,8 +8,6 @@ body {
 	background-color: rgb(217, 233, 240);
 }
 
-
-
 h1 {
 	text-align: justify;
 	margin-left: 10rem;
@@ -104,9 +102,24 @@ ul {
 }
 
 .questionText {
+	margin-top: 40px;
 	color: black;
-	font-size: 24px;
+	font-size: 20px;
+	font-weight: 100;
+	text-align: center;
+	font-family: 'Nunito';
 }
+
+.questionTitle {
+	margin-top: 40px;
+	color: black;
+	font-size: 30px;
+	font-weight: 550;
+	text-align: center;
+
+
+}
+
 
 .nextBox {
 	margin: auto;
@@ -140,7 +153,7 @@ ul {
 	margin: 0 auto;
 	border: 1px solid rgb(9, 147, 191);
 	width: 550px;
-	height: 320px;
+	height: 360px;
 	text-align: justify;
 	background-color: lightgray;
 	justify-items: flex-start;
@@ -153,16 +166,20 @@ ul {
 	align-self: flex-start;
 	flex-direction: 'row';
 	justify-content: 'space-between';
-
-	border: 1px solid rgb(9, 147, 191);
-	width: 450px;
-	height: 50px;
+	font-size: 18px;
+	width: 550px;
+	height: 80px;
 	text-align: center;
 	background-color: lightgray;
 	justify-items: flex-end;
 	padding: 16px;
 	border-radius: 16px;
 	box-shadow: 5px 5px 10px 2px rgba(81, 81, 81, 0.8);
+	box-shadow: 5px 5px 10px 2px rgba(255, 255, 255, 0.8);
+	font-family: 'Nunito';
+
+
+
 }
 
 .answerBox {
@@ -194,24 +211,31 @@ ul {
 }
 
 
-.flexParentElement {
+.quizflexParentElement {
 	display: flex;
 	width: 100%;
 	height: auto;
+	border: 1px black;
+
 }
 
-.flexChildElement {
+.quizflexChildElement {
 	flex: 1;
 	margin: 10px;
 	height: auto;
+	border: 1px black;
+
 }
 
-.flexSmallerElement {
+.quizflexSmallerElement {
 	flex: auto;
 	margin: 10px;
-	height: 50px;
+	height: 0;
 	align-self: flex-start;
 	justify-content: 'space-between';
+	border: 1px black;
+	text-align: center;
+
 }
 
 .submit {
@@ -224,6 +248,8 @@ ul {
 	justify-items: flex-start;
 	padding: 16px;
 	border-radius: 16px;
+	font-family: 'Nunito';
+	font-weight: 300rem;
 }
 
 .bubbleRight {
@@ -294,7 +320,7 @@ ul {
 	color: white;
 	cursor: pointer;
 	background-color: rgb(103, 163, 217);
-	;
+	
 }
 
 .submit:hover {
@@ -307,9 +333,57 @@ ul {
 	color: white;
 	cursor: pointer;
 	background-color: rgb(177, 177, 177);
-	;
+	
 }
 
 .small-box {
 	margin-top: 1%;
 }
+
+.black-btn {
+	background-color: black;
+}
+
+.white-btn {
+	background-color: white;
+}
+
+.onClick {
+	margin: 0 auto;
+	align-self: flex-start;
+	flex-direction: 'row';
+	justify-content: 'space-between';
+    font-family: 'Montserrat';
+	font-size: 18px;
+	font-style: normal;
+	border: 1px solid rgb(9, 147, 191);
+	width: 550px;
+	height: 70px;
+	text-align: center;
+	background-color: lightgray;
+	justify-items: flex-end;
+	padding: 16px;
+	border-radius: 16px;
+	box-shadow: 5px 5px 10px 2px rgba(81, 81, 81, 0.8);
+
+}
+
+.onClick:hover {
+	color: rgb(103, 163, 217) ;
+	cursor: pointer;
+	background-color: rgb(103, 163, 217);
+}
+
+.btns {
+
+	background-color: rgb(0, 255, 213);
+	
+}
+.btns:active {
+
+	background-color: rgb(123, 180, 17);
+	
+}
+
+
+

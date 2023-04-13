@@ -6,8 +6,20 @@ import BlueCircle from '../assets/BlueCircle.png'
 import Gradient from '../assets/Gradient.png'
 
 import styles from './styles/Library.module.css';
+import { useNavigate } from 'react-router-dom'
+
 
 function Library() {
+
+	const navigate = useNavigate();
+
+
+	function handleQuiz(e) {
+		e.preventDefault()
+		navigate('/quizpage')
+	}
+
+
 	return (
 		<div className={styles.Library}>
 			<header>
@@ -20,9 +32,10 @@ function Library() {
 						<div className={styles.libraryHeroSearch}>
 							<input type='text' className={styles.libraryInput}
 								placeholder='Search in Your Library'/>
-							<button className={styles.searchButton} type='button'>
+							<button className={styles.librarysearchButton} type='button'>
 								<span>SEARCH</span>
 							</button>
+							
 						</div>
 					</div>
 				</div >
@@ -35,47 +48,62 @@ function Library() {
 					<div className={styles.libraryVid}>
 
 					</div>
-					<p> Introduction to Arrays</p>
-					<p> Quiz | All Info</p>
+					<input type='text' className={styles.videotitles}
+								placeholder='Introduction to Arrays'/>
+					
+					{/* Goes to the quiz page*/}
+					<input type='text' className={styles.videotext} placeholder='Quiz | All Info' onClick ={handleQuiz} /> 
+
 				</div>
 
 				<div className={styles.flexChildElement}>
 					<div className={styles.libraryVid}>
 					</div>
-					<p> Introduction to Linked Lists</p>
-					<p> Quiz | All Info</p>
+					<input type='text' className={styles.videotitles}
+								placeholder='Introduction to Linked Lists'/>
+					<input type='text' className={styles.videotext}
+								placeholder='Quiz | All Info'/>
 				</div>
 
 				<div className={styles.flexChildElement}>
 					<div className={styles.libraryVid}>
 					</div>
-					<p> AVL Trees </p>
-					<p> Quiz | All Info</p>
+					<input type='text' className={styles.videotitles}
+								placeholder='AVL Trees'/>
+					<input type='text' className={styles.videotext}
+								placeholder='Quiz | All Info'/>
 				</div >
 			</div >
 
 			<div className={styles.nextBox}></div>
+
 			< div className={styles.flexParentElement} >
 
 				<div className={styles.flexChildElement}>
 					<div className={styles.libraryVid}>
 					</div>
-					<p> Data Structures</p>
-					<p> Quiz | All Info</p>
+					<input type='text' className={styles.videotitles}
+								placeholder='Data Structures'/>
+					<input type='text' className={styles.videotext}
+								placeholder='Quiz | All Info'/>
 				</div >
 
 				<div className={styles.flexChildElement}>
 					<div className={styles.libraryVid}>
 					</div>
-					<p> Intro to Computer Architecture</p>
-					<p> Quiz | All Info</p>
+					<input type='text' className={styles.videotitles}
+								placeholder= 'Computer Architecture'/>
+					<input type='text' className={styles.videotext}
+								placeholder='Quiz | All Info'/>
 				</div >
 
 				<div className={styles.flexChildElement}>
 					<div className={styles.libraryVid}>
 					</div>
-					<p> Code in React </p>
-					<p> Quiz | All Info</p>
+					<input type='text' className={styles.videotitles}
+								placeholder='Code in React'/>
+					<input type='text' className={styles.videotext}
+								placeholder='Quiz | All Info'/>
 				</div >
 			</div >
 
@@ -85,7 +113,7 @@ function Library() {
 
 				<div className={styles.nextBox}></div>
 				<div className={styles.nextBox}></div>
-				<img src={PinkCircle} alt='pink circle' className={styles.pinkCircle} />
+				{/*<img src={PinkCircle} alt='pink circle' className={styles.pinkCircle} /> */}
 				<div className={styles.nextBox}></div>
 				<div className={styles.nextBox}></div>
 

@@ -17,7 +17,7 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-fill-color: transparent;
+    /* text-fill-color: transparent; */
 }
 
 .title1 {
@@ -93,7 +93,7 @@
     margin-right: 1rem;
 }
 
-.search-button:hover {
+.searchButton:hover {
     /* color: #CCC; */
     cursor: pointer;
 }

@@ -1,7 +1,7 @@
 {
   "name": "mern-tutorial",
   "version": "1.0.0",
-  "description": "Summer program",
+  "description": "Goalsetter app for youtube tutorial",
   "main": "server.js",
   "scripts": {
     "start": "node backend/server.js",
@@ -35,6 +35,5 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.20"
-  },
-  "keywords": []
+  }
 }

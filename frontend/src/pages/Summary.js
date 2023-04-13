@@ -7,7 +7,6 @@ import axios, { isCancel, AxiosError } from 'axios';
 
 import { MyContext } from '../App'
 
-
 const Summary = () => {
     const navigate = useNavigate();
     const { link, setLink } = useContext(MyContext)
@@ -82,3 +81,4 @@ const Summary = () => {
 }
 
 export default Summary
+
