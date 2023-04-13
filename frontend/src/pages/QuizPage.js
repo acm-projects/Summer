@@ -28,7 +28,6 @@ function QuizPage() {
 }
 
 
-
 	return (
 
 		<div className={styles.QuizPage}>
@@ -103,10 +102,6 @@ function QuizPage() {
 						<div className={styles.quizflexSmallerElement}></div>
                         <div className={styles.smallBox}></div>
 
-                        
-
-
-
                     </div>
                 </div>
 
@@ -162,10 +157,7 @@ function QuizPage() {
 				<div className={styles.flexParentElement}>
 					<div className={styles.flexChildElement}>
 						
-                            <button className={styles.submit} type='button' onClick={handleSubmit} style={{ fontSize: 25 }} > Submit! </button>
-						
-
-
+                            <button className={styles.submit} type='button' onClick={handleSubmit} style={{ fontSize: 24 }} > Submit! </button>
 
 					</div>
 

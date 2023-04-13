@@ -32,14 +32,7 @@ function VideoLinkInput() {
 
     </header >
 
-
-    
-
-
     </div>
-
-
-
 
     );
 }
