@@ -214,7 +214,7 @@ const getVideo = asyncHandler(async (req, res) => {
         video.URL = url;
 
     }
-    res.send(videos)
+    res.send(videos[videos.length - 1 ].URL)
 })
 
 
