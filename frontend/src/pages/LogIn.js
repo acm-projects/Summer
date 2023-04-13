@@ -71,6 +71,11 @@ const LogIn = () => {
 
 	};
 
+	const handleSubmitBasic = (e) => {
+		e.preventDefault()
+		navigate('/library')
+	}
+
 
 	// Showing error message if error is true
 	const errorMessage = () => {
@@ -89,7 +94,7 @@ const LogIn = () => {
 		navigate('/')
 	}
 
-	// disable scrolling
+	// disable scrolling completely
 	const disableScroll = () => {
 		document.body.style.overflow = 'hidden';
 	  }
@@ -142,7 +147,7 @@ const LogIn = () => {
 									className={styles.logInput}
 									value={password}
 									type="password" />
-								<button onClick={handleSubmit} className={styles.btn} type="submit">
+								<button onClick={handleSubmitBasic} className={styles.btn} type="submit">
 									<span>LOG IN</span>
 								</button>
 							</form>

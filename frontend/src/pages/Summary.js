@@ -2,15 +2,15 @@ import { IoIosArrowBack } from 'react-icons/io'
 import { useHref, useNavigate } from 'react-router-dom'
 import { useState, useContext, useEffect } from 'react'
 import axios, { isCancel, AxiosError } from 'axios';
-import Spinner from 'react-bootstrap/Spinner'
 import styles from './styles/Summary.module.css'
+import RingLoader from 'react-spinners/RingLoader';
 import { MyContext } from '../App'
 
 const Summary = () => {
     const navigate = useNavigate();
     const { link, setLink } = useContext(MyContext)
     const { summary, setSummary } = useContext(MyContext)
-    const [loading, setLoading] = useState(false)
+    const [ loading, setLoading ] = useState(true)
 
     function handleBack(e) {
         e.preventDefault();
@@ -26,11 +26,6 @@ const Summary = () => {
     useEffect(() => {
 		links()
 	}, [])
-	 
-
-    useEffect(() => {
-        links()
-    }, [])
 
     const links = async () => {
         let result = ''
@@ -48,6 +43,7 @@ const Summary = () => {
         ).then((response) => {
             result = response.data.text
         })
+
         setLoading(true)
         console.log(result)
         await setSummary(result)
@@ -68,9 +64,7 @@ const Summary = () => {
                 </div>
 
                 <div className={styles.summary}>
-                    {/* {loading ? (summary) : <Spinner animation='border' />} */}
-                    {<Spinner animation='border'/>}
-
+                    {loading ? <RingLoader color={'#000000'} size={50}/> : (summary)}
                 </div>
 
             </div>

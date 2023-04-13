@@ -16,7 +16,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    padding-top: 85px;
+    padding-top: 50px;
     padding-bottom: 45px;
 }
 
@@ -43,6 +43,9 @@
     border-radius: 20px;
     width: 1001px;
     height: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .pdfBtn {
