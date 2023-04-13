@@ -9,6 +9,7 @@
 .summaryContainer {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .headerText {
@@ -90,4 +91,3 @@
     /* text-decoration-line: underline; */
     cursor: pointer;
 }
-

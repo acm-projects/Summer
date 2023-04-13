@@ -97,19 +97,19 @@ const LogIn = () => {
 	// disable scrolling completely
 	const disableScroll = () => {
 		document.body.style.overflow = 'hidden';
-	  }
-	
-	  const enableScroll = () => {
+	}
+
+	const enableScroll = () => {
 		document.body.style.overflow = 'auto';
-	  }
-	
-	  useEffect(() => {
+	}
+
+	useEffect(() => {
 		disableScroll();
-	
+
 		return () => {
-		  enableScroll();
+			enableScroll();
 		}
-	  }, []);
+	}, []);
 
 	return (
 		<div>
@@ -165,10 +165,9 @@ const LogIn = () => {
 						</div>
 					</div>
 
-					<img src={circles} className={styles.bleedingCircles} draggable="false"/>
+					<img src={circles} className={styles.bleedingCircles} draggable="false" />
 				</div>
 			</div>
-
 		</div>
 	);
 }
