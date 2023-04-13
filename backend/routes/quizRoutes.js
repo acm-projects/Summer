@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const {createQuiz} = require('../controllers/quizController')
+const {createQuiz, getQuiz} = require('../controllers/quizController')
 
 
 router.post('/', createQuiz)
