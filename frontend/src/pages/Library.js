@@ -6,8 +6,20 @@ import BlueCircle from '../assets/BlueCircle.png'
 import Gradient from '../assets/Gradient.png'
 
 import styles from './styles/Library.module.css';
+import { useNavigate } from 'react-router-dom'
+
 
 function Library() {
+
+	const navigate = useNavigate();
+
+
+	function handleQuiz(e) {
+		e.preventDefault()
+		navigate('/quizpage')
+	}
+
+
 	return (
 		<div className={styles.Library}>
 			<header>
@@ -23,6 +35,7 @@ function Library() {
 							<button className={styles.librarysearchButton} type='button'>
 								<span>SEARCH</span>
 							</button>
+							
 						</div>
 					</div>
 				</div >
@@ -37,8 +50,10 @@ function Library() {
 					</div>
 					<input type='text' className={styles.videotitles}
 								placeholder='Introduction to Arrays'/>
-					<input type='text' className={styles.videotitles}
-								placeholder='Quiz | All Info'/>
+					
+					{/* Goes to the quiz page*/}
+					<input type='text' className={styles.videotitles} placeholder='Quiz | All Info' onClick ={handleQuiz} /> 
+
 				</div>
 
 				<div className={styles.flexChildElement}>

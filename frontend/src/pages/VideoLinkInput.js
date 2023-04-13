@@ -24,7 +24,7 @@ function VideoLinkInput() {
                     <input type='text' className={styles.videolinkInput}
                         placeholder='Enter Youtube Link '/>
                     <button className={styles.videolinkSearchButton} type='button'>
-                        <span>SEARCH</span>
+                        <span>SUMMERIZE</span>
                     </button>
                 </div>
             </div>
