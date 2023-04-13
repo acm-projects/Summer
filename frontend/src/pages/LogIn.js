@@ -1,4 +1,3 @@
-import React, { Component } from "react";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom"
 import axios, { isCancel, AxiosError } from 'axios';

@@ -8,7 +8,7 @@ body {
 	background-color: rgb(217, 233, 240);
 }
 
-h1 {
+.fontLink h1 {
 	text-align: justify;
 	margin-left: 10rem;
 }
