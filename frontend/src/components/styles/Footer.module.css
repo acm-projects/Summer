@@ -5,9 +5,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    /* margin-top: 200px;
-    margin-bottom: 75px; */
-    width: 100vw;
+    margin-top: 178px;
+    width: 100%;
     font-family: 'Montserrat'
 }
 
