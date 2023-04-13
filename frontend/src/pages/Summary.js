@@ -2,8 +2,7 @@ import { IoIosArrowBack } from 'react-icons/io'
 import { useNavigate } from 'react-router-dom'
 import { useState, useContext, useEffect } from 'react'
 import axios, { isCancel, AxiosError } from 'axios';
-import * as ReactBootstrap from 'react-bootstrap'
-
+import Spinner from 'react-bootstrap/Spinner'
 import styles from './styles/Summary.module.css'
 import { MyContext } from '../App'
 
@@ -58,8 +57,11 @@ const Summary = () => {
                 </div>
 
                 <div className={styles.summary}>
-                    {loading ? (summary) : <ReactBootstrap.Spinner animation='border' />}
+                    {/* {loading ? (summary) : <Spinner animation='border' />} */}
+                    {<Spinner animation='border'/>}
+
                 </div>
+
                 <div>
                     <div className={styles.pdfBtn}>
                         DOWNLOAD PDF

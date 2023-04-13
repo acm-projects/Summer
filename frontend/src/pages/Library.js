@@ -1,9 +1,7 @@
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
 import Bubbles from '../assets/Bubbles.png'
 import PinkCircle from '../assets/PinkCircle.png'
 import BlueCircle from '../assets/BlueCircle.png'
-import Gradient from '../assets/Gradient.png'
+import GradientGraphic from '../assets/GradientGraphic.png'
 
 import styles from './styles/Library.module.css';
 
@@ -13,7 +11,7 @@ function Library() {
 			<header>
 				<div className={styles.headtext}>
 					<div className={styles.headImage}>
-						<img src={Gradient} alt='Gradient'/>
+						<img src={GradientGraphic} alt='Gradient'/>
 					</div>
 					<div className={styles.textOnImage}>
 						<h3 style={{ fontSize: 50 }}>Library</h3>

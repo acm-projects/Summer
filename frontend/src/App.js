@@ -49,3 +49,24 @@ function App() {
 }
 
 export default App;
+
+// import './App.css';
+// import { Gradient } from './Gradient.js'
+
+// function App() {
+//   // Create your instance
+//   const gradient = new Gradient()
+
+//   // Call `initGradient` with the selector to your canvas
+//   gradient.initGradient('#gradient-canvas')
+        
+//   return (
+// 	<div className="">
+//    	 <canvas id="gradient-canvas" data-transition-in />
+
+// 	</div>
+	
+//   );
+// }
+
+// export default App;
