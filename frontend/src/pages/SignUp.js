@@ -114,6 +114,28 @@ const SignUp = () => {
 		navigate('/')
 	}
 
+	const handleSubmitBasic = (e) => {
+		e.preventDefault()
+		navigate('/library')
+	}
+
+	// disable scrolling
+	const disableScroll = () => {
+		document.body.style.overflow = 'hidden';
+	}
+
+	const enableScroll = () => {
+		document.body.style.overflow = 'auto';
+	}
+
+	useEffect(() => {
+		disableScroll();
+
+		return () => {
+			enableScroll();
+		}
+	}, []);
+
 	return (
 		<div className={styles.screenContainer}>
 			<div className={styles.formContainer}>
@@ -130,33 +152,11 @@ const SignUp = () => {
 						<p>Sign Up</p>
 
 						<form>
-							{/* Labels and inputs for form data */}
-							<label className={styles.loginLabel}>Name</label>
-							<input
-								onChange={handleName}
-								className={styles.logInput}
-								value={name}
-								type="text"/>
-							<label className={styles.loginLabel}>Email</label>
-							<input
-								onChange={handleEmail}
-								className={styles.logInput}
-								value={email}
-								type="email"/>
-							<label className={styles.loginLabel}>Password</label>
-							<input
-								onChange={handlePassword}
-								className={styles.logInput}
-								value={password}
-								type="password"/>
-							<label className={styles.loginLabel}>Confirm Password</label>
-							<input
-								onChange={handleConfirmPass}
-								className={styles.logInput}
-								value={confirmPass}
-								type="password"/>
-
-							<button onClick={handleSubmit} className={styles.btn} type="submit">
+							{inputs.map((input) => (
+								<FormInput key={input.id} {...input} value={values[input.name]}
+									onChange={onChange} />
+							))}
+							<button onClick={handleSubmitBasic} className={styles.btn} type="submit">
 								<span>SIGN UP</span>
 							</button>
 						</form>

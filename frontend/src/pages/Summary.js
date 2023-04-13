@@ -1,17 +1,17 @@
 import { IoIosArrowBack } from 'react-icons/io'
 import { useHref, useNavigate } from 'react-router-dom'
 import { useState, useContext, useEffect } from 'react'
-import {Hero} from  '../components/Hero.js'
-import styles from './styles/Summary.module.css'
 import axios, { isCancel, AxiosError } from 'axios';
-
+import styles from './styles/Summary.module.css'
+import RingLoader from 'react-spinners/RingLoader';
 import { MyContext } from '../App'
 
 
 const Summary = () => {
     const navigate = useNavigate();
     const { link, setLink } = useContext(MyContext)
-    const { summary, setSummary }= useContext(MyContext)
+    const { summary, setSummary } = useContext(MyContext)
+    const [ loading, setLoading ] = useState(true)
 
     function handleBack(e) {
         e.preventDefault();
@@ -27,9 +27,8 @@ const Summary = () => {
     useEffect(() => {
 		links()
 	}, [])
-	 
 
-	const links = async () => {
+    const links = async () => {
         let result = ''
 		await axios.post("http://localhost:5000/api/videos",
 		{
@@ -46,6 +45,8 @@ const Summary = () => {
 		).then((response) => {
             result = response.data.text
         })
+
+        setLoading(true)
         console.log(result)
 		await setSummary(result)
 	}
@@ -66,7 +67,7 @@ const Summary = () => {
                 </div>
 
                 <div className={styles.summary}>
-                    {summary}
+                    {loading ? <RingLoader color={'#000000'} size={50}/> : (summary)}
                 </div>
 
             </div>
