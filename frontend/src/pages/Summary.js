@@ -1,5 +1,5 @@
 import { IoIosArrowBack } from 'react-icons/io'
-import { useNavigate } from 'react-router-dom'
+import { useHref, useNavigate } from 'react-router-dom'
 import { useState, useContext, useEffect } from 'react'
 import {Hero} from  '../components/Hero.js'
 import styles from './styles/Summary.module.css'
@@ -16,6 +16,12 @@ const Summary = () => {
     function handleBack(e) {
         e.preventDefault();
         navigate('/general')
+    }
+
+    async function displaySummary(){
+        let url = await axios.get("http://localhost:5000/api/videos")
+        //console.log(url.data);
+        window.open(url.data, '_blank')
     }
     
     useEffect(() => {
@@ -65,7 +71,7 @@ const Summary = () => {
 
             </div>
             <div>
-            <button type="button">
+            <button type="button" onClick={displaySummary}>
                 Download PDF
             </button>
 
