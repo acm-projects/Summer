@@ -103,6 +103,11 @@ const SignUp = () => {
 		navigate('/')
 	}
 
+	const handleSubmitBasic = (e) => {
+		e.preventDefault()
+		navigate('/library')
+	}
+
 	// disable scrolling
 	const disableScroll = () => {
 		document.body.style.overflow = 'hidden';
@@ -140,7 +145,7 @@ const SignUp = () => {
 								<FormInput key={input.id} {...input} value={values[input.name]}
 									onChange={onChange} />
 							))}
-							<button onClick={handleSubmit} className={styles.btn} type="submit">
+							<button onClick={handleSubmitBasic} className={styles.btn} type="submit">
 								<span>SIGN UP</span>
 							</button>
 						</form>
