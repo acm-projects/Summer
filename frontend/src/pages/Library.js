@@ -52,7 +52,7 @@ function Library() {
 								placeholder='Introduction to Arrays'/>
 					
 					{/* Goes to the quiz page*/}
-					<input type='text' className={styles.videotitles} placeholder='Quiz | All Info' onClick ={handleQuiz} /> 
+					<input type='text' className={styles.videotext} placeholder='Quiz | All Info' onClick ={handleQuiz} /> 
 
 				</div>
 
@@ -61,7 +61,7 @@ function Library() {
 					</div>
 					<input type='text' className={styles.videotitles}
 								placeholder='Introduction to Linked Lists'/>
-					<input type='text' className={styles.videotitles}
+					<input type='text' className={styles.videotext}
 								placeholder='Quiz | All Info'/>
 				</div>
 
@@ -70,7 +70,7 @@ function Library() {
 					</div>
 					<input type='text' className={styles.videotitles}
 								placeholder='AVL Trees'/>
-					<input type='text' className={styles.videotitles}
+					<input type='text' className={styles.videotext}
 								placeholder='Quiz | All Info'/>
 				</div >
 			</div >
@@ -84,7 +84,7 @@ function Library() {
 					</div>
 					<input type='text' className={styles.videotitles}
 								placeholder='Data Structures'/>
-					<input type='text' className={styles.videotitles}
+					<input type='text' className={styles.videotext}
 								placeholder='Quiz | All Info'/>
 				</div >
 
@@ -93,7 +93,7 @@ function Library() {
 					</div>
 					<input type='text' className={styles.videotitles}
 								placeholder= 'Computer Architecture'/>
-					<input type='text' className={styles.videotitles}
+					<input type='text' className={styles.videotext}
 								placeholder='Quiz | All Info'/>
 				</div >
 
@@ -102,7 +102,7 @@ function Library() {
 					</div>
 					<input type='text' className={styles.videotitles}
 								placeholder='Code in React'/>
-					<input type='text' className={styles.videotitles}
+					<input type='text' className={styles.videotext}
 								placeholder='Quiz | All Info'/>
 				</div >
 			</div >
