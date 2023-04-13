@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom"
 import axios, { isCancel, AxiosError } from 'axios';
 import { IoIosArrowBack } from 'react-icons/io'
@@ -161,7 +160,7 @@ const LogIn = () => {
 							{/* Calling to the methods */}
 							<div className={styles.messages}>
 								{errorMessage()}
-								{successMessage()}
+								{/* {successMessage()} */}
 							</div>
 						</div>
 					</div>

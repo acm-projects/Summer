@@ -55,9 +55,10 @@
 
 .bubbleLeft {
     position: absolute;
-    top: 50%;
-    left: 133px; /* Adjust this value as needed */
-    transform: rotate(180deg);
+    top: 200%;
+    left: -380px;
+    /* Adjust this value as needed */
+    transform: rotate(200deg);
 }
 
 .linePadding {

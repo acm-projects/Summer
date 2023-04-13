@@ -70,13 +70,11 @@ const Summary = () => {
                     {loading ? <RingLoader color={'#000000'} size={50}/> : (summary)}
                 </div>
 
+                <div className={styles.pdfBtn} onClick={displaySummary}>
+                    Download PDF
+                 </div>
             </div>
-            <div>
-            <button type="button" onClick={displaySummary}>
-                Download PDF
-            </button>
-
-            </div>
+         
         </div>
 
     )
