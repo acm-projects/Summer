@@ -1,7 +1,12 @@
 import { useNavigate } from "react-router-dom"
+import { useContext } from 'react'
+import { MyContext } from '../App'
+import Bubbles from '../assets/Bubbles.png'
+import styles from './styles/General.module.css'
 
 const GeneralPage = () => {
 	const navigate = useNavigate();
+	const { summary, link } = useContext(MyContext)
 
 	function handleSummary(e) {
 		e.preventDefault()
@@ -14,8 +19,11 @@ const GeneralPage = () => {
 	}
 
 	return (
+		<div className={styles.pageContainer}>
+			<div className={styles.videoSection}>
+				<img src={Bubbles} alt='bubbles' className={styles.bubbleLeft} draggable="false" />
+				<img src={Bubbles} alt='bubbles' className={styles.bubbleRight} draggable="false" />
 
-		<div onClick={handleSummary}>GeneralPage</div>
 				<p>Video Title</p>
 
 				{/* <div className={styles.video}>

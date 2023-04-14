@@ -1,8 +1,6 @@
 import { IoIosArrowBack } from 'react-icons/io'
 import { useHref, useNavigate } from 'react-router-dom'
 import { useState, useContext, useEffect } from 'react'
-import {Hero} from  '../components/Hero.js'
-import styles from './styles/Summary.module.css'
 import axios, { isCancel, AxiosError } from 'axios';
 import styles from './styles/Summary.module.css'
 import RingLoader from 'react-spinners/RingLoader';
@@ -30,7 +28,7 @@ const Summary = () => {
 		links()
 	}, [])
 
-	const links = async () => {
+    const links = async () => {
         let result = ''
 		await axios.post("http://localhost:5000/api/videos",
 		{

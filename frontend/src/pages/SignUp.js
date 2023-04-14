@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { useState } from "react";
+import React from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom"
 import axios, { isCancel, AxiosError } from 'axios';
 import { IoIosArrowBack } from 'react-icons/io'
@@ -8,101 +8,90 @@ import logo from '../assets/SummerLogo.png';
 import circles from '../assets/BluePinkCircles.png'
 
 import styles from './styles/LogIn.module.css'
+import FormInput from "../components/FormInput";
 
 const SignUp = () => {
 	const navigate = useNavigate();
 
-	// States for registration
-	const [name, setName] = useState('');
-	const [email, setEmail] = useState('');
-	const [password, setPassword] = useState('');
-	const [confirmPass, setConfirmPass] = useState('')
+	const [values, setValues] = useState({
+		name: "",
+		email: "",
+		password: "",
+		confirmPassword: ""
+	})
 
-	const [submitted, setSubmitted] = useState(false);
-	const [error, setError] = useState(false);
+	const inputs = [ // props for each form input box
+		{
+			id: 1,
+			name: "username",
+			type: "text",
+			errorMessage: "Name should be between 3-16 characters and not include special characters.",
+			label: "Name",
+			required: true,
+			pattern: '^[A-Za-z0-9]{3,16}$'
+		},
+		{
+			id: 2,
+			name: "email",
+			type: "text",
+			errorMessage: "It should be a valid email address.",
+			label: "Email",
+			required: true,
+		},
+		{
+			id: 3,
+			name: "password",
+			type: "password",
+			errorMessage: "	Password should be 8-20 characters and include at least 1 letter, 1 number, and 1 special character.",
+			label: "Password",
+			required: true,
+			pattern: `^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$`,
+		},
+		{
+			id: 4,
+			name: "confirmPassword",
+			type: "password",
+			errorMessage: "Passwords do not match.",
+			label: "Confirm Password",
+			pattern: values.password,
+			required: true,
+		},
+	]
 
-	const handleName = (e) => {
-		setName(e.target.value);
-		setSubmitted(false);
-	};
-
-	const handleEmail = (e) => {
-		setEmail(e.target.value);
-		setSubmitted(false);
-	};
-
-	const handlePassword = (e) => {
-		setPassword(e.target.value);
-		setSubmitted(false);
-	};
-
-	const handleConfirmPass = (e) => {
-		if (e.target.value != password) {
-			setError(true)
-		}
-		setConfirmPass(e.target.value);
-		setSubmitted(false);
-	};
+	// const [submitted, setSubmitted] = useState(false);
+	// const [error, setError] = useState(false);
 
 	// Handling the form submission
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		if (name === '' || email === ''
-			|| password === '' || password !== confirmPass) {
-			setError(true);
-			return;
-		} else {
-			setSubmitted(true);
-			setError(false);
-			// Send a POST request
-			axios
-				.post(
-					"http://localhost:5000/api/users",
-					{
-						name: name,
-						email: email,
-						password: password,
+		axios
+			.post(
+				"http://localhost:5000/api/users",
+				{
+					name: values.name,
+					email: values.email,
+					password: values.password,
+				},
+				{
+					headers: {
+						"Content-Type": "application/x-www-form-urlencoded",
 					},
-					{
-						headers: {
-							"Content-Type": "application/x-www-form-urlencoded",
-						},
-					}
-				)
-				.then((response) => {
-					console.log(response);
-				})
-				.catch((error) => {
-					console.log(error.message);
-				});
+				}
+			)
+			.then((response) => {
+				console.log(response);
+			})
+			.catch((error) => {
+				console.log(error.message);
+			});
 
-			// const data = await response.json
-		};
+		// const data = await response.json
 	};
 
-	// Showing success message
-	const successMessage = () => {
-		return (
-			<div
-				style={{
-					display: submitted ? '' : 'none',
-				}}>
-				<h1>User {name} is successfully registered!</h1>
-			</div>
-		);
-	};
 
-	// Showing error message if error is true
-	const errorMessage = () => {
-		return (
-			<div
-				style={{
-					display: error ? '' : 'none',
-				}}>
-				<h1>Please fill out every field and ensure both passwords match.</h1>
-			</div>
-		);
-	};
+	const onChange = (e) => {
+		setValues({ ...values, [e.target.name]: e.target.value })
+	}
 
 	function handleBack(e) {
 		e.preventDefault();
@@ -166,15 +155,10 @@ const SignUp = () => {
 							<Link to='/login' className={styles.signupText}>Log In</Link>
 						</div>
 
-						{/* Calling to the methods */}
-						<div className={styles.messages}>
-							{errorMessage()}
-							{successMessage()}
-						</div>
 					</div>
 				</div>
 
-				<img src={circles} className={styles.bleedingCircles} draggable="false"/>
+				<img src={circles} alt='backgroundCircles' className={styles.bleedingCircles} draggable="false" />
 			</div>
 		</div>
 	);

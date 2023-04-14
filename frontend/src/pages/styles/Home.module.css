@@ -16,7 +16,7 @@
     margin-left: 3rem;
 }
 
-.featureHeader {  
+.featureHeader {
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 700;
@@ -43,17 +43,28 @@
     font-size: 20px;
     line-height: 27px;
     color: #6B6B6B;
-    margin-bottom: 128px; /* hardcoded white space */
+    margin-bottom: 128px;
+    /* hardcoded white space */
 }
 
-.bubbleRight {
+.mixedBubbleLeft {
     position: absolute;
     top: 50%;
-    right: 133px; /* Adjust this value as needed */
+    left: 133px;
+    /* Adjust this value as needed */
+    transform: rotate(180deg);
+    overflow: hidden;
+}
+
+.mixedBubbleRight {
+    position: absolute;
+    top: 50%;
+    right: 133px;
+    /* Adjust this value as needed */
     transform: translateY(-50%);
 }
 
-.bubbleLeft {
+.pinkCircleLeft {
     position: absolute;
     top: 200%;
     left: -380px;

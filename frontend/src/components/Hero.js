@@ -11,8 +11,6 @@ const Hero = () => {
 	const [error, setError] = useState('')
 	const navigate = useNavigate();
 
-	
-
 	function handleSummarize(e) {
 		e.preventDefault()
 		navigate('/general')
