@@ -174,9 +174,13 @@ const postVideo = asyncHandler(async (req, res) => {
    
       await upload.done();
     
-    //attempt with PutobjectCommand object
-    // const command = new PutObjectCommand(params);
-    // await s3.send(command)
+      const path = `./${randomfilename}`
+      try {
+        fs.unlinkSync(path);
+        console.log("File removed:", path);
+      } catch (err) {
+        console.error(err);
+      }
     
    
 
