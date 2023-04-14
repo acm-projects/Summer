@@ -70,6 +70,7 @@ const Summary = () => {
 
                 <div className={styles.summary}>
                     {loading ? <RingLoader color={'#000000'} size={50}/> : (summary)}
+                    
                 </div>
 
                 <div className={styles.pdfBtn} onClick={displaySummary}>
