@@ -217,8 +217,17 @@ const getVideo = asyncHandler(async (req, res) => {
     res.send(videos[videos.length - 1 ].URL)
 })
 
+const getVideoURL = asyncHandler(async (req, res) => {
+    const videos = await Video.findOne({})   
+    console.log(videos)
+    res.send(videos);
+    
+    
+})
+
 
 module.exports = {
     postVideo,
-    getVideo
+    getVideo,
+    getVideoURL
 }

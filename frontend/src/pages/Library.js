@@ -44,7 +44,7 @@ function Library() {
 			<div className={styles.flexParentElement}>
 				<div className={styles.flexChildElement}>
 					<div className={styles.libraryVid}>
-
+					
 					</div>
 					<input type='text' className={styles.videotitles}
 								placeholder='Introduction to Arrays'/>
