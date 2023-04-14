@@ -1,9 +1,5 @@
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
-import Bubbles from '../assets/Bubbles.png'
-import PinkCircle from '../assets/PinkCircle.png'
-import BlueCircle from '../assets/BlueCircle.png'
-import Gradient from '../assets/Gradient.png'
+
+import GradientGraphic from '../assets/GradientGraphic.png'
 
 import styles from './styles/VideoLinkInput.module.css';
 

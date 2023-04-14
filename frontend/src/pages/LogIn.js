@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom"
 import axios, { isCancel, AxiosError } from 'axios';
 import { IoIosArrowBack } from 'react-icons/io'
@@ -72,17 +71,11 @@ const LogIn = () => {
 
 	};
 
-	// Showing success message
-	const successMessage = () => {
-		return (
-			<div
-				style={{
-					display: submitted ? '' : 'none',
-				}}>
-				<h1>User {name} is successfully registered!</h1>
-			</div>
-		);
-	};
+	const handleSubmitBasic = (e) => {
+		e.preventDefault()
+		navigate('/library')
+	}
+
 
 	// Showing error message if error is true
 	const errorMessage = () => {
@@ -100,6 +93,23 @@ const LogIn = () => {
 		e.preventDefault();
 		navigate('/')
 	}
+
+	// disable scrolling completely
+	const disableScroll = () => {
+		document.body.style.overflow = 'hidden';
+	}
+
+	const enableScroll = () => {
+		document.body.style.overflow = 'auto';
+	}
+
+	useEffect(() => {
+		disableScroll();
+
+		return () => {
+			enableScroll();
+		}
+	}, []);
 
 	return (
 		<div>
@@ -137,7 +147,7 @@ const LogIn = () => {
 									className={styles.logInput}
 									value={password}
 									type="password" />
-								<button onClick={handleSubmit} className={styles.btn} type="submit">
+								<button onClick={handleSubmitBasic} className={styles.btn} type="submit">
 									<span>LOG IN</span>
 								</button>
 							</form>
@@ -150,15 +160,14 @@ const LogIn = () => {
 							{/* Calling to the methods */}
 							<div className={styles.messages}>
 								{errorMessage()}
-								{successMessage()}
+								{/* {successMessage()} */}
 							</div>
 						</div>
 					</div>
 
-					<img src={circles} className={styles.bleedingCircles} draggable="false"/>
+					<img src={circles} className={styles.bleedingCircles} draggable="false" />
 				</div>
 			</div>
-
 		</div>
 	);
 }

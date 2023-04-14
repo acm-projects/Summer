@@ -1,6 +1,4 @@
 import Line from "../components/Line";
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
 import CheckCircle from '../assets/CheckCircle.png'
 import PinkCircle from '../assets/PinkCircle.png'
 import BlueCircle from '../assets/BlueCircle.png'
@@ -12,6 +10,8 @@ import styles from './styles/QuizPage.module.css';
 function QuizPage() {
 	return (
 		<div className={styles.QuizPage}>
+
+			<img src={Bubbles} alt='bubbles' className={styles.quizbubbleRight} />
 			<img src={Bubbles} alt='bubbles' className={styles.bubbleRight} />
 
 			<div className={styles.nextBox}></div>
@@ -130,11 +130,10 @@ function QuizPage() {
 
 				<div className={styles.flexParentElement}>
 					<div className={styles.flexChildElement}>
-						<div className={styles.submit}>
-							<h2>Submit!</h2>
-						</div>
+						
+                    <button className={styles.submit} type='button' onClick={handleSubmit} style={{ fontSize: 22 }} > Submit! </button>
+
 					</div>
-				</div>
 
 				<img src={PinkCircle} alt='pink cicrle' className={styles.pinkCircle} />
 

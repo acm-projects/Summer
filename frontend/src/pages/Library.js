@@ -28,6 +28,9 @@ function Library() {
 				</div >
 			</header >
 
+			<img src={BlueCircle} alt='bubbles' className={styles.blueCircleLeft} draggable="false" />               
+
+
 			<div className={styles.nextBox}></div>
 
 			<div className={styles.flexParentElement}>
@@ -78,6 +81,7 @@ function Library() {
 					<p> Quiz | All Info</p>
 				</div >
 			</div >
+
 
 			<div className={styles.nextBox}></div>
 			<div className={styles.nextBox}>

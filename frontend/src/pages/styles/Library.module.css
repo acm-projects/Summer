@@ -194,4 +194,51 @@ h3 {
 	text-align: center;
 	margin-right: 1rem;
 	background-color: black;
+	margin-top: 13px;
+}
+
+.videotitles {
+	text-align: center;
+	border: none;
+	outline: none;
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 550;
+	font-size: 16px;
+	/* line-height: 22px; */
+	color: black;
+	background-color:  rgb(217, 233, 240);
+	margin-left: 2rem;
+	margin-top: 10px;
+	width: 250px;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.videotext {
+	text-align: center;
+	border: none;
+	outline: none;
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 16px;
+	/* line-height: 22px; */
+	color: black;
+	background-color:  rgb(217, 233, 240);
+	margin-left: 2rem;
+	margin-top: 10px;
+	width: 250px;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.blueCircleLeft {
+    position: absolute;
+    top: 100%;
+    left: -700px;
+    /* Adjust this value as needed */
+    transform: rotate(200deg);
 }

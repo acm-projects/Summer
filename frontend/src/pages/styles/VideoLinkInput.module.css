@@ -6,8 +6,7 @@
 
 body {
     background-color:rgb(217, 233, 240);
-  }
-  
+}
 
  vidh3 {
 
@@ -23,8 +22,6 @@ body {
     justify-content: center;
     margin-right: 2rem;
     margin-left: -25rem;
-
-
 
   }
 
@@ -44,20 +41,13 @@ body {
     margin-left: -25rem;
     margin-bottom: 2px;
 
-
-
-
-
   }
-
 
   .videoheadtext{
     position: relative;
   }
   
 
-  
-  
   .next-box {
     margin: auto;
     background-color: rgb(217, 233, 240);
@@ -132,7 +122,9 @@ body {
   left: -10%;
   bottom: -25%;
   position: absolute;
-  margin-left: -18rem;
+  margin-left: -19rem;
+  margin-top: -20px;
+  margin-bottom: -40px;
 
 
 }
@@ -172,8 +164,3 @@ body {
     margin-right: 1rem;
     margin-top: 1rem;
 }
- 
-
-
-  
-  

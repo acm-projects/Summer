@@ -15,7 +15,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    padding-top: 85px;
+    padding-top: 50px;
     padding-bottom: 45px;
 }
 
@@ -42,6 +42,51 @@
     background: #F0F0F0;
     border-radius: 20px;
     width: 1001px;
-    height: 1385px;
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+.pdfBtn {
+    background: black;
+    border-radius: 10px;
+    width: 202px;
+    height: 34px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 12px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+    cursor: pointer;
+}
+
+.backBtn {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 27px;
+    color: #000000;
+    display: flex;
+    align-items: center;
+    /* margin-right: 1rem;
+    margin-bottom: 20rem;
+    z-index: 1; */
+    position: absolute;
+    cursor: pointer;
+    top: 43%;
+    left: 19%;
+}
+
+.backBtn:hover {
+    /* text-decoration-line: underline; */
+    cursor: pointer;
+}
