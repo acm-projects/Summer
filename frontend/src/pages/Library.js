@@ -49,11 +49,11 @@ function Library() {
 					<div className={styles.libraryVid}>
 
 					</div>
-					<input type='text' className={styles.videotitles}
+					<input className={styles.videotitles}
 								placeholder='Introduction to Arrays'/>
 					
 					{/* Goes to the quiz page*/}
-					<input type='text' className={styles.videotext} placeholder='Quiz | All Info' onClick ={handleQuiz} /> 
+					<input className={styles.videotext} placeholder='Quiz | All Info' onClick ={handleQuiz} /> 
 
 				</div>
 
