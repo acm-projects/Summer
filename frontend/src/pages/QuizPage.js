@@ -70,6 +70,8 @@ function QuizPage() {
 
                             {/*<button className={styles.onClick} type='button' onClick={handleClick} style={{ backgroundColor: active ? "gray" : "white" }}> Arrays </button>*/}
 
+                            <div className={styles.onClick} type='button' onClick={handleClick} style={{ backgroundColor: active ? "gray" : "light blue" } }> Arrays </div>
+
 						<div className={styles.quizflexSmallerElement}></div>
 
                         <div className={styles.smallBox}></div>
