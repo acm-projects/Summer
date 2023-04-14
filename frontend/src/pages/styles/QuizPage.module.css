@@ -252,13 +252,13 @@ ul {
 	font-weight: 300rem;
 }
 
-.bubbleRight {
+.quizbubbleRight {
 	position: absolute;
-	top: 15%;
-	margin-bottom: 100rem;
+	top: 5%;
+	margin-bottom: 200rem;
 	left: 900px;
 	/* Adjust this value as needed */
-	top: 100px;
+	top: 20px;
 	transform: translateX(100rem);
 	transform: rotate(260deg);
 }
