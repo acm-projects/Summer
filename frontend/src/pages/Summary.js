@@ -20,7 +20,7 @@ const Summary = () => {
 
     async function displaySummary(){
         let url = await axios.get("http://localhost:5000/api/videos")
-        //console.log(url.data);
+        console.log(url.data);
         window.open(url.data, '_blank')
     }
     
@@ -44,6 +44,7 @@ const Summary = () => {
 		
 		).then((response) => {
             result = response.data.text
+            console.log(response.data.text)
         })
 
         setLoading(true)
