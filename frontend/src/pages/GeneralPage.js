@@ -13,6 +13,11 @@ const GeneralPage = () => {
 		navigate('/summary')
 	}
 
+	function handleQuiz(e) {
+		e.preventDefault()
+		navigate('/quizpage')
+	}
+
 	return (
 		<div className={styles.pageContainer}>
 			<div className={styles.videoSection}>
@@ -35,12 +40,6 @@ const GeneralPage = () => {
 						title="Embedded youtube"
 					/>
 				</div>
-{/* 
-				<div className={styles.descriptionSection}>
-					<div className={styles.viewVidBtn} onClick=''>
-						VIEW IN YOUTUBE
-					</div>
-				</div> */}
 			</div>
 
 			<div className={styles.featureSection}>
@@ -54,7 +53,7 @@ const GeneralPage = () => {
 						<div className={`${styles.viewVidBtn} ${styles.summaryBtn}`}>VIEW SUMMARY</div>
 					</div>
 					<div className={styles.quiz}>
-						<div className={`${styles.viewVidBtn} ${styles.quizBtn}`}>
+						<div className={`${styles.viewVidBtn} ${styles.quizBtn}`} onClick={handleQuiz}>
 							TAKE QUIZ
 						</div>
 					</div>

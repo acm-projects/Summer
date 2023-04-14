@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import Bubbles from '../assets/Bubbles.png'
 import PinkCircle from '../assets/PinkCircle.png'
 import BlueCircle from '../assets/BlueCircle.png'
-import Gradient from '../assets/Gradient.png'
+import GradientGraphic from '../assets/GradientGraphic.png'
 
 import styles from './styles/VideoLinkInput.module.css';
 
@@ -13,7 +13,7 @@ function VideoLinkInput() {
         <header>
         <div className={styles.videoheadtext}>
             <div className={styles.headImage}>
-                <img src={Gradient} alt='Gradient'/>
+                <img src={GradientGraphic} alt='Gradient'/>
             </div>
             <div className={styles.videolinkTextOnImage}>
                 <vidh3 style={{ fontSize: 30 }}>Built for videos of all types. </vidh3>

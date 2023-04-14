@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom"
 import axios, { isCancel, AxiosError } from 'axios';
 import { IoIosArrowBack } from 'react-icons/io'
@@ -72,6 +71,11 @@ const LogIn = () => {
 
 	};
 
+	const handleSubmitBasic = (e) => {
+		e.preventDefault()
+		navigate('/library')
+	}
+
 
 	// Showing error message if error is true
 	const errorMessage = () => {
@@ -90,22 +94,22 @@ const LogIn = () => {
 		navigate('/')
 	}
 
-	// disable scrolling
+	// disable scrolling completely
 	const disableScroll = () => {
 		document.body.style.overflow = 'hidden';
-	  }
-	
-	  const enableScroll = () => {
+	}
+
+	const enableScroll = () => {
 		document.body.style.overflow = 'auto';
-	  }
-	
-	  useEffect(() => {
+	}
+
+	useEffect(() => {
 		disableScroll();
-	
+
 		return () => {
-		  enableScroll();
+			enableScroll();
 		}
-	  }, []);
+	}, []);
 
 	return (
 		<div>
@@ -143,7 +147,7 @@ const LogIn = () => {
 									className={styles.logInput}
 									value={password}
 									type="password" />
-								<button onClick={handleSubmit} className={styles.btn} type="submit">
+								<button onClick={handleSubmitBasic} className={styles.btn} type="submit">
 									<span>LOG IN</span>
 								</button>
 							</form>
@@ -156,14 +160,14 @@ const LogIn = () => {
 							{/* Calling to the methods */}
 							<div className={styles.messages}>
 								{errorMessage()}
+								{/* {successMessage()} */}
 							</div>
 						</div>
 					</div>
 
-					<img src={circles} alt='backgroundCircles' className={styles.bleedingCircles} draggable="false"/>
+					<img src={circles} className={styles.bleedingCircles} draggable="false" />
 				</div>
 			</div>
-
 		</div>
 	);
 }

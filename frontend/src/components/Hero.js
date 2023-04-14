@@ -8,19 +8,30 @@ import { MyContext } from '../App.js'
 const Hero = () => {
 	// const [link, setlink] = useState([]);
 	const { link, setLink } = useContext(MyContext)
+	const [error, setError] = useState('')
 	const navigate = useNavigate();
-
-	
 
 	function handleSummarize(e) {
 		e.preventDefault()
 		navigate('/general')
 	}
 
-	function handleChange(e) {
+	// function handleChange(e) {
+	// 	e.preventDefault();
+	// 	setLink(e.target.value)
+	// }
+	const handleChange = (e) => {
 		e.preventDefault();
-		setLink(e.target.value)
-	}
+
+		const value = e.target.value;
+		const regex = new RegExp(/^https:\/\/youtu\.be\/[a-zA-Z0-9_-]{11}$/);
+		if (regex.test(value)) {
+			setLink(value);
+			setError('');
+		} else {
+			setError('Please enter a valid YouTube link.');
+		}
+	};
 
 	return (
 		<div>

@@ -50,6 +50,7 @@
     justify-content: center;
     text-align: center;
     margin-top: 2rem;
+    cursor: pointer;
 }
 
 .featureSection {
@@ -92,12 +93,15 @@
 }
 
 .summaryBtn {
-    width: 172px
+    width: 172px;
+    cursor: pointer;
 }
 
 .summaryText {
     font-family: 'Nunito';
     font-size: 16px;
+    width: 250px;
+    /* justify-content: center; */
 }
 
 .quizBtn {
