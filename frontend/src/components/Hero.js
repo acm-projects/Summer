@@ -11,11 +11,13 @@ const Hero = () => {
 	const [error, setError] = useState('')
 	const navigate = useNavigate();
 
-	
-
 	function handleSummarize(e) {
-		e.preventDefault()
-		navigate('/general')
+		if (!error) {
+			e.preventDefault()
+			navigate('/general')
+		}
+		console.log(link)
+
 	}
 
 	// function handleChange(e) {
@@ -29,17 +31,17 @@ const Hero = () => {
 		const regex = new RegExp(/^https:\/\/youtu\.be\/[a-zA-Z0-9_-]{11}$/);
 		if (regex.test(value)) {
 			setLink(value);
-			setError('');
+			setError(false);
 		} else {
-			setError('Please enter a valid YouTube link.');
+			setError(true);
 		}
 	};
 
 	return (
 		<div>
-			<div className={styles.gradient}>
+			{/* <div className={styles.gradient}>
 					
-			</div>
+			</div> */}
 			<div className={styles.container}>
 				<div className={styles.title}>
 					<div className={`${styles.textGradient} ${styles.title1}`}>Watch Less,</div>
@@ -47,15 +49,18 @@ const Hero = () => {
 					<div className={styles.heroSubtext}>Save time, focus on learning, and enhance your video experience with Summer, an application that provides supplementary material and assistance!</div>
 				</div>
 
-				<div className={styles.heroSearch}>
-					<input type='text' className={styles.input} placeholder='Enter YouTube Link' onChange ={handleChange}/> 
-					<button className={styles.searchButton} type='button' onClick={handleSummarize}>
-						<span>SUMMARIZE</span>
-					</button>
+				<div className={styles.heroSearchContainer}>
+					<div className={styles.heroSearch}>
+						<input type='text' className={styles.input} placeholder='Enter YouTube Link' onChange={handleChange} />
+						<button className={styles.searchButton} type='button' onClick={handleSummarize}>
+							<span>SUMMARIZE</span>
+						</button>
+					</div>
+					{/* <span className={styles.span}>spanann</span> */}
 				</div>
 			</div>
 		</div>
-	)  
+	)
 }
 
 export default Hero

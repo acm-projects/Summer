@@ -164,3 +164,20 @@
     font-family: 'Montserrat';
     font-size: 8px;;
 }
+
+.span {
+    font-family: 'Montserrat';
+    font-size: 12px;
+    padding: 2px;
+    margin-bottom: 4px;
+    color: red;
+    display: none;
+}
+
+.logInput:invalid[focused="true"]{
+    border: 1px solid red;
+}
+
+.logInput:invalid[focused="true"] ~ .span{
+    display: block;
+}
