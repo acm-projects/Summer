@@ -168,7 +168,6 @@ const LogIn = () => {
 					<img src={circles} className={styles.bleedingCircles} draggable="false"/>
 				</div>
 			</div>
-
 		</div>
 	);
 }

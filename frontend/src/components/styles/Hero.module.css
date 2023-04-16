@@ -13,10 +13,10 @@
 }
 
 .textGradient {
-    background: linear-gradient(270deg, #FF76A9 33.85%, #67A3D9 74.91%);
+    /* background: linear-gradient(270deg, #FF76A9 33.85%, #67A3D9 74.91%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background-clip: text;
+    background-clip: text; */
     /* text-fill-color: transparent; */
 }
 
@@ -51,6 +51,7 @@
 .heroSearchContainer {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .heroSearch { /* search bar */
@@ -65,11 +66,6 @@
     margin-left: 6rem;
 }
 
-.span {
-    margin-left: 8rem;
-    margin-top: 5px;
-}
-
 .input {
     appearance: none;
     border: none;
@@ -82,6 +78,21 @@
     color: #757575;
     margin-left: 1rem;
     width: 100%;
+}
+
+.span {
+    font-family: 'Montserrat';
+    width: 400px;
+    font-size: 16px;
+    padding: 2px;
+    margin-bottom: 4px;
+    margin-left: 6rem;
+    margin-top: 5px;
+    color: red;
+    background-color: white;
+    border-radius: 10px;
+    display: block;
+    text-align: center  ;
 }
 
 .searchButton {
