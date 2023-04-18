@@ -15,60 +15,83 @@ const { getSignedUrl } = require("@aws-sdk/s3-request-presigner");
 const { random } = require('colors');
 const PDFDocument = require('pdfkit');
 const { default: mongoose } = require('mongoose');
+const { json } = require('express');
 const PDFExtract = require('pdf.js-extract').PDFExtract;
 
+function parseVtt(subtitles) {
+    const timeStamp = /\d{2}:\d{2}:\d{2}\.\d{3} --> \d{2}:\d{2}:\d{2}\.\d{3}/;
+    const newContent = subtitles.split('\n').slice(3).join('\n');
+    const noEmptyLines = removeEmptyLines(newContent.replace(/<.*?>|<\/.*?>/g, ""));
+    const removeTimes = noEmptyLines.split('\n').filter(line => !timeStamp.test(line)).join('\n');
+    // const fileContents = cleanVttFile.replace(/^.*align:start position:0%.*$/gm, ''); // only works with auto-subs
+    const cleanVttFile= Array.from(new Set(removeTimes.split('\n'))).join('\n');
+    const newData = cleanVttFile.replace(/\n/g, ' ');
+    // res.json({"summary": newData});
+    return newData;
+}
 
-
-
-
-    const parseVtt = (subtitles) => {
-        const timeStamp = /\d{2}:\d{2}:\d{2}\.\d{3} --> \d{2}:\d{2}:\d{2}\.\d{3}/;
-        const newContent = subtitles.split('\n').slice(3).join('\n');
-        const noEmptyLines = removeEmptyLines(newContent.replace(/<.*?>|<\/.*?>/g, ""));
-        const removeTimes = noEmptyLines.split('\n').filter(line => !timeStamp.test(line)).join('\n');
-        const cleanVttFile= Array.from(new Set(removeTimes.split('\n'))).join('\n');
-        const newData = cleanVttFile.replace(/\n/g, ' ');
-        return newData;
-    }
-
-    // let unsummarizedTs = "";
-    youtubedl(URL, {
+//function that returns the transcript 
+const getTranscript = asyncHandler(async (videoURL) => {
+    let result = ""
+    await youtubedl(videoURL, {
         writeAutoSub: true,
         writeSubs: true,
         skipDownload: true,
         subLang: 'en', 
         output: 'subtitles', 
-    })
-    .then(() => {
+    }).then(() => {
         const subtitles = fs.readFileSync("subtitles.en.vtt", 'utf-8');
-        const unsummarizedTs = parseVtt(subtitles);
+        result = parseVtt(subtitles);
+        //console.log(result + "this console.log ");
+        
+    })
+    .catch((err) => {
+    console.log(err);
+    console.log(err.message);
+    })
 
-        axios.post("http://localhost:5000/api/summarize",
-        {
-            transcript: unsummarizedTs 
-        })
-        .then((summaryResponse) => {
-            axios.post("http://localhost:5000/api/quiz",
-            {
-                summary: unsummarizedTs 
-            })
-            .then((quizResponse) => {
-                res.json({
-                    summary: summaryResponse.data.summary,
-                    quiz: quizResponse.data.quiz,
-                })
-            })
-        })
-        .catch((error) => {
-            console.log('Error with Summarization')
-            console.log(error.message);
-        });
+    return result;
+}) 
 
-        return content;
-   })
-   
+//const postVideo = asyncHandler(async (req, res) =>
 
-    const  bucketName = process.env.BUCKET_NAME 
+const getSummary =  asyncHandler(async (videotranscript) => {
+    let content = ""
+    await axios.post("http://localhost:5000/api/summarize",
+    {
+        transcript: videotranscript
+    },
+    )
+    .then((response) => {
+        content = response.data.summary
+    })
+    .catch((error) => {
+        console.log('Error with Summarization')
+        console.log(error.message);
+    });
+
+    return content;
+})
+
+const getQuiz = asyncHandler(async (videosummary) => {
+    let quizcontent = ""
+    await axios.post("http://localhost:5000/api/quiz",
+    {
+        summary: videosummary 
+    },
+    )
+    .then((response) => {
+        quizcontent = response.data.quiz
+    })
+    .catch((error) => {
+        console.log('Error with quiz generation')
+        console.log(error.message);
+    });
+
+    return quizcontent;
+})
+
+    const bucketName = process.env.BUCKET_NAME 
     const bucketRegion = process.env.BUCKET_REGION
     const accessKey = process.env.ACCESS_KEY
     const secretAccessKey = process.env.SECRET_ACCESS_KEY
@@ -82,13 +105,6 @@ const PDFExtract = require('pdf.js-extract').PDFExtract;
         region: bucketRegion
     });
  
-
-
-
-
-
-
-
 
 const postVideo = asyncHandler(async (req, res) => {
 
@@ -120,6 +136,9 @@ const postVideo = asyncHandler(async (req, res) => {
     const unsummarized =   await getTranscript(URL)
     //console.log(typeof unsummarized)
     const summary =   await getSummary(unsummarized) 
+
+    const parsedQuiz = await getQuiz(summary) 
+    // const stringQuiz = JSON.stringify(parsedQuiz);
    // console.log(summary);
    
 
@@ -129,6 +148,7 @@ const postVideo = asyncHandler(async (req, res) => {
     // Create a document
     const doc = new PDFDocument({compress: false});
     const randomfilename = ID1 + ".pdf";
+    // const randomquizname = ID2 + ".json";
   
     // Pipe it's output somewhere, like to a file or HTTP response
     doc.pipe(fs.createWriteStream(randomfilename))
@@ -160,6 +180,19 @@ const postVideo = asyncHandler(async (req, res) => {
     // const command = new PutObjectCommand(params);
     // await s3.send(command)
     
+    // const quizParams = {
+    //     Bucket: bucketName,
+    //     Key: randomquizname,
+    //     Body: stringQuiz,
+    //     ContentType: "application/txt"
+    // }
+
+    // const quizUpload = new Upload({
+    //     client: s3,
+    //     params: quizParams 
+    //   });
+   
+    //   await quizUpload.done();
    
 
     //res.json({text: summary})
@@ -172,7 +205,7 @@ const postVideo = asyncHandler(async (req, res) => {
     })
     
 
-    res.json({text:summary});
+    res.json({text: parsedQuiz});
     
     
 });

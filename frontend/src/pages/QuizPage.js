@@ -5,11 +5,32 @@ import CheckCircle from '../assets/CheckCircle.png'
 import PinkCircle from '../assets/PinkCircle.png'
 import BlueCircle from '../assets/BlueCircle.png'
 import Bubbles from '../assets/Bubbles.png'
-
-
 import styles from './styles/QuizPage.module.css';
 
+import { useState, useContext, useEffect } from 'react'
+import axios, { isCancel, AxiosError } from 'axios';
+// import { notStrictEqual } from "assert";
+
+
 function QuizPage() {
+const [quiz, displayQuiz] = useState([]);
+const quizURL = 'http://localhost:5000/api/quiz';
+
+const getQuiz = () => {
+	axios.get(quizURL)
+		.then((response) => {
+			const quizContent = response.data.quiz;
+			displayQuiz(quizContent);	
+		})
+		.catch(error => {
+			console.log(error);
+		})
+}
+
+useEffect(() => {
+	getQuiz();
+}, []);
+
 	return (
 		<div className={styles.QuizPage}>
 			<img src={Bubbles} alt='bubbles' className={styles.bubbleRight} />
@@ -30,13 +51,15 @@ function QuizPage() {
 
 			<h6 style={{ fontSize: 15 }}> Choose one answer choice. </h6>
 
+
+{/* {quizData.text.map((question, index) => ( */}
 			<div className={styles.flexParentElement}>
 				<div className={styles.flexChildElement}>
 					<img src={BlueCircle} alt='blue circle' className={styles.blueCircle} />
 
 					<div className={styles.test}>
 						<h2>Question 1</h2>
-						<p>Which of these is a data structure?</p>
+						<p></p>
 					</div>
 				</div>
 
@@ -127,7 +150,6 @@ function QuizPage() {
 
 				<div className={styles.nextBox}></div>
 				<div className={styles.nextBox}></div>
-
 				<div className={styles.flexParentElement}>
 					<div className={styles.flexChildElement}>
 						<div className={styles.submit}>
