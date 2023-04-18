@@ -1,39 +1,36 @@
 import Line from "../components/Line";
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
 import CheckCircle from '../assets/CheckCircle.png'
 import PinkCircle from '../assets/PinkCircle.png'
 import BlueCircle from '../assets/BlueCircle.png'
 import Bubbles from '../assets/Bubbles.png'
+import { useNavigate } from 'react-router-dom'
+
+
 import styles from './styles/QuizPage.module.css';
 
-import { useState, useContext, useEffect } from 'react'
-import axios, { isCancel, AxiosError } from 'axios';
-// import { notStrictEqual } from "assert";
+import React, { useState } from "react";
 
 
 function QuizPage() {
-const [quiz, displayQuiz] = useState([]);
-const quizURL = 'http://localhost:5000/api/quiz';
+    const navigate = useNavigate();
 
-const getQuiz = () => {
-	axios.get(quizURL)
-		.then((response) => {
-			const quizContent = response.data.quiz;
-			displayQuiz(quizContent);	
-		})
-		.catch(error => {
-			console.log(error);
-		})
+
+    const [active, setActive] = useState(false);
+    const handleClick = () => {
+     setActive(!active);
+  };
+
+  function handleSubmit(e) {
+    e.preventDefault()
+    navigate('/general')
 }
 
-useEffect(() => {
-	getQuiz();
-}, []);
 
 	return (
+
 		<div className={styles.QuizPage}>
-			<img src={Bubbles} alt='bubbles' className={styles.bubbleRight} />
+
+			<img src={Bubbles} alt='bubbles' className={styles.quizbubbleRight} />
 
 			<div className={styles.nextBox}></div>
 			<span className={styles.fontLink}>
@@ -43,120 +40,123 @@ useEffect(() => {
 
 			<img src={CheckCircle} alt='check circle' className={styles.check} />
 
-			<h5 style={{ fontSize: 15 }}> Join many others: Summer is trusted by many ambitious users </h5>
-			<h5 style={{ fontSize: 15 }}> Get started quickly: Engage below and assess your knowledge of the desired video </h5>
+			<h5 style={{ fontSize: 20 }}> Get started quickly: Engage below and assess your knowledge of the desired video </h5>
 			<div className={styles.nextBox}></div>
 
 			<Line />
+			
+			<h6 style={{ fontSize: 18 }}> Choose one answer choice. </h6>
 
-			<h6 style={{ fontSize: 15 }}> Choose one answer choice. </h6>
+		
+
+			<div className={styles.quizflexParentElement}>
+                    <div className={styles.quizflexChildElement}>
+                        <div className={styles.test}>
+
+                        <div className= {styles.questionTitle}> 
+                            <p>Question 1</p>
+                            </div>
+
+                            <div className= {styles.questionText}>
+                            <p>Which of these is not a data structure?</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className={styles.quizflexChildElement}>
+                        
+                            <div className={styles.push}></div>
+
+                            {/*<button className={styles.onClick} type='button' onClick={handleClick} style={{ backgroundColor: active ? "gray" : "white" }}> Arrays </button>*/}
+
+						<div className={styles.quizflexSmallerElement}></div>
+
+                        <div className={styles.smallBox}></div>
+                        {/*<div className={styles.testAnswers} onClick={handleClick} style={{ backgroundColor: active ? "gray" : "white" }}>
+                            <p>Array</p>
+                        </div>*/}
+						<div className={styles.quizflexSmallerElement}></div>
+                        <div className={styles.smallBox}></div>
+
+                        <div className={styles.testAnswers}>
+                            <p>Binary Search</p>
+                        </div>
+						<div className={styles.quizflexSmallerElement}></div>
+                        <div className={styles.smallBox}></div>
+
+                        <div className={styles.testAnswers}>
+                            <p>Hash Maps</p>
+                        </div>
+						<div className={styles.quizflexSmallerElement}></div>
+                        <div className={styles.smallBox}></div>
+                        <div className={styles.testAnswers}>
+                            <p>Linked List</p>
+                        </div>
+						<div className={styles.quizflexSmallerElement}></div>
+                        <div className={styles.smallBox}></div>
+
+                        <div className={styles.testAnswers}>
+                            <p>Array</p>
+                        </div>
+						<div className={styles.quizflexSmallerElement}></div>
+                        <div className={styles.smallBox}></div>
+
+                    </div>
+                </div>
+
+                <div className={styles.nextBox}></div>
 
 
-{/* {quizData.text.map((question, index) => ( */}
-			<div className={styles.flexParentElement}>
-				<div className={styles.flexChildElement}>
-					<img src={BlueCircle} alt='blue circle' className={styles.blueCircle} />
 
-					<div className={styles.test}>
-						<h2>Question 1</h2>
-						<p></p>
-					</div>
-				</div>
 
-				<div className={styles.flexParentElement}>
-					<div className={styles.testAnswers}>
-						<p>Search</p>
-					</div>
-					<div className={styles.smallBox}></div>
 
-					<div className={styles.testAnswers}>
-						<p>Insert</p>
-					</div>
-					<div className={styles.smallBox}></div>
+			<div className={styles.quizflexParentElement}>
+                    <div className={styles.quizflexChildElement}>
+                        <div className={styles.test}>
+                        <div className= {styles.questionTitle}> 
+                            <p>Question 2</p>
+                            </div>
+                            <div className= {styles.questionText}> Which of these is a programming language?
+                            </div>
+                        </div>
+						
+                    </div>
+                    <div className={styles.quizflexChildElement}>
+                        <div className={styles.testAnswers}>
+                            <div className={styles.push}></div>
+                            <p>Python</p>
+                        </div>
+						<div className={styles.quizflexSmallerElement}></div>
+                        <div className={styles.smallBox}></div>
+                        <div className={styles.testAnswers}>
+                            <p>Eclipse</p>
+                        </div>
+						<div className={styles.quizflexSmallerElement}></div>
 
-					<div className={styles.testAnswers}>
-						<p>Array</p>
-					</div>
-					<div className={styles.smallBox}></div>
+                        <div className={styles.smallBox}></div>
 
-					<div className={styles.testAnswers}>
-						<p>Java</p>
-					</div>
-					<div className={styles.smallBox}></div>
+                        <div className={styles.testAnswers}>
+                            <p>React</p>
+                        </div>
+						<div className={styles.quizflexSmallerElement}></div>
 
-				</div>
+                        <div className={styles.smallBox}></div>
+                        <div className={styles.testAnswers}>
+                            <p>IntelliJ</p>
+                        </div>
+						<div className={styles.quizflexSmallerElement}></div>
+                        <div className={styles.smallBox}></div>
+                    </div>
+                </div>
 
-			</div>
-
-			<div className={styles.flexParentElement}>
-				<div className={styles.flexChildElement}>
-					<div className={styles.test}>
-						<h2>Question 2</h2>
-						<p>Which of these is an IDE?</p>
-					</div>
-
-				</div>
-				<div className={styles.flexChildElement}>
-					<div className={styles.testAnswers}>
-						<div className={styles.push}></div>
-						<p>Eclipse</p>
-					</div>
-					<div className={styles.smallBox}></div>
-
-					<div className={styles.testAnswers}>
-						<p>IntelliJ</p>
-					</div>
-					<div className={styles.smallBox}></div>
-
-					<div className={styles.testAnswers}>
-						<p>Visual Studio</p>
-					</div>
-					<div className={styles.smallBox}></div>
-
-					<div className={styles.testAnswers}>
-						<p>All of the above</p>
-					</div>
-					<div className={styles.smallBox}></div>
-				</div >
-
-				<div className={styles.flexParentElement}>
-					<div className={styles.flexChildElement}>
-						<div className={styles.test}>
-							<h2>Question 3</h2>
-							<p>Which of these is a programming language?</p>
-						</div>
-					</div>
-					<div className={styles.flexChildElement}>
-						<div className={styles.testAnswers}>
-							<div className={styles.push}></div>
-							<p>MongoDB</p>
-						</div>
-						<div className={styles.smallBox}></div>
-						<div className={styles.testAnswers}>
-							<p>Eclipse</p>
-						</div>
-						<div className={styles.smallBox}></div>
-
-						<div className={styles.testAnswers}>
-							<p>React</p>
-						</div>
-						<div className={styles.smallBox}></div>
-						<div className={styles.testAnswers}>
-							<p>IntelliJ</p>
-						</div>
-						<div className={styles.smallBox}></div>
-					</div>
-				</div>
 
 				<div className={styles.nextBox}></div>
 				<div className={styles.nextBox}></div>
 				<div className={styles.flexParentElement}>
 					<div className={styles.flexChildElement}>
-						<div className={styles.submit}>
-							<h2>Submit!</h2>
-						</div>
+						
+                    <button className={styles.submit} type='button' onClick={handleSubmit} style={{ fontSize: 22 }} > Submit! </button>
+
 					</div>
-				</div>
 
 				<img src={PinkCircle} alt='pink cicrle' className={styles.pinkCircle} />
 

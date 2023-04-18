@@ -39,12 +39,15 @@ function Library() {
 				</div >
 			</header >
 
+			<img src={BlueCircle} alt='bubbles' className={styles.blueCircleLeft} draggable="false" />               
+
+
 			<div className={styles.nextBox}></div>
 
 			<div className={styles.flexParentElement}>
 				<div className={styles.flexChildElement}>
 					<div className={styles.libraryVid}>
-
+					
 					</div>
 					<input type='text' className={styles.videotitles}
 								placeholder='Introduction to Arrays'/>
@@ -104,6 +107,7 @@ function Library() {
 								placeholder='Quiz | All Info'/>
 				</div >
 			</div >
+
 
 			<div className={styles.nextBox}></div>
 			<div className={styles.nextBox}>

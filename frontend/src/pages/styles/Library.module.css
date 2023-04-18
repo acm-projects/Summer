@@ -235,3 +235,11 @@ h3 {
     justify-content: center;
 
 }
+
+.blueCircleLeft {
+    position: absolute;
+    top: 100%;
+    left: -700px;
+    /* Adjust this value as needed */
+    transform: rotate(200deg);
+}
