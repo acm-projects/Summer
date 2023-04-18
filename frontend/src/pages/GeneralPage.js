@@ -8,6 +8,12 @@ const GeneralPage = () => {
 	const navigate = useNavigate();
 	const { summary, link } = useContext(MyContext)
 
+	const linkString = link.toString();
+	// const startIndex = linkString.indexOf('v=') + 2; // Find the index of the 'v=' substring
+	// const endIndex = linkString.indexOf('&', startIndex); // Find the index of the '&' character after the video ID
+	const videoId = linkString.substring(17); // Extract the video ID using the start and end indices
+	console.log(videoId)
+
 	function handleSummary(e) {
 		e.preventDefault()
 		navigate('/summary')
@@ -33,7 +39,8 @@ const GeneralPage = () => {
 					<iframe
 						width="853"
 						height="450"
-						src={link}
+						// src={link}
+						src={`https://www.youtube.com/embed/${videoId}`}
 						// src={'https://youtu.be/yY2xDJ_6j_c'}
 						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 						allowFullScreen
