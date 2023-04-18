@@ -18,6 +18,10 @@
     -webkit-text-fill-color: transparent;
     background-clip: text; */
     /* text-fill-color: transparent; */
+    position: relative;
+    color: #333;
+    mix-blend-mode: color-burn;
+    opacity: 1;
 }
 
 .title1 {
@@ -35,7 +39,9 @@
     font-size: 105px;
     line-height: 128px;
     /* identical to box height */
-    color: #000000;
+    color: #333;
+    position: relative;
+    mix-blend-mode: color-burn;
 }
 
 .heroSubtext { 
