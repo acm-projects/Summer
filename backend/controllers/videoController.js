@@ -107,31 +107,12 @@ const getQuiz = asyncHandler(async (videosummary) => {
  
 
 const postVideo = asyncHandler(async (req, res) => {
-
     const {URL} = req.body
 
     if(!URL){
         res.status(400)
         throw new Error('Please add URL')
     }
-    
-    
-    // const bucketName = process.env.BUCKET_NAME 
-    // const bucketRegion = process.env.BUCKET_REGION
-    // const accessKey = process.env.ACCESS_KEY
-    // const secretAccessKey = process.env.SECRET_ACCESS_KEY
-    // // console.log(accessKey)
-    // const s3 = new S3Client({
-    //     credentials: {
-    //         accessKeyId: accessKey,
-    //         secretAccessKey: secretAccessKey,
-    //     },
-        
-    //     region: bucketRegion
-    // });
- 
-
-
      
     const unsummarized =   await getTranscript(URL)
     //console.log(typeof unsummarized)
@@ -158,8 +139,6 @@ const postVideo = asyncHandler(async (req, res) => {
     
     //console.log(randomfilename);
     doc.end();
-  
-
 
     const params = {
         Bucket: bucketName,
@@ -175,24 +154,6 @@ const postVideo = asyncHandler(async (req, res) => {
       });
    
       await upload.done();
-    
-    //attempt with PutobjectCommand object
-    // const command = new PutObjectCommand(params);
-    // await s3.send(command)
-    
-    // const quizParams = {
-    //     Bucket: bucketName,
-    //     Key: randomquizname,
-    //     Body: stringQuiz,
-    //     ContentType: "application/txt"
-    // }
-
-    // const quizUpload = new Upload({
-    //     client: s3,
-    //     params: quizParams 
-    //   });
-   
-    //   await quizUpload.done();
    
 
     //res.json({text: summary})
@@ -205,9 +166,9 @@ const postVideo = asyncHandler(async (req, res) => {
     })
     
 
-    res.json({text: parsedQuiz});
-    
-    
+    res.json({
+        summary: summary,
+    });
 });
 
 const getVideo = asyncHandler(async (req, res) => {

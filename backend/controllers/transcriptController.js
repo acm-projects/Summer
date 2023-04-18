@@ -22,13 +22,14 @@ const Summarize = asyncHandler( async(req, res) => {
   openai.createCompletion({
     model: "text-davinci-003",
     prompt: "Summarize " + transcript,
-    max_tokens: 150,
+    max_tokens: 30,
     temperature: 0,
   })
   .then((response) => {
     const sumResponse = response.data.choices[0].text;
     const parseSum = sumResponse.replace(/\n/g, '');
     res.json({summary: parseSum});
+    // res.json({summary: sumResponse});
     
   })
   }catch(error) {

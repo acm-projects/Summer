@@ -18,6 +18,7 @@ const Summary = () => {
         navigate('/general')
     }
 
+    // Displays the pdf preview
     async function displaySummary(){
         let url = await axios.get("http://localhost:5000/api/videos")
         console.log(url.data);
@@ -43,13 +44,14 @@ const Summary = () => {
 		
 		
 		).then((response) => {
-            result = response.data.text
-            console.log(response.data.text)
+            result = response.data.summary
+            console.log(response.data.summary)
         })
 
         setLoading(true)
-        console.log(result)
+        // console.log(result)
 		await setSummary(result)
+        // console.log('hello')
         setLoading(false)
 	}
     

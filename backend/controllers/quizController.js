@@ -19,8 +19,9 @@ const createQuiz = asyncHandler( async(req, res) => {
 
     openai.createCompletion ({
     model: "text-davinci-003",
+    // prompt: "Generate a short free-response question of the following: " + summary,
     prompt: "Generate a short quiz of 3 questions with 4 answer choices about the following text. Provide the answers at the end of each question: " + summary,
-    max_tokens: 200,
+    max_tokens: 40,
     temperature: 0,
     })
     .then((response) => {
@@ -34,9 +35,6 @@ const createQuiz = asyncHandler( async(req, res) => {
       const quizQuestionsAndAnswers = [];
 
       for (let i = 0; i < quizArray.length; i += 2) {
-        // const question = quizArray[i];
-        // const answer = quizArray[i + 1];
-        // quizQuestionsAndAnswers.push(question.concat(answer));
 
         const question = quizArray[i][0].substring(3); // remove the question number prefix
         const answer = quizArray[i + 1][0].substring(8); // remove the "Answer: " prefix
@@ -56,6 +54,7 @@ const createQuiz = asyncHandler( async(req, res) => {
       }
 
       res.json({quiz: quizQuestionsAndAnswers});
+      // res.json({quiz: quizString});
 
     });
 
