@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;700&family=Nunito&display=swap');
 
+.overflow-hidden {
+    overflow: hidden;
+ }
+
 .screenContainer {
     background-color: #F7FAFC;
     overflow: hidden;
@@ -42,12 +46,16 @@
     z-index: 1;
 }
 
+.formInput {
+    margin-top: 10px;    
+}
+
 .cover {
     background-color: white;
     position: relative;
     filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
     width: 596px;
-    height: 572px;
+    height: 650px;
     display: flex;
     flex-direction: column;
     padding-left: 36.5px;
@@ -65,7 +73,7 @@
     border: 1px solid #D0D0D0;
     box-shadow: 0px 4px 4px #B9E1F2;
     border-radius: 15px;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 400;
@@ -96,6 +104,8 @@
     font-weight: 400;
     font-size: 17px;
     line-height: 21px;
+    margin-top: 10px;
+
 }
 
 .backBtn {
@@ -151,7 +161,7 @@
 .loginLabel {
     font-family: Montserrat;
     font-size: 15px;
-    margin-bottom: 5px;
+    margin-top: 5px;
 }
 
 .bleedingCircles {
@@ -162,7 +172,7 @@
 
 .messages {
     font-family: 'Montserrat';
-    font-size: 8px;;
+    font-size: 8px;
 }
 
 .span {

@@ -46,12 +46,15 @@ h3 {
 	display: flex;
 	width: 100%;
 	height: auto;
+	align-items: center;
+
 }
 
 .flexChildElement {
 	flex: 1;
-	margin: px;
 	height: auto;
+	align-items: center;
+	text-align: center;
 }
 
 .flexSmallerElement {
@@ -105,16 +108,19 @@ h3 {
 }
 
 .libraryVid {
-	width: 250px;
+	width: 270px;
 	height: 200px;
 	text-align: center;
 	background-color: lightgray;
 	justify-items: center;
-	padding: 16px;
 	border-radius: 16px;
 	border: 3px solid lightcyan;
-	margin-left: 8rem;
 	color: black;
+	/*margin-left: 5%;
+	margin-right: 5%; */
+	align-self: center;
+	/*flex: auto;*/
+	margin-left: 15%;
 }
 
 .testAnswers:hover {
@@ -209,7 +215,6 @@ h3 {
 	/* line-height: 22px; */
 	color: black;
 	background-color:  rgb(217, 233, 240);
-	margin-left: 2rem;
 	margin-top: 10px;
 	width: 250px;
     align-items: center;
@@ -218,6 +223,118 @@ h3 {
 }
 
 .videotext {
+	border: none;
+	outline: none;
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 16px;
+	/* line-height: 22px; */
+	color: black;
+	background-color:  rgb(217, 233, 240);
+	margin-top: 10px;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.blueCircleLeft {
+    position: absolute;
+    top: 100%;
+    left: -700px;
+    /* Adjust this value as needed */
+    transform: rotate(200deg);
+}
+
+
+.video {
+	text-align: center;
+	border: none;
+	outline: none;
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 550;
+	font-size: 16px;
+	/* line-height: 22px; */
+	color: black;
+	background-color:  rgb(217, 233, 240);
+	margin-left: 2rem;
+	margin-top: 10px;
+	width: 250px;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+.videos {
+	text-align: center;
+	border: none;
+	outline: none;
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 550;
+	font-size: 16px;
+	/* line-height: 22px; */
+	color: black;
+	background-color:  rgb(217, 233, 240);
+	margin-left: 2rem;
+	margin-top: 10px;
+	width: 250px;
+    align-items: center;
+    justify-content: center;
+	
+}
+
+.vidDiv {
+
+	width: auto;
+	height: 50%;
+	margin-left: 5%;
+	margin-right: 5%;
+	justify-items: flex-start;
+	text-align: justify;
+	align-items: center;
+
+}
+
+.info-div {
+
+	justify-items: flex-start;
+	text-align: justify;
+	align-items: center;
+
+	width: 270px;
+	height: 200px;
+	text-align: center;
+	background-color: black;
+	justify-items: center;
+	align-self: center;
+
+}
+
+.parentElem {
+	display: flex;
+	width: auto;
+	height: auto;
+	align-items: center;
+	text-align: center;
+	margin-right: 5%;
+	margin-left: 20%;
+
+}
+
+.childElem {
+	width: 50%;
+	height: auto;
+	align-items: center;
+	text-align: center;
+	margin-right: 10%;
+
+}
+
+
+.allInfoText {
 	text-align: center;
 	border: none;
 	outline: none;
@@ -228,7 +345,6 @@ h3 {
 	/* line-height: 22px; */
 	color: black;
 	background-color:  rgb(217, 233, 240);
-	margin-left: 2rem;
 	margin-top: 10px;
 	width: 250px;
     align-items: center;
