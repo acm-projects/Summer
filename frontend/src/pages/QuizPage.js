@@ -30,7 +30,7 @@ function QuizPage() {
 
 		<div className={styles.QuizPage}>
 
-			<img src={Bubbles} alt='bubbles' className={styles.quizbubbleRight} />
+			<img src={Bubbles} alt='bubbles' className={styles.quizbubbleRight}/>
 
 			<div className={styles.nextBox}></div>
 			<span className={styles.fontLink}>
@@ -38,7 +38,7 @@ function QuizPage() {
 				<h1 style={{ fontSize: 50 }}>Quiz and Guide</h1>
 			</span>
 
-			<img src={CheckCircle} alt='check circle' className={styles.check} />
+			{/*<img src={CheckCircle} alt='check circle' className={styles.check} > */}
 
 			<h5 style={{ fontSize: 20 }}> Get started quickly: Engage below and assess your knowledge of the desired video </h5>
 			<div className={styles.nextBox}></div>
@@ -159,7 +159,9 @@ function QuizPage() {
 
 					</div>
 
-				<img src={PinkCircle} alt='pink cicrle' className={styles.pinkCircle} />
+				{/*<img src={PinkCircle} alt='pink cicrle' className={styles.pinkCircle} />*/}
+
+
 
 				<div className={styles.nextBox}></div>
 			</div>
