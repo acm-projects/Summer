@@ -17,6 +17,11 @@ function Library() {
 		navigate('/quizpage')
 	}
 
+	function handleGeneral(e) {
+		e.preventDefault()
+		navigate('/general')
+	}
+
 
 	return (
 		<div className={styles.Library}>
@@ -62,25 +67,17 @@ function Library() {
 					<div className={styles.childElem}>
 					<input className={styles.videotext} placeholder='Quiz' onClick ={handleQuiz} /> 
 
-
 				</div>
-						<input className={styles.videotext} placeholder='All Info' onClick ={handleQuiz} /> 
+						<input className={styles.videotext} placeholder='All Info' onClick ={handleGeneral} /> 
 
 				</div>
 					
 					 </div>
 
 
-			   <div className={styles.parentElem}>
-				<div className={styles.childElem}>
-
-
-				</div>
-				</div>
-
+			
 					
 					{/* Goes to the quiz page*/}
-					<input className={styles.videotext} placeholder='Quiz | All Info' onClick ={handleQuiz} /> 
 
 				</div>
 
