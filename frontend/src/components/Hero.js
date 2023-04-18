@@ -4,11 +4,11 @@ import { useNavigate } from 'react-router-dom'
 import { useState, useEffect, useContext } from 'react';
 import axios, { isCancel, AxiosError } from 'axios';
 import { MyContext } from '../App.js'
-import HeroGradient from './HeroGradient';
 
 const Hero = () => {
 	// const [link, setlink] = useState([]);
 	const { link, setLink } = useContext(MyContext)
+	const [error, setError] = useState('')
 	const navigate = useNavigate();
 
 	function handleSummarize(e) {
@@ -16,18 +16,29 @@ const Hero = () => {
 		navigate('/general')
 	}
 
-	function handleChange(e) {
+	// function handleChange(e) {
+	// 	e.preventDefault();
+	// 	setLink(e.target.value)
+	// }
+	const handleChange = (e) => {
 		e.preventDefault();
-		setLink(e.target.value)
-	}
+
+		const value = e.target.value;
+		const regex = new RegExp(/^https:\/\/youtu\.be\/[a-zA-Z0-9_-]{11}$/);
+		if (regex.test(value)) {
+			setLink(value);
+			setError('');
+		} else {
+			setError('Please enter a valid YouTube link.');
+		}
+	};
 
 	return (
 		<div>
 			<div className={styles.gradient}>
-
+					
 			</div>
 			<div className={styles.container}>
-				{/* <HeroGradient className={styles.gradient}/> */}
 				<div className={styles.title}>
 					<div className={`${styles.textGradient} ${styles.title1}`}>Watch Less,</div>
 					<div className={styles.title2}>Know More.</div>
@@ -35,14 +46,14 @@ const Hero = () => {
 				</div>
 
 				<div className={styles.heroSearch}>
-					<input type='text' className={styles.input} placeholder='Enter YouTube Link' onChange={handleChange} />
+					<input type='text' className={styles.input} placeholder='Enter YouTube Link' onChange ={handleChange}/> 
 					<button className={styles.searchButton} type='button' onClick={handleSummarize}>
 						<span>SUMMARIZE</span>
 					</button>
 				</div>
 			</div>
 		</div>
-	)
+	)  
 }
 
 export default Hero

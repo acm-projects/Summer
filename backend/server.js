@@ -20,7 +20,6 @@ app.use(express.urlencoded({extended: false}))
 app.use('/api/users', require('./routes/userRoutes'))
 app.use('/api/videos', require('./routes/videoRoutes'))
 app.use('/api/summarize', require('./routes/transcriptRoutes'))
-app.use('/api/quiz', require('./routes/quizRoutes'))
 
 app.use(errorHandler)
 

@@ -320,7 +320,7 @@ ul {
 	color: white;
 	cursor: pointer;
 	background-color: rgb(103, 163, 217);
-	
+
 }
 
 .submit:hover {
@@ -333,7 +333,7 @@ ul {
 	color: white;
 	cursor: pointer;
 	background-color: rgb(177, 177, 177);
-	
+
 }
 
 .small-box {
@@ -353,7 +353,7 @@ ul {
 	align-self: flex-start;
 	flex-direction: 'row';
 	justify-content: 'space-between';
-    font-family: 'Montserrat';
+	font-family: 'Montserrat';
 	font-size: 18px;
 	font-style: normal;
 	border: 1px solid rgb(9, 147, 191);
@@ -369,7 +369,7 @@ ul {
 }
 
 .onClick:hover {
-	color: rgb(103, 163, 217) ;
+	color: rgb(103, 163, 217);
 	cursor: pointer;
 	background-color: rgb(103, 163, 217);
 }
@@ -377,13 +377,11 @@ ul {
 .btns {
 
 	background-color: rgb(0, 255, 213);
-	
+
 }
+
 .btns:active {
 
 	background-color: rgb(123, 180, 17);
-	
+
 }
-
-
-
