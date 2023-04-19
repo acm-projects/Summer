@@ -16,6 +16,8 @@ function QuizPage() {
 
 
     const [active, setActive] = useState(false);
+    const [questions, setQuestions] = useState([])
+    
     const handleClick = () => {
      setActive(!active);
   };

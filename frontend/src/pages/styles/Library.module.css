@@ -115,6 +115,7 @@ h3 {
 	border: 3px solid lightcyan;
 	margin-left: 8rem;
 	color: black;
+
 }
 
 .testAnswers:hover {
@@ -141,7 +142,20 @@ h3 {
 	color: white;
 	cursor: pointer;
 	background-color: rgb(177, 177, 177);
+
 }
+
+.reactplayer {
+	height: auto !important;
+	aspect-ratio: 16/9;
+
+  }
+
+.playerwrapper{
+	width: auto; 
+	height: auto;
+}
+
 
 .textOnImage {
 	position: absolute;

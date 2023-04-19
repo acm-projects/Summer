@@ -32,6 +32,7 @@ const Hero = () => {
 			setError('Please enter a valid YouTube link.');
 		}
 		setLink(value);
+	
 	};
 
 	return (
