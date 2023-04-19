@@ -21,6 +21,12 @@ function Library() {
 		navigate('/quizpage')
 	}
 	
+
+	function handleGeneral(e) {
+		e.preventDefault()
+		navigate('/general')
+	}
+
 	useEffect(() => {
 		RetrieveVideo()
 	}, [])
@@ -29,33 +35,29 @@ function Library() {
 		let videoArray = await axios.get("http://localhost:5000/api/videos/url")
 		//console.log(videoArray.data)
 		Setvideos(videoArray.data);
-		RetrieveTitles(videos);
+		//RetrieveTitles(videos);
 		
 
 	}
 
-	async function RetrieveTitles(videosarray){
-		for(let i=0; i<videos.length; i++){
+	// async function RetrieveTitles(videosarray){
+	// 	for(let i=0; i<videos.length; i++){
 
-			const videoUrl = videosarray[i]
-			const apiKey = process.env.Youtube_API_KEY
+	// 		const videoUrl = videosarray[i]
+	// 		const apiKey = process.env.Youtube_API_KEY
 
-			// Make an API request to get video data
-			fetch(`https://www.googleapis.com/youtube/v3/videos?id=${videoUrl}&key=${apiKey}&part=snippet`)
-			.then(response => response.json())
-			.then(data => {
-				const videoTitle = data.items[0].snippet.title;
-				console.log(videoTitle); // Outputs the video title to the console
-			})
-			.catch(error => console.error(error));
-
-
-		}
-	}	
+	// 		// Make an API request to get video data
+	// 		fetch(`https://www.googleapis.com/youtube/v3/videos?id=${videoUrl}&key=${apiKey}&part=snippet`)
+	// 		.then(response => response.json())
+	// 		.then(data => {
+	// 			const videoTitle = data.items[0].snippet.title;
+	// 			console.log(videoTitle); // Outputs the video title to the console
+	// 		})
+	// 		.catch(error => console.error(error));
 
 
-
-
+	// 	}
+	// }	
 	return (
 		<div className={styles.Library}>
 			<header>
@@ -82,69 +84,91 @@ function Library() {
 
 			<div className={styles.nextBox}></div>
 
-			<div className={styles.flexParentElement}>
-				<div className={styles.flexChildElement}>
-					<div className={styles.libraryVid}>
-					
-					<ReactPlayer 
-					//className= {styles.reactplayer}                                          
-					url= {videos[0]}
-					light = {true}
-					width = '100%'
-					height = '100%'
-					playing = {false}
-					/>
-						
-					</div>
-					<input type='text' className={styles.videotitles}
-								placeholder= "Learn PYTHON in 5 Minutes"/>
-					
-					{/* Goes to the quiz page*/}
-					<input type='text' className={styles.videotext} placeholder='Quiz | All Info' onClick ={handleQuiz} /> 
+
+			<div className={styles.vidDiv}>
+				<div className={styles.vidDiv}>
+					<div className={styles.flexParentElement}>
+						<div className={styles.flexChildElement}>
+							<div className={styles.libraryVid}>
+							
+							<ReactPlayer 
+							//className= {styles.reactplayer}                                          
+							url= {videos[0]}
+							light = {true}
+							width = '100%'
+							height = '100%'
+							playing = {false}
+							/>
+							</div>
+
+							<input className={styles.videotitles}
+								placeholder='"Learn PYTHON in 5 Minutes"' />
+
+
+							<div className={styles.infoDiv}>
+								<div className={styles.parentElem}>
+									<div className={styles.childElem}>
+										<input className={styles.videotext} placeholder='Quiz' onClick={handleQuiz} />
+
+									</div>
+									<input className={styles.videotext} placeholder='All Info' onClick={handleGeneral} />
+
+								</div>
+
+							</div>
+							{/* Goes to the quiz page*/}
 
 						</div>
 
-				<div className={styles.flexChildElement}>
-					<div className={styles.libraryVid}>
-				
-					<ReactPlayer 
-					//className= {styles.reactplayer}                                          
-					url= {videos[1]}
-					light = {true}
-					width = '100%'
-					height = '100%'
-					/>
+						<div className={styles.flexChildElement}>
+							<div className={styles.libraryVid}>
+							<ReactPlayer 
+							//className= {styles.reactplayer}                                          
+							url= {videos[1]}
+							light = {true}
+							width = '100%'
+							height = '100%'
+							/>
 
 
+							</div>
+							<input type='text' className={styles.videotitles}
+							placeholder='Learn Graphs in 5 minutes' />
+								
+								
+								
+
+							<input type='text' className={styles.videotext}
+								placeholder='Quiz | All Info' />
 
 
-					</div>
-					<input type='text' className={styles.videotitles}
-								placeholder='Learn Graphs in 5 minutes '/>
-					<input type='text' className={styles.videotext}
-								placeholder='Quiz | All Info'/>
+							<div className={styles.videotitles}>
+							</div >
+
+						</div >
+						{/*<div className = {styles.video}intro to lol</div>*/}
+
+
+						<div className={styles.flexChildElement}>
+							<div className={styles.libraryVid}>
+							<ReactPlayer 
+							//className= {styles.reactplayer}                                          
+							url= {videos[2]}
+							playing
+							light = {true}
+							width = '100%'
+							height = '100%'
+							/>
+
+							</div>
+							<input type='text' className={styles.videotitles}
+								placeholder='Learn Big O notation in 6 minutes' />
+							<input type='text' className={styles.videotext}
+								placeholder='Quiz | All Info' />
+						</div >
+					</div >
 				</div>
-
-				<div className={styles.flexChildElement}>
-					<div className={styles.libraryVid}>
-
-					<ReactPlayer 
-					//className= {styles.reactplayer}                                          
-					url= {videos[2]}
-					playing
-					light = {true}
-					width = '100%'
-					height = '100%'
-					/>
-
-
-					</div>
-					<input type='text' className={styles.videotitles}
-								placeholder='Learn Big O notation in 6 minutes'/>
-					<input type='text' className={styles.videotext}
-								placeholder='Quiz | All Info'/>
-				</div >
-			</div >
+			</div>
 
 			<div className={styles.nextBox}></div>
 
@@ -152,6 +176,66 @@ function Library() {
 			<div className={styles.vidDiv}>
 				<div className={styles.vidDiv}>
 					< div className={styles.flexParentElement} >
+						<div className={styles.flexChildElement}>
+							<div className={styles.libraryVid}>
+							<ReactPlayer 
+							//className= {styles.reactplayer}                                          
+							url= {videos[3]}
+							playing
+							light = {true}
+							width = '100%'
+							height = '100%'
+							/>
+
+							</div>
+							<input type='text' className={styles.videotitles}
+								placeholder="TypeScript - The Basics"/>
+							<input type='text' className={styles.videotext}
+								placeholder='Quiz | All Info' />
+						</div >
+						<div className={styles.flexChildElement}>
+							<div className={styles.libraryVid}>
+								<ReactPlayer 
+								//className= {styles.reactplayer}                                          
+								url= {videos[4]}
+								playing
+								light = {true}
+								width = '100%'
+								height = '100%'
+								/>
+							</div>
+							<input type='text' className={styles.videotitles}
+								placeholder='How to OVER Engineer a Website // What is a Tech Stack?'
+								/>
+							<input type='text' className={styles.videotext}
+								placeholder='Quiz | All Info' />
+						</div >
+						<div className={styles.flexChildElement}>
+							<div className={styles.libraryVid}>
+								<ReactPlayer 
+							//className= {styles.reactplayer}                                          
+								url= {videos[5]}
+								playing
+								light = {true}
+								width = '100%'
+								height = '100%'
+								/>
+							</div>
+							<input type='text' className={styles.videotitles}
+								placeholder='7 Database Paradigms' />
+							<input type='text' className={styles.videotext}
+								placeholder='Quiz | All Info' />
+						</div >
+					</div>
+				</div>
+
+			</div >
+			<div className={styles.nextBox}></div>
+
+			<div className={styles.vidDiv}>
+				<div className={styles.vidDiv}>
+					< div className={styles.flexParentElement} >
+
 						<div className={styles.flexChildElement}>
 							<div className={styles.libraryVid}>
 							</div>
@@ -160,6 +244,7 @@ function Library() {
 							<input type='text' className={styles.videotext}
 								placeholder='Quiz | All Info' />
 						</div >
+
 						<div className={styles.flexChildElement}>
 							<div className={styles.libraryVid}>
 							</div>
@@ -168,6 +253,7 @@ function Library() {
 							<input type='text' className={styles.videotext}
 								placeholder='Quiz | All Info' />
 						</div >
+
 						<div className={styles.flexChildElement}>
 							<div className={styles.libraryVid}>
 							</div>
@@ -176,65 +262,7 @@ function Library() {
 							<input type='text' className={styles.videotext}
 								placeholder='Quiz | All Info' />
 						</div >
-					</div>
-				</div>
-
-			</div >
-			<div className={styles.nextBox}></div>
-
-			<div className={styles.vidDiv}>
-				<div className={styles.vidDiv}>
-					< div className={styles.flexParentElement} >
-
-				<div className={styles.flexChildElement}>
-					<div className={styles.libraryVid}>
-					<ReactPlayer 
-					//className= {styles.reactplayer}                                          
-					url= {videos[3]}
-					playing
-					light = {true}
-					width = '100%'
-					height = '100%'
-					/>
-					</div>
-					<input type='text' className={styles.videotitles}
-								placeholder= "TypeScript - The Basics"/>
-					<input type='text' className={styles.videotext}
-								placeholder='Quiz | All Info'/>
-				</div >
-
-				<div className={styles.flexChildElement}>
-					<div className={styles.libraryVid}>
-					<ReactPlayer 
-					//className= {styles.reactplayer}                                          
-					url= {videos[4]}
-					playing
-					light = {true}
-					width = '100%'
-					height = '100%'
-					/>
-					</div>
-					<input type='text' className={styles.videotitles}
-								placeholder= 'How to OVER Engineer a Website // What is a Tech Stack?'/>
-					<input type='text' className={styles.videotext}
-								placeholder='Quiz | All Info'/>
-				</div >
-
-				<div className={styles.flexChildElement}>
-					<div className={styles.libraryVid}>
-					<ReactPlayer 
-					//className= {styles.reactplayer}                                          
-					url= {videos[5]}
-					playing
-					light = {true}
-					width = '100%'
-					height = '100%'
-					/>
-					</div>
-					<input type='text' className={styles.videotitles}
-								placeholder='7 Database Paradigms'/>
-					<input type='text' className={styles.videotext}
-								placeholder='Quiz | All Info'/>
+					</div >
 				</div >
 			</div>
 
@@ -256,3 +284,4 @@ function Library() {
 }
 
 export default Library;
+
