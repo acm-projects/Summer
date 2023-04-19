@@ -1,118 +1,118 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;700&family=Nunito&display=swap');
 
-.VideoLinkInput{
-    text-align: center;
+.VideoLinkInput {
+  text-align: center;
 }
 
 body {
-    background-color:rgb(217, 233, 240);
+  background-color: rgb(217, 233, 240);
 }
 
- vidh3 {
+vidh3 {
 
-    text-align: flex;
-    align-items: start;
-    width: 800px;
-    height: 50px;
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 2rem;
-    margin-left: -25rem;
+  text-align: flex;
+  align-items: start;
+  width: 800px;
+  height: 50px;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 2rem;
+  margin-left: -25rem;
 
-  }
+}
 
-  vidh6 {
-   
-    text-align: flex;
-    align-items: start;
-    width: 800px;
-    height: 75px;
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 2rem;
-    margin-left: -25rem;
-    margin-bottom: 2px;
+vidh6 {
 
-  }
+  text-align: flex;
+  align-items: start;
+  width: 800px;
+  height: 75px;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 2rem;
+  margin-left: -25rem;
+  margin-bottom: 2rem;
 
-  .videoheadtext{
-    position: relative;
-  }
-  
+}
 
-  .next-box {
-    margin: auto;
-    background-color: rgb(217, 233, 240);
-    padding: 16px;
-    border-radius: 16px;
-    color: white;
-    width: 80%;
-    height: 20px;
-    text-align:start;
-  }
-  
-  
-  .flex-parent-element {
-    display: flex;
-    width: 100%;
-    height: auto;
-    justify-content: center;
+.videoheadtext {
+  position: relative;
+}
 
-  }
-  
-  .flex-child-element {
-    flex: 1;
-    margin: px;
-    height: auto;
-    justify-content: center;
-    
-  }
 
-  
-  .submit {
-    margin: 0 auto;
-    border: 3px solid lightcyan;
-    width: 200px;
-    height: auto;
-    text-align: center;
-    background-color: lightgray;
-    justify-items: flex-start;
-    padding: 16px;
-    border-radius: 16px;
-  
-    
-  }
-  
-  .circle-right {
-    margin-left: 30rem;
-    height: 200px;
-    top: 90%;
-    left: 303px; 
-  
-  }
+.next-box {
+  margin: auto;
+  background-color: rgb(217, 233, 240);
+  padding: 16px;
+  border-radius: 16px;
+  color: white;
+  width: 80%;
+  height: 20px;
+  text-align: start;
+}
 
-  .submit:hover {
-    color: white;
-    cursor: pointer;
-    background-color:  rgb(246, 210, 224);
-  }
 
- .videolinkTextOnImage {
-   position: absolute;
-   right: 50%;
-   left: 50%;
-   bottom: 45%;
- }
+.flex-parent-element {
+  display: flex;
+  width: 100%;
+  height: auto;
+  justify-content: center;
 
- .videolinkHeroSearch { 
+}
+
+.flex-child-element {
+  flex: 1;
+  margin: px;
+  height: auto;
+  justify-content: center;
+
+}
+
+
+.submit {
+  margin: 0 auto;
+  border: 3px solid lightcyan;
+  width: 200px;
+  height: auto;
+  text-align: center;
+  background-color: lightgray;
+  justify-items: flex-start;
+  padding: 16px;
+  border-radius: 16px;
+
+
+}
+
+.circle-right {
+  margin-left: 30rem;
+  height: 200px;
+  top: 90%;
+  left: 303px;
+
+}
+
+.submit:hover {
+  color: white;
+  cursor: pointer;
+  background-color: rgb(246, 210, 224);
+}
+
+.videolinkTextOnImage {
+  position: absolute;
+  right: 50%;
+  left: 50%;
+  bottom: 45%;
+}
+
+.videolinkHeroSearch {
   background: #FFFFFF;
   box-shadow: 0px 4px 4px #B9E1F2;
   border-radius: 15px;
@@ -143,24 +143,23 @@ body {
   width: 100%;
 }
 
-
-
 .videolinkSearchButton {
   background: black;
-    width: 130px;
-    height: 29px;
-    border: 0;
-    border-radius: 10px;   
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 15px;
-    color: #FFFFFF; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin-right: 1rem;
-    margin-top: 1rem;
+  width: 130px;
+  height: 29px;
+  border: 0;
+  border-radius: 10px;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-right: 1rem;
+  margin-top: 1rem;
+  cursor: pointer;
 }
