@@ -10,7 +10,7 @@ body {
 
 .fontLink h1 {
 	text-align: justify;
-	margin-left: 10rem;
+	margin-left: 13rem;
 }
 
 h3 {
@@ -27,7 +27,7 @@ h5 {
 	font-weight: 400;
 	font-size: 20px;
 	color: #6B6B6B;
-	margin-left: 10rem;
+	margin-left: 13rem;
 	text-align: justify;
 }
 
@@ -40,7 +40,7 @@ h6 {
 	font-style: normal;
 	font-weight: 400;
 	font-size: 20px;
-	color: #6B6B6B;
+	color: #000;
 	margin-left: 25%;
 }
 
@@ -123,7 +123,7 @@ ul {
 
 .nextBox {
 	margin: auto;
-	background-color: rgb(217, 233, 240);
+	/* background-color: rgb(217, 233, 240); */
 	padding: 16px;
 	border-radius: 16px;
 	color: white;
@@ -134,7 +134,7 @@ ul {
 
 .space {
 	margin: auto;
-	background-color: rgb(217, 233, 240);
+	/* background-color: rgb(217, 233, 240); */
 	width: 100px;
 	height: 20px;
 }
@@ -159,6 +159,7 @@ ul {
 	justify-items: flex-start;
 	padding: 16px;
 	border-radius: 16px;
+	font-family: "Nunito";
 }
 
 .testAnswers {
@@ -253,12 +254,8 @@ ul {
 
 .quizbubbleRight {
 	position: absolute;
-	top: 5%;
-	margin-bottom: 200rem;
-	left: 900px;
-	/* Adjust this value as needed */
-	top: 30px;
-	transform: translateX(100rem);
+	top: 0.05%;
+	right: 200px;
 	transform: rotate(260deg);
 }
 
@@ -397,3 +394,27 @@ ul {
 	background-color: gray;
 
 }
+
+
+.backBtn {
+	font-family: 'Nunito';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+    width: 67px;
+	height: 30px;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	position: absolute;
+	top: 33%;
+	left: 11%;
+	background-color: black;
+	padding-right: 5px;
+	border-radius: 10px;
+  }
+
+  .backBtn:hover {
+	cursor: pointer;
+	background-color: #666;
+  }

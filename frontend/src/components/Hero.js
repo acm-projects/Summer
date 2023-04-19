@@ -29,6 +29,7 @@ const Hero = () => {
 			setError(true);
 		}
 		setLink(value);
+	
 	};
 
 	return (

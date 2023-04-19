@@ -56,7 +56,7 @@
 .featureSection {
     background: #C8E7F5;
     width: 100vw;
-    height: 819px;
+    height: 650px;
     margin-top: 170px;
     display: flex;
     align-items: center; 
@@ -99,27 +99,36 @@
 
 .summaryText {
     font-family: 'Nunito';
-    font-size: 16px;
-    width: 250px;
+    font-size: 20px;
+    width: 600px;
+    margin-top: 2rem;
     /* justify-content: center; */
+    text-align: center;
+}
+
+.quiz {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .quizBtn {
     width: 120px;
-    margin-left: 300px;
+    margin-left: 250px;
+    margin-right: 75px;
 }
 
 .bubbleLeft {
     position: absolute;
-    top: 30%;
-    left: 120px;
+    top: 133%;
+    left: 90px;
     transform: rotate(180deg)
 }
 
 .bubbleRight {
     position: absolute;
-    top: 30%;
-    right: 120px;
+    top: 133%;
+    right: 90px;
     /* transform: translateY(20%); */
 }
 

@@ -5,7 +5,7 @@
 }
 
 body {
-	background-color: rgb(217, 233, 240);
+	/* background-color: rgb(217, 233, 240); */
 }
 
 
@@ -25,7 +25,7 @@ h3 {
 
 .nextBox {
 	margin: auto;
-	background-color: rgb(217, 233, 240);
+	/* background-color: rgb(217, 233, 240); */
 	padding: 16px;
 	border-radius: 16px;
 	color: white;
@@ -116,6 +116,7 @@ h3 {
 	border-radius: 16px;
 	border: 3px solid lightcyan;
 	color: black;
+
 	/*margin-left: 5%;
 	margin-right: 5%; */
 	align-self: center;
@@ -147,7 +148,20 @@ h3 {
 	color: white;
 	cursor: pointer;
 	background-color: rgb(177, 177, 177);
+
 }
+
+.reactplayer {
+	height: auto !important;
+	aspect-ratio: 16/9;
+
+  }
+
+.playerwrapper{
+	width: auto; 
+	height: auto;
+}
+
 
 .textOnImage {
 	position: absolute;
@@ -214,7 +228,7 @@ h3 {
 	font-size: 16px;
 	/* line-height: 22px; */
 	color: black;
-	background-color:  rgb(217, 233, 240);
+	background-color:  transparent;
 	margin-top: 10px;
 	width: 250px;
     align-items: center;
@@ -231,10 +245,11 @@ h3 {
 	font-size: 16px;
 	/* line-height: 22px; */
 	color: black;
-	background-color:  rgb(217, 233, 240);
+	background-color:  transparent;
 	margin-top: 10px;
     align-items: center;
     justify-content: center;
+	
 
 }
 

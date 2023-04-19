@@ -118,19 +118,6 @@ const postVideo = asyncHandler(async (req, res) => {
     }
     
     
-    // const bucketName = process.env.BUCKET_NAME 
-    // const bucketRegion = process.env.BUCKET_REGION
-    // const accessKey = process.env.ACCESS_KEY
-    // const secretAccessKey = process.env.SECRET_ACCESS_KEY
-    // // console.log(accessKey)
-    // const s3 = new S3Client({
-    //     credentials: {
-    //         accessKeyId: accessKey,
-    //         secretAccessKey: secretAccessKey,
-    //     },
-        
-    //     region: bucketRegion
-    // });
  
 
 
@@ -222,9 +209,15 @@ const getVideo = asyncHandler(async (req, res) => {
 })
 
 const getVideoURL = asyncHandler(async (req, res) => {
-    const videos = await Video.findOne({})   
-    console.log(videos)
-    res.send(videos);
+    const videos = await Video.find({}, {URL:1, _id:0,})   
+    let videoData = [];
+    //console.log((videos[0]))
+    for(const video of videos) {
+        videoData.push(video.URL)
+
+    }
+    //console.log(videoData[20])
+    res.send(videoData);
     
     
 })

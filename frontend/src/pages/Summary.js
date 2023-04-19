@@ -13,13 +13,15 @@ const Summary = () => {
     const { summary, setSummary } = useContext(MyContext)
     const [ loading, setLoading ] = useState(true)
 
+    
+
     function handleBack(e) {
         e.preventDefault();
         navigate('/general')
     }
 
     async function displaySummary(){
-        let url = await axios.get("http://localhost:5000/api/videos")
+        let url = await axios.get("http://localhost:5000/api/videos/")
         console.log(url.data);
         window.open(url.data, '_blank')
     }
@@ -44,20 +46,24 @@ const Summary = () => {
 		
 		).then((response) => {
             result = response.data.text
-            console.log(response.data.text)
+            // console.log(response.data.text)
+        })
+        .catch((err) => {
+            console.log(err);
         })
 
         setLoading(true)
-        console.log(result)
+        // console.log(result)
+        // console.log(summary)
 		await setSummary(result)
         setLoading(false)
 	}
     
     return (
         <div className={styles.pageContainer}>
-            {/* <div className={styles.back-btn" onClick={handleBack}>
+            <div className={styles.backBtn} onClick={handleBack}>
                 <IoIosArrowBack /> Back
-            </div> */}
+            </div>
 
             <div className={styles.summaryContainer}>
                 <div className={styles.headerText}>
@@ -70,7 +76,6 @@ const Summary = () => {
 
                 <div className={styles.summary}>
                     {loading ? <RingLoader color={'#000000'} size={50}/> : (summary)}
-                    
                 </div>
 
                 <div className={styles.pdfBtn} onClick={displaySummary}>
