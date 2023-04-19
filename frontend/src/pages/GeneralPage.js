@@ -55,7 +55,7 @@ const GeneralPage = () => {
 					<div className={styles.summary} onClick={handleSummary}>
 						<div className={styles.subtitle}>Summary</div>
 						<div className={styles.summaryText}>
-							{summary}
+							{summary}	
 						</div>
 						<div className={`${styles.viewVidBtn} ${styles.summaryBtn}`}>VIEW SUMMARY</div>
 					</div>

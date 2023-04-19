@@ -43,11 +43,17 @@
     background: #F0F0F0;
     border-radius: 20px;
     width: 1001px;
-    height: 700px;
+    height: 800px;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'Nunito';
+    font-size: 20px;
+    padding: 50px;
+    line-height: 1.5;
+    text-align: center;
 }
+
 
 .pdfBtn {
     background: black;
@@ -73,21 +79,22 @@
     font-family: 'Nunito';
     font-style: normal;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 27px;
-    color: #000000;
+    color: #fff;
     display: flex;
     align-items: center;
-    /* margin-right: 1rem;
-    margin-bottom: 20rem;
-    z-index: 1; */
     position: absolute;
-    cursor: pointer;
     top: 43%;
     left: 19%;
+	background-color: black;
+	padding-right: 4px;
+	border-radius: 10px;
+    width: 67px;
+    height: 30px;
 }
 
 .backBtn:hover {
-    /* text-decoration-line: underline; */
-    cursor: pointer;
-}
+	cursor: pointer;
+	background-color: #666;
+  }
