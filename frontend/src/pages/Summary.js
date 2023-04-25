@@ -9,11 +9,8 @@ import { MyContext } from '../App'
 
 const Summary = () => {
     const navigate = useNavigate();
-    const { link, setLink } = useContext(MyContext)
-    const { summary, setSummary } = useContext(MyContext)
-    const [ loading, setLoading ] = useState(true)
-
-    
+    const { summary } = useContext(MyContext)
+    const { loading } = useContext(MyContext)
 
     function handleBack(e) {
         e.preventDefault();
@@ -25,39 +22,6 @@ const Summary = () => {
         console.log(url.data);
         window.open(url.data, '_blank')
     }
-    
-    useEffect(() => {
-		links()
-	}, [])
-
-    const links = async () => {
-        let result = ''
-		await axios.post("http://localhost:5000/api/videos",
-		{
-			URL: link
-		},
-		
-		{
-			headers: {
-				"Content-Type": "application/x-www-form-urlencoded",
-			},
-		}
-		
-		
-		).then((response) => {
-            result = response.data.text
-            // console.log(response.data.text)
-        })
-        .catch((err) => {
-            console.log(err);
-        })
-
-        setLoading(true)
-        // console.log(result)
-        // console.log(summary)
-		await setSummary(result)
-        setLoading(false)
-	}
     
     return (
         <div className={styles.pageContainer}>
@@ -76,6 +40,7 @@ const Summary = () => {
 
                 <div className={styles.summary}>
                     {loading ? <RingLoader color={'#000000'} size={50}/> : (summary)}
+                    {/* {summary} */}
                 </div>
 
                 <div className={styles.pdfBtn} onClick={displaySummary}>

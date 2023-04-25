@@ -66,7 +66,7 @@ function QuizPage() {
                         </div>
 
                         <div className={styles.questionText}>
-                            <p>Which of these is not a data structure?</p>
+                            <p>What type of language is JavaScript?</p>
                         </div>
                     </div>
                 </div>
@@ -86,24 +86,24 @@ function QuizPage() {
                     <div className={styles.smallBox}></div>
 
                     <div className={styles.testAnswers}>
-                        <p>Binary Search</p>
+                        <p>Embarrassing Toy Language</p>
                     </div>
                     <div className={styles.quizflexSmallerElement}></div>
                     <div className={styles.smallBox}></div>
 
                     <div className={styles.testAnswers}>
-                        <p>Hash Maps</p>
+                        <p>Loosely Typed</p>
                     </div>
                     <div className={styles.quizflexSmallerElement}></div>
                     <div className={styles.smallBox}></div>
                     <div className={styles.testAnswers}>
-                        <p>Linked List</p>
+                        <p>Procedural Language</p>
                     </div>
                     <div className={styles.quizflexSmallerElement}></div>
                     <div className={styles.smallBox}></div>
 
                     <div className={styles.testAnswers}>
-                        <p>Array</p>
+                        <p>Strictly Typed</p>
                     </div>
                     <div className={styles.quizflexSmallerElement}></div>
                     <div className={styles.smallBox}></div>
@@ -114,16 +114,14 @@ function QuizPage() {
             <div className={styles.nextBox}></div>
 
 
-
-
-
             <div className={styles.quizflexParentElement}>
                 <div className={styles.quizflexChildElement}>
                     <div className={styles.test}>
                         <div className={styles.questionTitle}>
                             <p>Question 2</p>
                         </div>
-                        <div className={styles.questionText}> Which of these is a programming language?
+                        <div className={styles.questionText}> 
+                            What frameworks are based in JavaScript?
                         </div>
                     </div>
 
@@ -131,12 +129,12 @@ function QuizPage() {
                 <div className={styles.quizflexChildElement}>
                     <div className={styles.testAnswers}>
                         <div className={styles.push}></div>
-                        <p>Python</p>
+                        <p>Ruby on Rails</p>
                     </div>
                     <div className={styles.quizflexSmallerElement}></div>
                     <div className={styles.smallBox}></div>
                     <div className={styles.testAnswers}>
-                        <p>Eclipse</p>
+                        <p>Django</p>
                     </div>
                     <div className={styles.quizflexSmallerElement}></div>
 
@@ -149,7 +147,7 @@ function QuizPage() {
 
                     <div className={styles.smallBox}></div>
                     <div className={styles.testAnswers}>
-                        <p>IntelliJ</p>
+                        <p>Flask</p>
                     </div>
                     <div className={styles.quizflexSmallerElement}></div>
                     <div className={styles.smallBox}></div>

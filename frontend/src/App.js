@@ -19,9 +19,10 @@ function App() {
   const location = useLocation();
   const [link, setLink] = useState([]);
   const [summary, setSummary] = useState('');
+  const [loading, setLoading] = useState(true)
 
   return (
-    <MyContext.Provider value={{ link, setLink, summary, setSummary }}> 
+    <MyContext.Provider value={{ link, setLink, summary, setSummary, loading, setLoading}}> 
       <div>
         {location.pathname !== "/login" && location.pathname !== "/signup" && (
           <Navbar />

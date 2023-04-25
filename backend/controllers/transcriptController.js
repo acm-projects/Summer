@@ -27,7 +27,7 @@ const openai = new OpenAIApi(configuration);
   openai.createCompletion({
   model: "text-davinci-003",
   prompt: "Summarize" + transcript,
-  max_tokens: 50,
+  max_tokens: 200,
   temperature: 0,
 })
 .then((response) => {

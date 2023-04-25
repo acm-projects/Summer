@@ -1,12 +1,16 @@
 import { useNavigate } from "react-router-dom"
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { MyContext } from '../App'
+import axios from 'axios';
 import Bubbles from '../assets/Bubbles.png'
+import RingLoader from 'react-spinners/RingLoader';
 import styles from './styles/General.module.css'
 
 const GeneralPage = () => {
 	const navigate = useNavigate();
-	const { summary, link } = useContext(MyContext)
+    const { link } = useContext(MyContext)
+    const { summary, setSummary } = useContext(MyContext)
+	const { loading, setLoading } = useContext(MyContext)
 
 	const linkString = link.toString();
 	// const startIndex = linkString.indexOf('v=') + 2; // Find the index of the 'v=' substring
@@ -22,6 +26,40 @@ const GeneralPage = () => {
 	function handleQuiz(e) {
 		e.preventDefault()
 		navigate('/quizpage')
+	}
+
+	
+    useEffect(() => {
+		links()
+	}, [])
+
+    const links = async () => {
+        let result = ''
+		await axios.post("http://localhost:5000/api/videos",
+		{
+			URL: link
+		},
+		
+		{
+			headers: {
+				"Content-Type": "application/x-www-form-urlencoded",
+			},
+		}
+		
+		
+		).then((response) => {
+            result = response.data.text
+            // console.log(response.data.text)
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+
+        // setLoading(true)
+        // console.log(result)
+        // console.log(summary)
+		await setSummary(result)
+        setLoading(false)
 	}
 
 	return (
@@ -56,6 +94,7 @@ const GeneralPage = () => {
 						<div className={styles.subtitle}>Summary</div>
 						<div className={styles.summaryText}>
 							{summary}	
+							{/* {loading ? <RingLoader color={'#000000'} size={50}/> : (summary)} */}
 						</div>
 						<div className={`${styles.viewVidBtn} ${styles.summaryBtn}`}>VIEW SUMMARY</div>
 					</div>
